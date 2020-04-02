@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の王的个人主页</title>
-    <updated>2020-04-02T15:37:46.035Z</updated>
+    <updated>2020-04-02T15:53:28.328Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,38 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/hei-se-sha-mo-m-dao-ru-han-fu-nie-lian-shu-ju/</id>
         <link href="https://zhangyue-vhyt.github.io/post/hei-se-sha-mo-m-dao-ru-han-fu-nie-lian-shu-ju/">
         </link>
-        <updated>2020-04-02T03:24:38.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="模拟器">模拟器</h1>
-<p>夜神、雷电、蓝叠</p>
-<h1 id="安装-es-file-explore">安装 ES File Explore</h1>
-<p>直接 <code>Google Play</code> 下载</p>
-<h1 id="下载-qooapp-并安装">下载 QooApp 并安装</h1>
-<p>模拟器中的浏览器搜索 <code>QooApp</code>, 官网不一定下得到，可以从第三方下载</p>
-<h1 id="安装黑沙">安装黑沙</h1>
-<p><code>QooApp</code> 中搜索 <code>black desert mobile</code>，日韩台服都有</p>
-<h1 id="运行黑沙">运行黑沙</h1>
-<p>墙外无任何困难</p>
-<h1 id="按作者搜索捏脸作品">按作者搜索捏脸作品</h1>
-<p>需要复制作者姓名，如果是韩语并且是图片，使用 <a href="https://online.easyscreenocr.com/Home/KoreanOCR">OCR 工具</a></p>
-<h1 id="导出导入-捏脸数据">导出/导入 捏脸数据</h1>
-<ol>
-<li>关闭游戏，关闭模拟器。</li>
-<li>克隆备份模拟器。</li>
-<li>在备份模拟器中开游戏。</li>
-<li>导出捏脸数据。<br>
-<img src="https://truth.bahamut.com.tw/s01/201812/19900231d8b37a5f62c51a6c278d32aa.JPG" alt="image" loading="lazy"></li>
-<li>关闭韩服。</li>
-<li>打开美服，进入角色捏脸界面，右上角缓存一下建立缓存文件。</li>
-<li>打开 <code>ES File Explorer</code>。</li>
-<li><code>root</code> 权限打开，导出的数据在<code>/data/data/com.pearlabyss.blackdesertm/files/res/customization</code>文件夹。第二个<code>data</code>文件夹可能会变动。</li>
-<li>同样复制一份数据到 <code>/mnt/shared/Pictures</code>。<br>
-<img src="https://truth.bahamut.com.tw/s01/201812/de78ecc725b5ac88bd746746881db850.JPG" alt="image" loading="lazy"></li>
-<li>通过模拟器与 PC 共享文件，导出数据到 PC 以作备份。</li>
-<li>将所需要的数据黏贴到<code>/data/data/com.pearlabyss.blackdesertm.gl/files/res/customization</code>。</li>
-<li>打开美服，载入数据。</li>
-<li>如果失败，调用备份模拟器和数据。</li>
-</ol>
-]]></summary>
+        <updated>2020-04-01T15:24:38.000Z</updated>
         <content type="html"><![CDATA[<h1 id="模拟器">模拟器</h1>
 <p>夜神、雷电、蓝叠</p>
 <h1 id="安装-es-file-explore">安装 ES File Explore</h1>
@@ -77,7 +46,10 @@
 <li>打开美服，载入数据。</li>
 <li>如果失败，调用备份模拟器和数据。</li>
 </ol>
-<!-- more -->
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://forum.gamer.com.tw/C.php?bsn=32841&amp;snA=7859">【攻略】韓版、台版捏臉數據導出教學(圖多) 12/6修改</a></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
@@ -85,14 +57,23 @@
         <id>https://zhangyue-vhyt.github.io/post/hei-se-sha-mo-m-mei-fu-hua-ren-gong-hui/</id>
         <link href="https://zhangyue-vhyt.github.io/post/hei-se-sha-mo-m-mei-fu-hua-ren-gong-hui/">
         </link>
-        <updated>2020-04-01T15:31:31.000Z</updated>
+        <updated>2020-03-31T15:31:31.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
 <h1 id="微信群">微信群</h1>
 <figure data-type="image" tabindex="1"><img src="https://cdn.discordapp.com/attachments/656359959344447488/694239885652918293/image0.png" alt="image" loading="lazy"></figure>
-<h1 id="公会每日任务">公会每日任务</h1>
+<h1 id="discord">Discord</h1>
+<p>discord.gg/7TEGT7T</p>
+<h1 id="公会每日任务">公会每日任务<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
 <p><img src="https://zhangyue-vhyt.github.io/post-images/1585841757419.jpg" alt="" loading="lazy"><br>
 <img src="https://zhangyue-vhyt.github.io/post-images/1585841764714.jpg" alt="" loading="lazy"><br>
 <img src="https://zhangyue-vhyt.github.io/post-images/1585841769264.jpg" alt="" loading="lazy"></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>工会成员 FenrirWolf 制作的工会每日任务教程。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content>
     </entry>
     <entry>
