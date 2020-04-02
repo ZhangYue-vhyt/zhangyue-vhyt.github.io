@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
-    <title>Gridea</title>
-    <updated>2020-04-01T14:18:05.640Z</updated>
+    <title>咸鱼の王的个人主页</title>
+    <updated>2020-04-02T14:39:24.453Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>海带缠潜艇，雾霾防激光。</subtitle>
     <logo>https://zhangyue-vhyt.github.io/images/avatar.png</logo>
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, 咸鱼の王的个人主页</rights>
+    <entry>
+        <title type="html"><![CDATA[黑色沙漠M 美服华人公会]]></title>
+        <id>https://zhangyue-vhyt.github.io/post/hei-se-sha-mo-m-mei-fu-hua-ren-gong-hui/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/hei-se-sha-mo-m-mei-fu-hua-ren-gong-hui/">
+        </link>
+        <updated>2020-04-02T02:30:18.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="微信群">微信群</h1>
+<figure data-type="image" tabindex="1"><img src="https://cdn.discordapp.com/attachments/656359959344447488/694239885652918293/image0.png" alt="image" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://zhangyue-vhyt.github.io/post/hello-gridea/</id>
