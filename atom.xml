@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-04-07T00:25:44.235Z</updated>
+    <updated>2020-04-07T00:30:59.133Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -11,11 +11,11 @@
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 咸鱼の家</rights>
     <entry>
-        <title type="html"><![CDATA[Python 中创建 constant]]></title>
+        <title type="html"><![CDATA[Python 中创建 const 常量]]></title>
         <id>https://zhangyue-vhyt.github.io/post/create-constant-in-python/</id>
         <link href="https://zhangyue-vhyt.github.io/post/create-constant-in-python/">
         </link>
-        <updated>2020-04-04T08:44:57.000Z</updated>
+        <updated>2020-04-03T20:44:57.000Z</updated>
         <content type="html"><![CDATA[<h1 id="前言">前言</h1>
 <p>Python 没有 <code>const</code> 关键字，想要创建常量只能自己想办法。<br>
 这篇笔记介绍的是使用私有变量、单例模式、只读属性和不可变类型创建一个 <code>Constant</code> 类，在其中储存和调用所需要的常量值。</p>
@@ -35,7 +35,7 @@
         return cls.__instance
 </code></pre>
 <h1 id="只读属性">只读属性<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h1>
-<p>Python 中的属性<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>和 C# 中的属性是一个概念。</p>
+<p>Python 中的属性<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>和 C# 中的属性是同一个概念。</p>
 <pre><code class="language-py">class People:
 
     def __init__(self, name, age):
@@ -97,7 +97,7 @@ print(a)
 1
 </code></pre>
 <h2 id="不可变字典">不可变字典</h2>
-<p>可变类型 <code>list</code> 和 <code>set</code> 对应的不可变类型分别为 <code>tuple</code> 和 <code>frozenset</code>。但在 <a href="https://www.python.org/dev/peps/pep-0416/#implementation">PEP 416</a> 中拒绝了不可变字典的要求。因此我们使用 Python 3.3 中引入的 <code>MappingProxyType</code> 和私有字段搭配实现不可变字典的返回。</p>
+<p>可变类型 <code>list</code> 和 <code>set</code> 对应的不可变类型分别为 <code>tuple</code> 和 <code>frozenset</code>。但在 <a href="https://www.python.org/dev/peps/pep-0416/#implementation">PEP 416</a> 中拒绝了不可变字典的要求。因此我们使用 Python 3.3 中引入的 <code>MappingProxyType</code> 和私有变量搭配实现不可变字典的返回。</p>
 <pre><code class="language-py">from types import MappingProxyType
 
 
