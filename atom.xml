@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-04-09T20:37:06.131Z</updated>
+    <updated>2020-04-09T20:38:38.342Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -10,19 +10,6 @@
     <logo>https://zhangyue-vhyt.github.io/images/avatar.png</logo>
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 咸鱼の家</rights>
-    <entry>
-        <title type="html"><![CDATA[黑色沙漠M 萌新入门]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/hei-se-sha-mo-m-meng-xin-ru-men/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/hei-se-sha-mo-m-meng-xin-ru-men/">
-        </link>
-        <updated>2020-04-09T05:59:03.000Z</updated>
-        <content type="html"><![CDATA[<p>以下收集了从网上汇总的资料数据。</p>
-<ol>
-<li><a href="https://forum.gamer.com.tw/C.php?bsn=32841&amp;snA=3619">Branch 系列选哪个?</a></li>
-<li></li>
-</ol>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[黑色沙漠M 萌新入门]]></title>
         <id>https://zhangyue-vhyt.github.io/post/rookie-guide/</id>
