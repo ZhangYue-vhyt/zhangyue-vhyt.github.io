@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-04-09T20:38:38.342Z</updated>
+    <updated>2020-04-09T22:06:23.661Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,11 +15,12 @@
         <id>https://zhangyue-vhyt.github.io/post/rookie-guide/</id>
         <link href="https://zhangyue-vhyt.github.io/post/rookie-guide/">
         </link>
-        <updated>2020-04-08T17:59:03.000Z</updated>
+        <updated>2020-04-08T05:59:03.000Z</updated>
         <content type="html"><![CDATA[<p>以下收集了从网上汇总的资料数据。</p>
 <ol>
 <li><a href="https://forum.gamer.com.tw/C.php?bsn=32841&amp;snA=3619">Branch 系列选哪个?</a></li>
 <li><a href="https://www.bilibili.com/video/BV1V4411F7DS/">各职业觉醒/继承技能演示</a></li>
+<li><a href="https://youtu.be/AcBc5F-2SKk">风行</a></li>
 </ol>
 ]]></content>
     </entry>
