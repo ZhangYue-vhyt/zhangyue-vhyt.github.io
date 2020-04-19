@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-04-09T22:06:23.661Z</updated>
+    <updated>2020-04-19T04:03:26.025Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -10,20 +10,6 @@
     <logo>https://zhangyue-vhyt.github.io/images/avatar.png</logo>
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 咸鱼の家</rights>
-    <entry>
-        <title type="html"><![CDATA[黑色沙漠M 萌新入门]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/rookie-guide/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/rookie-guide/">
-        </link>
-        <updated>2020-04-08T05:59:03.000Z</updated>
-        <content type="html"><![CDATA[<p>以下收集了从网上汇总的资料数据。</p>
-<ol>
-<li><a href="https://forum.gamer.com.tw/C.php?bsn=32841&amp;snA=3619">Branch 系列选哪个?</a></li>
-<li><a href="https://www.bilibili.com/video/BV1V4411F7DS/">各职业觉醒/继承技能演示</a></li>
-<li><a href="https://youtu.be/AcBc5F-2SKk">风行</a></li>
-</ol>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Python 中创建 const 常量]]></title>
         <id>https://zhangyue-vhyt.github.io/post/create-constant-in-python/</id>
@@ -155,30 +141,6 @@ dict1 = const.dict1
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[黑色沙漠M 美服 Heidel 华人公会]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/bdm-na-guild/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/bdm-na-guild/">
-        </link>
-        <updated>2020-04-01T04:05:33.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="微信群">微信群</h1>
-<figure data-type="image" tabindex="1"><img src="https://cdn.discordapp.com/attachments/656359959344447488/694239885652918293/image0.png" alt="image" loading="lazy"></figure>
-<h1 id="discord">Discord</h1>
-<p>手动加入 <code>discord.gg/7TEGT7T</code> 或者点击 <a href="https://discord.gg/7TEGT7T">这里</a></p>
-<h1 id="公会每日任务">公会每日任务<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
-<p><img src="https://zhangyue-vhyt.github.io/post-images/1585841757419.jpg" alt="" loading="lazy"><br>
-<img src="https://zhangyue-vhyt.github.io/post-images/1585841764714.jpg" alt="" loading="lazy"><br>
-<img src="https://zhangyue-vhyt.github.io/post-images/1585841769264.jpg" alt="" loading="lazy"></p>
-<h1 id="鸣谢">鸣谢</h1>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>工会成员 FenrirWolf 制作的工会每日任务教程。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[黑色沙漠M 导入韩服捏脸数据]]></title>
         <id>https://zhangyue-vhyt.github.io/post/bdm-beauty-transfer/</id>
         <link href="https://zhangyue-vhyt.github.io/post/bdm-beauty-transfer/">
@@ -218,6 +180,30 @@ dict1 = const.dict1
 <ul>
 <li><a href="https://forum.gamer.com.tw/C.php?bsn=32841&amp;snA=7859">【攻略】韓版、台版捏臉數據導出教學(圖多) 12/6修改</a></li>
 </ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[黑色沙漠M 美服 Heidel 华人公会]]></title>
+        <id>https://zhangyue-vhyt.github.io/post/bdm-na-guild/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/bdm-na-guild/">
+        </link>
+        <updated>2020-03-31T16:05:33.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="discord">Discord</h1>
+<p>手动加入 <code>discord.gg/pj5YEDj</code> 或者点击 <a href="https://discord.gg/pj5YEDj">这里</a></p>
+<h1 id="微信群">微信群</h1>
+<p>如有需要请在加入 Discord 之后请大佬拉进群。</p>
+<h1 id="公会每日任务">公会每日任务<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
+<p><img src="https://zhangyue-vhyt.github.io/post-images/1585841757419.jpg" alt="" loading="lazy"><br>
+<img src="https://zhangyue-vhyt.github.io/post-images/1585841764714.jpg" alt="" loading="lazy"><br>
+<img src="https://zhangyue-vhyt.github.io/post-images/1585841769264.jpg" alt="" loading="lazy"></p>
+<h1 id="鸣谢">鸣谢</h1>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>工会成员 FenrirWolf 制作的工会每日任务教程。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content>
     </entry>
     <entry>
