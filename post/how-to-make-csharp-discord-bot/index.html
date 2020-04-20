@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>工具箱 | 咸鱼の家</title>
+<title>How To Make C# Discord Bot | 咸鱼の家</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,13 +18,10 @@
 
 
 
-    <meta name="description" content="Documents
-Google Docs
-
-Vizzlo 画图工具
-
-..." />
-    <meta name="keywords" content="工具" />
+    <meta name="description" content="前言
+此文是跟着视频 How To Make C# Discord Bot 学习时需要注意的地方，主要是使用新方案替代视频中已经过时的不可用方案。
+How To Make A C# Discord Bot - Setting Up - Pa..." />
+    <meta name="keywords" content="编程,C#,游戏" />
   </head>
   <body>
     <div id="app" class="main">
@@ -99,25 +96,45 @@ Vizzlo 画图工具
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">工具箱</h2>
-            <div class="post-date">2020-04-18</div>
+            <h2 class="post-title">How To Make C# Discord Bot</h2>
+            <div class="post-date">2020-04-19</div>
             
-              <div class="feature-container" style="background-image: url('https://5b0988e595225.cdn.sohucs.com/images/20190926/4c2fea190de04f608ba4fd7e6397d8c1.jpeg')">
+              <div class="feature-container" style="background-image: url('https://i.ytimg.com/vi/7-tyLCAO4mY/maxresdefault.jpg')">
               </div>
             
             <div class="post-content" v-pre>
-              <h1 id="documents">Documents</h1>
-<h2 id="google-docs">Google Docs</h2>
-<ul>
-<li><a href="https://vizzlo.com/">Vizzlo 画图工具</a></li>
-</ul>
+              <h1 id="前言">前言</h1>
+<p>此文是跟着视频 <a href="https://www.youtube.com/playlist?list=PLS6sInD7ThM0Zb8F_KBl4T_jGF1e3apsc">How To Make C# Discord Bot</a> 学习时需要注意的地方，主要是使用新方案替代视频中已经过时的不可用方案。</p>
+<h1 id="how-to-make-a-c-discord-bot-setting-up-part-1"><a href="https://youtu.be/7-tyLCAO4mY">How To Make A C# Discord Bot - Setting Up - Part 1</a></h1>
+<ol>
+<li><code>CommandsNextModule</code> -&gt; <code>CommandsNextExtension</code></li>
+<li>使用 <code>dotnet core 3.0+</code> 自带的 <code>System.Text.Json</code> 替代 <code>Newtonsoft.Json</code></li>
+</ol>
+<pre><code class="language-csharp">ConfigDTO configDTO;
+using(FileStream fs = File.OpenRead(&quot;config.json&quot;))
+{
+    configDTO = await JsonSerializer.DeserializeAsync&lt;ConfigDTO&gt;
+        (
+            fs,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+        );
+}
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://zhangyue-vhyt.github.io/tag/8rmpGU_3l/" class="tag">
-                    工具
+                  <a href="https://zhangyue-vhyt.github.io/tag/sIEaRtQiE/" class="tag">
+                    编程
+                  </a>
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/htwe1iOBpj/" class="tag">
+                    C#
+                  </a>
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/FIsaBddUaI/" class="tag">
+                    游戏
                   </a>
                 
               </div>
@@ -125,9 +142,9 @@ Vizzlo 画图工具
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zhangyue-vhyt.github.io/post/create-constant-in-python/">
+                <a href="https://zhangyue-vhyt.github.io/post/tools/">
                   <h3 class="post-title">
-                    Python 中创建 const 常量
+                    工具箱
                   </h3>
                 </a>
               </div>
