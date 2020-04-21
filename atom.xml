@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-04-20T11:24:56.556Z</updated>
+    <updated>2020-04-21T06:17:11.814Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -41,11 +41,23 @@ using(FileStream fs = File.OpenRead(&quot;config.json&quot;))
         <id>https://zhangyue-vhyt.github.io/post/tools/</id>
         <link href="https://zhangyue-vhyt.github.io/post/tools/">
         </link>
-        <updated>2020-04-18T08:23:29.000Z</updated>
+        <updated>2020-04-17T20:23:29.000Z</updated>
         <content type="html"><![CDATA[<h1 id="documents">Documents</h1>
 <h2 id="google-docs">Google Docs</h2>
 <ul>
 <li><a href="https://vizzlo.com/">Vizzlo 画图工具</a></li>
+</ul>
+<h1 id="ai">AI</h1>
+<ul>
+<li><a href="https://essay.1ts.fun/">AI写论文-小论文神器</a></li>
+<li><a href="https://aimwriting.mtutor.engkoo.com/#more">AI检查英语作文-微软小英爱写作</a></li>
+<li><a href="https://wyc.5118.com/?t=zhihu&amp;id=20950693&amp;u=yuan_xing_ke">AI智能原创-5118大数据平台</a></li>
+<li><a href="https://www.giiso.com/#/">AI写自媒体稿子-Giiso写作机器人</a></li>
+<li><a href="http://jiuge.thunlp.cn/fengge.html">AI写诗-九歌</a></li>
+<li><a href="https://petalica-paint.pixiv.dev/index_zh.html">AI作画-自动给画上色</a></li>
+<li><a href="https://bigjpg.com/">AI无损放大图片</a></li>
+<li><a href="http://duilian.msra.cn/app/couplet.aspx">AI写对联-微软对对联</a></li>
+<li><a href="http://www.seeprettyface.com/index.html">AI生成照片-高颜值人脸AI生成器</a></li>
 </ul>
 ]]></content>
     </entry>
