@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>C#学习资料 | 咸鱼の家</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1589147460177">
+<link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Introduction
+内容以《C#高级编程》为索引，《C#编程指南》、《C#语言规范》等官方文档为参考。
+Chapter 1: .NET Applications and Tools
+
+C# 语言和 .NET Framework 简介
+..." />
+    <meta name="keywords" content="C#高级编程,C#" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1589147460177" class="site-logo">
+        <h1 class="site-title">咸鱼の家</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.zhangyue.dev" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      海带缠潜艇，雾霾防激光。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhangyue-vhyt.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">C#学习资料</h2>
+            <div class="post-date">2020-05-10</div>
+            
+              <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="introduction">Introduction</h1>
+<p>内容以《C#高级编程》为索引，《C#编程指南》、《C#语言规范》等官方文档为参考。</p>
+<h1 id="chapter-1-net-applications-and-tools">Chapter 1: .NET Applications and Tools</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/getting-started/introduction-to-the-csharp-language-and-the-net-framework">C# 语言和 .NET Framework 简介</a></li>
+</ul>
+<h1 id="chapter-2-core-c">Chapter 2: Core C#</h1>
+<h2 id="fundamentals-of-c">FUNDAMENTALS OF C#</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/tutorials/intro-to-csharp/">C# 简介</a></li>
+</ul>
+<h2 id="working-with-variables">WORKING WITH VARIABLES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/tour-of-csharp/types-and-variables">类型和变量</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/types/#types-variables-and-values">类型（C# 编程指南）</a></li>
+</ul>
+<h2 id="using-predefined-data-types">USING PREDEFINED DATA TYPES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/built-in-types">内置类型（C# 参考）</a></li>
+</ul>
+<h2 id="controlling-program-flow">CONTROLLING PROGRAM FLOW</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/statements#selection-statements">选择语句</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/statements#iteration-statements">迭代语句</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/statements#jump-statements">跳转语句</a></li>
+</ul>
+<h2 id="getting-organized-with-namespaces">GETTING ORGANIZED WITH NAMESPACES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/namespaces/">命名空间（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/namespaces">命名空间</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/namespaces#using-directives">using 指令</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/using-directive">using 指令（C# 参考）</a></li>
+</ul>
+<h2 id="understanding-the-main-method">UNDERSTANDING THE MAIN METHOD</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/main-and-command-args/">Main() 和命令行参数（C# 编程指南）</a></li>
+</ul>
+<h2 id="using-comments">USING COMMENTS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/documentation-comments">文档注释</a></li>
+</ul>
+<h2 id="understanding-c-preprocessor-directives">UNDERSTANDING C# PREPROCESSOR DIRECTIVES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/preprocessor-directives/">C# 预处理器指令</a></li>
+</ul>
+<h2 id="c-programming-guidelines">C# PROGRAMMING GUIDELINES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/design-guidelines/naming-guidelines">命名规则</a></li>
+</ul>
+<h1 id="chapter-3-objects-and-types">Chapter 3: Objects and Types</h1>
+<h2 id="classes-and-structs">CLASSES AND STRUCTS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/">类和结构（C# 编程指南）</a></li>
+</ul>
+<h2 id="classes">CLASSES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/classes">类（C# 编程指南）</a></li>
+</ul>
+<h2 id="structs">STRUCTS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/struct">结构类型（C# 参考）</a></li>
+</ul>
+<h2 id="passing-parameters-by-value-and-by-reference">PASSING PARAMETERS BY VALUE AND BY REFERENCE</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/passing-value-type-parameters">传递值类型参数（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/passing-reference-type-parameters">传递引用类型参数（C# 编程指南）</a></li>
+</ul>
+<h2 id="nullable-types">NULLABLE TYPES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/nullable-value-types">可为空的值类型（C# 参考）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/null-coalescing-operator">?? 和 ??= 运算符（C# 参考）</a></li>
+</ul>
+<h2 id="enum-types">ENUM TYPES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/enums">枚举</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/enum">枚举类型（C# 参考）</a></li>
+</ul>
+<h2 id="partial-classes">PARTIAL CLASSES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods">分部类和方法（C# 编程指南）</a></li>
+</ul>
+<h2 id="extension-methods">EXTENSION METHODS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/extension-methods">扩展方法（C# 编程指南）</a></li>
+</ul>
+<h1 id="chapter-4-object-oriented-programming-with-c">Chapter 4: Object-Oriented Programming with C#</h1>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/b6ydw8yBs/" class="tag">
+                    C#高级编程
+                  </a>
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/htwe1iOBpj/" class="tag">
+                    C#
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zhangyue-vhyt.github.io/post/how-to-make-csharp-discord-bot/">
+                  <h3 class="post-title">
+                    How To Make C# Discord Bot
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
