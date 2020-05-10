@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-10T16:31:21.374Z</updated>
+    <updated>2020-05-10T16:31:55.092Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -10,15 +10,6 @@
     <logo>https://zhangyue-vhyt.github.io/images/avatar.png</logo>
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 咸鱼の家</rights>
-    <entry>
-        <title type="html"><![CDATA[《C#高级编程》笔记：Chapter 4 Object-Oriented Programming]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/Professional-Csharp-Chapter4/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/Professional-Csharp-Chapter4/">
-        </link>
-        <updated>2020-05-10T04:30:07.000Z</updated>
-        <content type="html"><![CDATA[<p>Processing</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[《C#高级编程》笔记：Chapter 2 Core C#]]></title>
         <id>https://zhangyue-vhyt.github.io/post/Professional-Csharp-Chapter2/</id>
@@ -239,11 +230,20 @@ particular quantity should be represented by a property or a method. The rules a
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[《C#高级编程》笔记：Chapter 4 Object-Oriented Programming]]></title>
+        <id>https://zhangyue-vhyt.github.io/post/Professional-Csharp-Chapter4/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/Professional-Csharp-Chapter4/">
+        </link>
+        <updated>2020-05-09T16:30:07.000Z</updated>
+        <content type="html"><![CDATA[<p>Processing</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[《C#高级编程》笔记：Chapter 3 Objects and Types]]></title>
         <id>https://zhangyue-vhyt.github.io/post/Professional-Csharp-Chapter3/</id>
         <link href="https://zhangyue-vhyt.github.io/post/Professional-Csharp-Chapter3/">
         </link>
-        <updated>2020-05-09T16:28:48.000Z</updated>
+        <updated>2020-05-09T04:28:48.000Z</updated>
         <content type="html"><![CDATA[<h1 id="creating-and-using-classes">CREATING AND USING CLASSES</h1>
 <p>Ignore</p>
 <h1 id="classes-and-structs-page-175">CLASSES AND STRUCTS: Page 175</h1>
