@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>《C#高级编程》笔记：Chapter 2 Core C# | 咸鱼の家</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1589128276558">
+<link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="WORKING WITH VARIABLES
+Initializing Variables: Page 116
+
+C# has two methods for ensuring that variables are initialized ..." />
+    <meta name="keywords" content="C#高级编程,C#" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1589128276558" class="site-logo">
+        <h1 class="site-title">咸鱼の家</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.zhangyue.dev" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      海带缠潜艇，雾霾防激光。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhangyue-vhyt.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">《C#高级编程》笔记：Chapter 2 Core C#</h2>
+            <div class="post-date">2020-05-10</div>
+            
+              <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="working-with-variables">WORKING WITH VARIABLES</h1>
+<h2 id="initializing-variables-page-116">Initializing Variables: Page 116</h2>
+<blockquote>
+<p>C# has two methods for ensuring that variables are initialized before use:</p>
+<ul>
+<li>Variables that are fields in a class or struct, if not initialized explicitly, are by default zeroed out when they are created (classes and structs are discussed later).</li>
+<li>Variables that are local to a method must be explicitly initialized in your code prior to any statements in which their values are used. In this case, the initialization doesn't have to happen when the variable is declared, but the compiler checks all possible paths through the method and flags an error if it detects any possibility of the value of a local variable being used before it is initialized.</li>
+</ul>
+</blockquote>
+<h2 id="using-type-inference-page-118">Using Type Inference: Page 118</h2>
+<p>Example:</p>
+<pre><code class="language-cs">var someNumber = 0;
+</code></pre>
+<blockquote>
+<p>There are a few rules that you need to follow:</p>
+<ul>
+<li>The variable must be initialized. Otherwise, the compiler doesn’t &gt; have anything from which to infer the type.</li>
+<li>The initializer cannot be null.</li>
+<li>The initializer must be an expression.</li>
+<li>You can’t set the initializer to an object unless you create a new object in the initializer.</li>
+</ul>
+</blockquote>
+<h2 id="understanding-variable-scope-page-119">Understanding Variable Scope: Page 119</h2>
+<blockquote>
+<p>The scope of a variable is the region of code from which the variable can be accessed. In general, the scope is determined by the following rules:</p>
+<ul>
+<li>A field (also known as a member variable) of a class is in scope for as long as a local variable of this type is in scope.</li>
+<li>A local variable is in scope until a closing brace indicates the end of the block statement or method in which it was declared.</li>
+<li>A local variable that is declared in a for, while, or similar statement is in scope in the body of that loop.</li>
+</ul>
+</blockquote>
+<h2 id="working-with-constants-page-122">Working with Constants: Page 122</h2>
+<p>Example:</p>
+<pre><code class="language-cs">const int a = 100; // This value cannot be changed.
+</code></pre>
+<blockquote>
+<p>Constants have the following characteristics:</p>
+<ul>
+<li>They must be initialized when they are declared. After a value has been assigned, it can never be overwritten.</li>
+<li>The value of a constant must be computable at compile time. Therefore, you can't initialize a constant with a value taken from a variable. If you need to do this, you must use a read-only field (this is explained in Chapter 3).</li>
+<li>Constants are always implicitly static. However, notice that you don't have to (and, in fact, are not permitted to) include the static modifier in the constant declaration.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>At least three advantages exist for using constants in your programs:</p>
+<ul>
+<li>Constants make your programs easier to read by replacing magic numbers and strings with readable names whose values are easy to understand.</li>
+<li>Constants make your programs easier to modify. For example, assume that you have a SalesTax constant in one of your C# programs, and that constant is assigned a value of 6 percent. If the sales tax rate changes later, you can modify the behavior of all tax calculations simply by assigning a new value to the constant; you don’t have to hunt through your code for the value .06 and change each one, hoping you will find all of them.</li>
+<li>Constants help prevent mistakes in your programs. If you attempt to assign another value to a constant somewhere in your program other than at the point where the constant is declared, the compiler flags the error.</li>
+</ul>
+</blockquote>
+<h1 id="using-predefined-data-types-page-123">USING PREDEFINED DATA TYPES: Page 123</h1>
+<h2 id="value-types-and-reference-types">Value Types and Reference Types</h2>
+<blockquote>
+<p>These types are stored in different places in memory; value types are stored in an area known as the <strong>stack</strong>, and reference types are stored in an area known as the <strong>managed heap</strong>.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>In C#, basic data types such as <em>bool</em> and <em>long</em> are <strong>value types</strong>. This means that if you declare a <em>bool</em> variable and assign it the value of another <em>bool</em> variable, you will have two separate <em>bool</em> values in memory. Later, if you change the value of the original <em>bool</em> variable, the value of the second <em>bool</em> variable does not change. These types are copied by value.</li>
+<li>In contrast, most of the more complex C# data types, including <em>classes</em> that you yourself declare, are <strong>reference types</strong>. They are allocated upon the heap, have lifetimes that can span multiple function calls, and can be accessed through one or several aliases.</li>
+<li>C# has been designed this way because high performance is best served by keeping primitive types (such as <strong>int</strong> and <strong>bool</strong>) as <em>value types</em>, and larger types that contain many fields (as is usually the case with <em>classes</em>) as <strong>reference types</strong>. If you want to define your own type as a value type, you should declare it as a <em>struct</em>.</li>
+</ul>
+</blockquote>
+<h2 id="predefined-value-types">Predefined Value Types</h2>
+<ul>
+<li>Integer Types: Page 127.</li>
+<li>Floating-Point Types: Page 130.</li>
+<li>The Boolean Type: Page 132.</li>
+<li>The Character Type: Page 132.</li>
+</ul>
+<h2 id="digit-separators">Digit Separators</h2>
+<blockquote>
+<p>C# 7 offers digit separators. These separators help with readability and don’t add any functionality. For example, you can add underscores to numbers, as shown in the following code snippet</p>
+<pre><code class="language-cs">long l1 = 0x123_4567_89ab_cedf;
+uint binary1 = 0b1111_1110_1101_1100_1011_1010_1001_1000;
+uint binary2 = 0b111_110_101_100_011_010_001_000;
+</code></pre>
+<p>You can put the underscores at any position, you need to make sure it helps readability, <strong>not</strong> as shown in this example:</p>
+<pre><code class="language-cs">long l3 = 0x12345_6789_abc_ed_f;
+</code></pre>
+<p>Digit separators are new with C# 7. C# 7.0 doesn't allow leading digit separators, having the separator before the value (and after the prefix). Leading digit separators can be used with C# 7.2.</p>
+</blockquote>
+<h2 id="predefined-reference-types">Predefined Reference Types</h2>
+<h3 id="the-object-type-page-134">The object Type: Page 134</h3>
+<blockquote>
+<p>Many programming languages and class hierarchies provide a root type, from which all other objects in the hierarchy are derived. C# and .NET are no exception. In C#, the <em>object</em> type is the ultimate parent type from which all other intrinsic and user-defined types are derived. This means that you can use the <em>object</em> type for two purposes:</p>
+<ul>
+<li>You can use an <em>object</em> reference to bind to an <em>object</em> of any particular subtype. For example, in Chapter 6, “Operators and Casts,” you see how you can use the <em>object</em> type to box a value object on the stack to move it to the heap; <em>object</em> references are also useful in reflection, when code must manipulate objects whose specific types are unknown.</li>
+<li>The <em>object</em> type implements a number of basic, general-purpose methods, which include Equals, <code>GetHashCode, GetType, and ToString</code>. Responsible user-defined classes might need to provide replacement implementations of some of these methods using an object-oriented technique known as <em>overriding</em>, which is discussed in Chapter 4, “Object Oriented Programming with C#.” When you override <code>ToString</code>, for example, you equip your class with a method for intelligently providing a string representation of itself. If you don’t provide your own implementations for these methods in your classes, the compiler picks up the implementations in <em>object</em>, which might or might not be correct or sensible in the context of your classes.</li>
+</ul>
+</blockquote>
+<h3 id="the-string-type-page-134">The string Type: Page 134</h3>
+<blockquote>
+<p>Despite this style of assignment, <code>string</code> is a reference type. Behind the scenes, <strong>a <code>string</code> object is allocated on the heap, not the stack</strong>; and when you assign one <code>string</code> variable to another <code>string</code>, you get two references to the same <code>string</code> in memory. However, <code>string</code> differs from the usual behavior for reference types. For example, strings are immutable. Making changes to one of these strings creates an entirely new <code>string</code> object, leaving the other string unchanged. In general, the <code>string</code> class has been implemented so that its semantics follow what you would normally intuitively expect for a string.</p>
+<p>You can prefix a string literal with the at character <code>@</code> and all the characters after it are treated at face value; they aren’t interpreted as escape sequences:</p>
+<pre><code class="language-cs">string filepath = @&quot;C:\ProCSharp\First.cs&quot;;
+</code></pre>
+<p>This even enables you to include line breaks in your string literals:</p>
+<pre><code class="language-cs">string jabberwocky = @&quot;'Twas brillig and the slithy toves
+                        Did gyre and gimble in the wabe.&quot;;
+</code></pre>
+<p>In this case, the value of <code>jabberwocky</code> would be this:</p>
+<pre><code class="language-cs">'Twas brillig and the slithy toves 
+Did gyre and gimble in the wabe.
+</code></pre>
+</blockquote>
+<h1 id="controlling-program-flow">CONTROLLING PROGRAM FLOW</h1>
+<h2 id="conditional-statements">Conditional Statements</h2>
+<ul>
+<li>The if Statement: Page 138.</li>
+<li>The switch Statement: Page 140.</li>
+</ul>
+<h2 id="loops">Loops</h2>
+<ul>
+<li>The for Loop: Page 143.</li>
+<li>The while Loop: Page 146.</li>
+<li>The do…while Loop: Page 146.</li>
+<li>The foreach Loop: Page 147.</li>
+</ul>
+<h2 id="jump-statements">Jump Statements</h2>
+<ul>
+<li>The goto Statement: Page 148.</li>
+<li>The break Statement: Page 148.</li>
+<li>The continue Statement: Page 149.</li>
+<li>The return Statement: Page 149</li>
+</ul>
+<h1 id="getting-organized-with-namespaces-page-149">GETTING ORGANIZED WITH NAMESPACES: Page 149</h1>
+<blockquote>
+<ul>
+<li>Note that you are not permitted to declare a multipart namespace nested within another namespace.</li>
+<li>Namespaces are not related to assemblies. It is perfectly acceptable to have different namespaces in the same assembly or to define types in the same namespace in different assemblies.</li>
+<li>You should define the namespace hierarchy prior to starting a project. Generally the accepted format is <code>CompanyName.ProjectName.SystemSection</code>.</li>
+</ul>
+</blockquote>
+<h2 id="the-using-directive-page-151">The using Directive: Page 151.</h2>
+<blockquote>
+<p>If two namespaces referenced by using statements contain a type of the same name, you need to use the full (or at least a longer) form of the name to ensure that the compiler knows which type to access. For example, suppose classes called <code>NamespaceExample</code> exist in both the <code>Wrox.ProCSharp.Basics</code> and <code>Wrox.ProCSharp.OOP</code> namespaces. If you then create a class called <code>Test</code> in the <code>Wrox.ProCSharp</code> namespace, and instantiate one of the <code>NamespaceExample</code> classes in this class, you need to specify which of these two classes you’re talking about:</p>
+</blockquote>
+<pre><code class="language-cs">using Wrox.ProCSharp.OOP; 
+using Wrox.ProCSharp.Basics; 
+namespace Wrox.ProCSharp 
+{
+    class Test 
+    {
+        static void Main() 
+        {
+            Basics.NamespaceExample nSEx = new
+            Basics.NamespaceExample(); 
+            // do something with the nSEx variable.
+        } 
+    } 
+}
+</code></pre>
+<h2 id="namespace-aliases-page-152">Namespace Aliases: Page 152.</h2>
+<pre><code class="language-cs">using alias = NamespaceName;
+</code></pre>
+<h1 id="understanding-the-main-method-page-153">UNDERSTANDING THE MAIN METHOD: Page 153</h1>
+<blockquote>
+<p>As described at the beginning of this chapter, C# programs start execution at a method named <code>Main</code>. Depending on the execution environment there are different requirements.</p>
+<ul>
+<li>Have a <em>static</em> modifier applied</li>
+<li>Be in a class with any name</li>
+<li>Return a type of <em>int</em> or <em>void</em></li>
+</ul>
+</blockquote>
+<h1 id="using-comments">USING COMMENTS</h1>
+<ul>
+<li>Internal Comments Within the Source Files: Page 156.</li>
+<li>XML Documentation: Page 156.</li>
+</ul>
+<h1 id="understanding-c-preprocessor-directives-page-158">UNDERSTANDING C# PREPROCESSOR DIRECTIVES: Page 158</h1>
+<ul>
+<li><code>#define</code> and <code>#undef</code>: Page 159.</li>
+<li><code>#if, #elif, #else</code>, and <code>#endif</code>: Page 160.</li>
+<li><code>#warning</code> and <code>#error</code>: Page 161.</li>
+<li><code>#region</code> and <code>#endregion</code>: Page 162.</li>
+<li><code>#line</code>: Page 162.</li>
+<li><code>#pragma</code>: Page 163.</li>
+</ul>
+<h1 id="c-programming-guidelines">C# PROGRAMMING GUIDELINES</h1>
+<ul>
+<li>Rules for Identifiers: Page 163.</li>
+<li>Usage Conventions: Page 166.</li>
+</ul>
+<h2 id="naming-conventions-page-167"><mark>Naming Conventions: Page 167</mark></h2>
+<ul>
+<li>Casing of Names: Page 168.</li>
+<li>Name Styles: Page 169.</li>
+<li>Namespace Names: Page 169.</li>
+<li>Names and Keywords: Page 170.</li>
+</ul>
+<h2 id="use-of-properties-and-methods-page-170"><mark>Use of Properties and Methods: Page 170</mark></h2>
+<blockquote>
+<p>One area that can cause confusion regarding a class is whether a<br>
+particular quantity should be represented by a property or a method. The rules are not hard and strict, but in general you should use a property if something should look and behave like a variable. (If you’re not sure what a property is, see Chapter 3.) This means, among other things, that</p>
+<ul>
+<li>Client code should be able to read its value. Write-only properties are not recommended, so, for example, use a <code>SetPassword</code> method, not a write-only Password property.</li>
+<li>Reading the value should not take too long. The fact that something is a property usually suggests that reading it will be relatively quick.</li>
+<li>Reading the value should not have any observable and unexpected side effect. Furthermore, setting the value of a property should not have any side effect that is not directly related to the property. Setting the width of a dialog has the obvious effect of changing the appearance of the dialog on the screen. That’s fine, because that’s obviously related to the property in question.</li>
+<li>It should be possible to set properties in any order. In particular, it is not good practice when setting a property to throw an exception because another related property has not yet been set. For example, to use a class that accesses a database, you need to set <code>ConnectionString, UserName, and Password</code>, and then the author of the class should ensure that the class is implemented such that users can set them in any order.</li>
+<li>Successive reads of a property should give the same result. If the value of a property is likely to change unpredictably, you should code it as a method instead. <code>Speed</code>, in a class that monitors the motion of an automobile, is not a good candidate for a property. Use a <code>GetSpeed</code> method here; but <code>Weight</code> and <code>EngineSize</code> are good candidates for properties because they will not change for a given object.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>If the item you are coding satisfies all the preceding criteria, it is probably a good candidate for a property. Otherwise, you should use a method.</p>
+<p>Unlike fields, properties are not classified as variables. Therefore, you cannot pass a property as a ref or out parameter.</p>
+</blockquote>
+<h2 id="use-of-fields-page-172">Use of Fields: Page 172</h2>
+<blockquote>
+<p>The guidelines are pretty simple here. Fields should almost always be private, although in some cases it may be acceptable for constant or read-only fields to be public. Making a field public may hinder your ability to extend or modify the class in the future.</p>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/b6ydw8yBs/" class="tag">
+                    C#高级编程
+                  </a>
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/htwe1iOBpj/" class="tag">
+                    C#
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zhangyue-vhyt.github.io/post/Professional-Csharp-Chapter3/">
+                  <h3 class="post-title">
+                    《C#高级编程》笔记：Chapter 3 Objects and Types
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

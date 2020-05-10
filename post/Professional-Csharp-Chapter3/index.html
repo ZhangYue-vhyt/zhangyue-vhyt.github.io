@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>《C#高级编程》笔记：Chapter 3 Objects and Types | 咸鱼の家</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1589128276558">
+<link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="CREATING AND USING CLASSES
+Ignore
+CLASSES AND STRUCTS: Page 175
+
+Structs differ from classes because they do not need to..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1589128276558" class="site-logo">
+        <h1 class="site-title">咸鱼の家</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.zhangyue.dev" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      海带缠潜艇，雾霾防激光。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhangyue-vhyt.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">《C#高级编程》笔记：Chapter 3 Objects and Types</h2>
+            <div class="post-date">2020-05-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="creating-and-using-classes">CREATING AND USING CLASSES</h1>
+<p>Ignore</p>
+<h1 id="classes-and-structs-page-175">CLASSES AND STRUCTS: Page 175</h1>
+<blockquote>
+<p>Structs differ from classes because they do not need to be allocated on the heap (classes are reference types and are always allocated on the heap). Structs are value types and are usually stored on the stack. Also, structs cannot derive from a base struct.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Struct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heap</td>
+<td>Stack</td>
+</tr>
+<tr>
+<td>reference type</td>
+<td>value type</td>
+</tr>
+<tr>
+<td>can derive from a base class</td>
+<td>can't derive from a base struct</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You typically use structs for smaller data types for performance reasons. Storing value types on the stack avoids garbage collection. Another use case of structs are interop with native code; the layout of the struct can look the same as native data types.</p>
+<p>For both classes and structs, you use the keyword <code>new</code> to declare an instance. This keyword creates the object and initializes it; in the following example, the default behavior is to zero out its fields:</p>
+<pre><code class="language-cs"> var myCustomer = new PhoneCustomer(); // works for a class 
+ var myCustomer2 = new PhoneCustomerStruct();// works for a struct
+</code></pre>
+<p>An important difference between classes and structs is that objects of type of class are passed by reference, and objects of type of a struct are passed by value.</p>
+</blockquote>
+<p>两者都是用 <code>new</code> 实例化，结构体有其他方法实例化。</p>
+<h2 id="classes-page-177">CLASSES: Page 177</h2>
+<h3 id="fields-page-179">Fields: Page 179</h3>
+<p>Always private.</p>
+<h3 id="readonly-fields-page-179">Readonly Fields: Page 179</h3>
+<blockquote>
+<p>To guarantee that fields of an object cannot be changed, you can declare fields with the <code>readonly</code> modifier. Fields with the <code>readonly</code> modifier can be assigned only values from constructors, which is different from the <code>const</code> modifier. With the <code>const</code> modifier, the compiler replaces the variable with its value everywhere it is used. The compiler already knows the value of the constant. Read-only fields are assigned during runtime from a constructor. Unlike const fields, readonly fields can be instance members. For using a read-only field as a class member, the <code>static</code> modifier needs to be assigned to the field.</p>
+</blockquote>
+<p><code>readonly</code>只能在构造函数中初始化，<code>const</code>必须在声明时初始化。</p>
+<h3 id="properties-page-181">Properties: Page 181</h3>
+<h4 id="expression-bodied-property-accessors-page-183">Expression-Bodied Property Accessors: Page 183</h4>
+<pre><code class="language-cs">private string _firstName; 
+public string FirstName 
+{
+    get =&gt; _firstName; 
+    set =&gt; _firstName = value;
+}
+</code></pre>
+<h4 id="auto-implemented-properties-page-183">Auto-Implemented Properties: Page 183</h4>
+<pre><code class="language-cs">public int Age { get; set; }
+</code></pre>
+<h4 id="access-modifiers-for-properties-page-184">Access Modifiers for Properties: Page 184</h4>
+<pre><code class="language-cs">public string Name 
+{
+    get =&gt; _name; 
+    private set =&gt; _name = value;
+}
+</code></pre>
+<pre><code class="language-cs">public int Age { get; private set; }
+</code></pre>
+<h4 id="read-only-properties-page-185">Read-Only Properties: Page 185</h4>
+<pre><code class="language-cs">public string Name {get;}
+</code></pre>
+<blockquote>
+<p>Similar to creating read-only properties it is also possible to create a <strong>write-only</strong> property. Write-only properties can be created by omitting the <code>get</code> accessor. However, this is regarded as poor programming practice because it could be confusing to authors of client code. In general, it is recommended that if you are tempted to do this, you should use a method instead.</p>
+</blockquote>
+<p>当低水平程序员使用我们的代码时，看到IDE提示一个属性只有<code>set</code>却无<code>get</code>会很困扰，所以 <strong>write-only</strong> 的属性应尽量避免使用，改用方法替代。</p>
+<h4 id="auto-implemented-read-only-properties-page-186">Auto-Implemented Read-Only Properties: Page 186</h4>
+<pre><code class="language-cs">public string Id { get; } = Guid.NewGuid().ToString();
+</code></pre>
+<h4 id="expression-bodied-properties-page-187">Expression-Bodied Properties: Page 187</h4>
+<pre><code class="language-cs">public class Person 
+{
+    public Person(string firstName, string lastName) 
+    {
+        FirstName = firstName; 
+        LastName = lastName;
+    } 
+    public string FirstName { get; } 
+    public string LastName { get; } 
+    public string FullName =&gt; $&quot;{FirstName} {LastName}&quot;;
+}
+</code></pre>
+<h4 id="immutable-types-page-187">Immutable Types: Page 187</h4>
+<blockquote>
+<p>With the <code>readonly</code> modifier, the compiler complains if the state is changed. The state can be initialized only in the constructor.</p>
+</blockquote>
+<h4 id="anonymous-types-page-188">Anonymous Types: Page 188</h4>
+<pre><code class="language-cs">var captain = new 
+{
+    FirstName = &quot;James&quot;, 
+    MiddleName = &quot;T&quot;, 
+    LastName = &quot;Kirk&quot;
+};
+</code></pre>
+<h3 id="methods">Methods</h3>
+<h4 id="declaring-methods-page-189">Declaring Methods: Page 189</h4>
+<pre><code class="language-cs">[modifiers] return_type MethodName([parameters]) 
+{
+    // Method body 
+}
+</code></pre>
+<h4 id="expression-bodied-methods-page-190">Expression-Bodied Methods: Page 190</h4>
+<p>If the implementation of a method consists just of one statement, C# gives a simplified syntax to method definitions: <em>expression-bodied</em> methods.</p>
+<pre><code class="language-cs">public bool IsSquare(Rectangle rect) =&gt; 
+    rect.Height == rect.Width;
+</code></pre>
+<h4 id="invoking-methods-page-191">Invoking Methods: Page 191</h4>
+<p>Ignore</p>
+<h4 id="method-overloading-page-192">Method Overloading: Page 192</h4>
+<p>Ignore</p>
+<h4 id="named-arguments-page-193">Named Arguments: Page 193</h4>
+<pre><code class="language-cs">r.MoveAndResize(x: 30, y: 40, width: 20, height: 40);
+</code></pre>
+<h4 id="optional-arguments-page-194">Optional Arguments: Page 194</h4>
+<blockquote>
+<p>Parameters can also be optional. You must supply a default value for optional parameters, which must be the last ones defined:</p>
+<pre><code class="language-cs">public void TestMethod(int notOptionalNumber, int optionalNumber = 42) 
+{
+    Console.WriteLine(optionalNumber + notOptionalNumber); 
+}
+</code></pre>
+<pre><code class="language-cs">public void TestMethod(int n, int opt1 = 11, int opt2 = 22, int opt3 = 33) 
+{
+    Console.WriteLine(n + opt1 + opt2 + opt3);
+}
+</code></pre>
+</blockquote>
+<p>可选参数必须在参数列表的最后，并声明缺省值。</p>
+<blockquote>
+<p>With multiple optional parameters, the feature of named arguments shines. Using named arguments, you can pass any of the optional parameters—for example, this example passes just the last one:</p>
+<pre><code class="language-cs">TestMethod(1, opt3: 4);
+</code></pre>
+</blockquote>
+<p>混合传参，参考 python。</p>
+<h4 id="variable-number-of-arguments-page-195">Variable Number of Arguments: Page 195</h4>
+<blockquote>
+<p>Declaring the parameter of type array—the sample code uses an <code>int</code> array—and adding the <code>params</code> keyword, the method can be invoked using any number of <code>int</code> parameters.</p>
+<pre><code class="language-cs">public void AnyNumberOfArguments(params int[] data) 
+{
+    foreach (var x in data) 
+    {
+        Console.WriteLine(x); 
+    } 
+}
+</code></pre>
+<p>If arguments of different types should be passed to methods, you can use an <code>object</code> array:</p>
+<pre><code class="language-cs">public void AnyNumberOfArguments(params object[] data) 
+{
+    // ...
+}
+</code></pre>
+<p>Now it is possible to use any type calling this method:</p>
+<pre><code class="language-cs">AnyNumberOfArguments(&quot;text&quot;, 42);
+</code></pre>
+<p>If the <code>params</code> keyword is used with multiple parameters that are defined with the method signature, <mark><code>params</code> can be used only once, and it must be the last parameter</mark>:</p>
+<pre><code class="language-cs">Console.WriteLine(string format, params object[] arg);
+</code></pre>
+</blockquote>
+<h3 id="constructors-page-196">Constructors: Page 196</h3>
+<h4 id="private-constructor-and-singleton-page-198">Private Constructor and Singleton: Page 198</h4>
+<blockquote>
+<ul>
+<li>If your class serves only as a container for some static members or properties, and therefore should never be instantiated. With this scenario, you can declare the class with the modifier <code>static</code>. With this modifier the class can contain only static members and cannot be instantiated.</li>
+<li>If you want the class to only ever be instantiated by calling a static member function (this is the so-called factory pattern approach to object instantiation). An implementation of the Singleton pattern is shown in the following code snippet.</li>
+</ul>
+</blockquote>
+<pre><code class="language-cs">public class Singleton 
+{
+    private static Singleton s_instance; 
+    private int _state; 
+    private Singleton(int state) 
+    {
+        _state = state;
+    } 
+    public static Singleton Instance 
+    {
+        get =&gt; s_instance ?? (s_instance = new Singleton(42); 
+    }
+}
+</code></pre>
+<h4 id="expression-bodies-with-constructors-page-199">Expression Bodies with Constructors: Page 199</h4>
+<pre><code class="language-cs">public class Singleton 
+{
+    private static Singleton s_instance; 
+    private int _state; 
+    private Singleton(int state) =&gt; _state = state;
+    public static Singleton Instance =&gt; 
+        s_instance ?? (s_instance = new Singleton(42);
+}
+</code></pre>
+<h4 id="calling-constructors-from-other-constructors-page-199">Calling Constructors from Other Constructors: Page 199</h4>
+<pre><code class="language-cs">class Car 
+{
+    private string _description; 
+    private uint _nWheels;
+    public Car(string description, uint nWheels) 
+    {
+        _description = description; 
+        _nWheels = nWheels;
+    }
+    public Car(string description): this(description, 4) {} 
+    // ...
+}
+</code></pre>
+<h4 id="static-constructors-page-201">Static Constructors: Page 201</h4>
+<ul>
+<li>很少用到，需要用时看 <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors">Microsoft Docs</a></li>
+<li>The static constructor is guaranteed to run at most once.</li>
+<li>No access modifiers.</li>
+<li>No parameters.</li>
+</ul>
+<h1 id="structs-page-204">STRUCTS: Page 204</h1>
+<p><mark>Struct 的大小不要超过64字节(bytes)</mark></p>
+<blockquote>
+<ul>
+<li>Structs are value types, not reference types. This means they are stored either in the stack or inline (if they are part of another object that is stored on the heap) and have the same lifetime restrictions as the simple data types.</li>
+<li>Structs do not support inheritance.</li>
+<li>There are some differences in the way constructors work for structs. If you do not supply a default constructor, the compiler automatically creates one and initializes the members to its default values.</li>
+<li>With a struct, you can specify how the fields are to be laid out in memory (this is examined in Chapter 16, which covers attributes).</li>
+<li>Because structs are really intended to group data items together, you’ll sometimes find that most or all of their fields are declared as public.</li>
+<li>Structs can also contain <em>constructors, constants, fields, methods, properties, indexers, operators, events, and nested types</em>, although if several such members are required, you should consider making your type a class instead.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/struct">Microsoft Docs</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/write-safe-efficient-code">Write safe and efficient C# code</a></li>
+</ul>
+<h2 id="structs-are-value-types-page-206">Structs Are Value Types: Page 206</h2>
+<blockquote>
+<p>通常，可使用 <code>new</code> 运算符调用适当的构造函数来实例化结构类型。 每个结构类型都至少有一个构造函数。 这是一个隐式无参数构造函数，用于生成类型的默认值。 还可以使用默认运算符或文本来生成类型的默认值。</p>
+<p>如果结构类型的所有实例字段都是可访问的，则还可以在不使用 <code>new</code> 运算符的情况下对其进行实例化。 在这种情况下，在首次使用实例之前必须初始化所有实例字段。 下面的示例演示如何执行此操作：</p>
+<p>--- <a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/struct">Microsoft Docs</a></p>
+</blockquote>
+<blockquote>
+<pre><code class="language-cs">Dimensions point; 
+point.Length = 3; 
+point.Width = 6;
+</code></pre>
+<p>Structs follow the same rule as any other data type: Everything must be initialized before use. A struct is considered fully initialized either when the new operator has been called against it or when values have been individually assigned to all its fields. Also, of course, a struct defined as a member field of a class is initialized by being zeroed out automatically when the containing object is initialized.</p>
+</blockquote>
+<h2 id="readonly-structs-page-208">Readonly structs: Page 208</h2>
+<blockquote>
+<p>Declaring a <code>struct</code> using the readonly modifier informs the compiler that your intent is to create an immutable type. The compiler enforces that design decision with the following rules:</p>
+<ul>
+<li>All field members must be readonly</li>
+<li>All properties must be read-only, including auto-implemented properties.</li>
+</ul>
+</blockquote>
+<h2 id="structs-and-inheritance-page-209">Structs and Inheritance: Page 209</h2>
+<blockquote>
+<p>Structs are not designed for inheritance. This means it is not possible to inherit from a struct. The only exception to this is that structs, in common with every other type in C#, derive ultimately from the class <code>System.Object</code>.</p>
+</blockquote>
+<h2 id="constructors-for-structs-page-210">Constructors for Structs: Page 210</h2>
+<blockquote>
+<p>You can define constructors for structs in a similar way as you do it for classes.</p>
+</blockquote>
+<h2 id="ref-structs-page-210">ref structs: Page 210</h2>
+<blockquote>
+<p>With most applications you'll not have a need to create a custom <em>ref struct</em> type. However, for high-performance applications where garbage collection needs to be reduced, there's need for this type.</p>
+</blockquote>
+<h1 id="passing-parameters-by-value-and-by-reference-page-211">PASSING PARAMETERS BY VALUE AND BY REFERENCE: Page 211</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/passing-reference-type-parameters">Microsoft Docs</a></li>
+<li>不带<code>ref</code>关键字的引用类型传递的是引用的副本，和 java 一样。</li>
+</ul>
+<blockquote>
+<pre><code class="language-cs">public static void ChangeA(A a) 
+{
+    a.X = 2; 
+}
+
+static void Main() 
+{
+    A a1 = new A { X = 1 }; 
+    ChangeA(a1); 
+    Console.WriteLine($&quot;a1.X: {a1.X}&quot;);
+}
+</code></pre>
+<p>What would you guess is the output? 1 or 2?<br>
+The answer is … it depends. You need to know if <code>A</code> is a class or a struct.</p>
+<p>Structs are passed by value; with that the variable <code>a</code> from the <code>ChangeA</code> method gets a copy from the variable <code>a1</code> that is put on the stack. Only the copy is changed and destroyed at the end of the method ChangeA. The content of <code>a1</code> never changes and stays 1.</p>
+<p>Classes are passed by reference. This way, <code>a</code> is a variable that references the same object on the heap as the variable <code>a1</code>. When <code>ChangeA</code> changes the value of the <code>X</code> property of <code>a</code>, the change makes it <code>a1.X</code> because it is the same object. Here, the result is 2.</p>
+<p>To avoid this confusion on different behavior between classes and structs when members are changed, it’s a good practice to make structs immutable.</p>
+</blockquote>
+<h2 id="ref-parameters-page-213">ref Parameters: Page 213</h2>
+<blockquote>
+<p>Using the ref modifier with A as a class type, a reference to a reference (or in C++ jargon, a pointer to a pointer) is passed。</p>
+</blockquote>
+<p>书上这段不一定对，C#的 <code>ref</code> 并不等于二级指针。详情参考文档</p>
+<blockquote>
+<p><code>ref</code> 关键字让形参成为实参的别名，这必须是变量。换而言之，对形参执行的任何操作都是对实参执行的。</p>
+<p>--- <a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/ref">Microsoft Docs</a></p>
+</blockquote>
+<h2 id="out-parameters-page-214">out Parameters: Page 214</h2>
+<blockquote>
+<p>它与 <code>ref</code> 关键字相似，只不过 <code>ref</code> 要求在传递之前初始化变量。 它也类似于 <code>in</code> 关键字，只不过 <code>in</code> 不允许通过调用方法来修改参数值。 若要使用 <code>out</code> 参数，方法定义和调用方法均必须显式使用 <code>out</code> 关键字。</p>
+<p>作为 <code>out</code> 参数传递的变量在方法调用中传递之前不必进行初始化。 但是，被调用的方法需要在返回之前赋一个值。</p>
+<p>使用 <code>out</code> 参数声明方法是返回多个值的经典解决方法。 自 C# 7.0 起，建议在类似方案中使用元组。</p>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/out-parameter-modifier#calling-a-method-with-an-out-argument">调用具有 out 参数的方法:</a></p>
+<pre><code class="language-cs">string numberAsString = &quot;1640&quot;;
+
+if (Int32.TryParse(numberAsString, out var number))
+    Console.WriteLine($&quot;Converted '{numberAsString}' to {number}&quot;);
+else
+    Console.WriteLine($&quot;Unable to convert '{numberAsString}'&quot;);
+// The example displays the following output:
+//       Converted '1640' to 1640
+</code></pre>
+<p>--- <a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/out-parameter-modifier#calling-a-method-with-an-out-argument">Microsoft Docs</a></p>
+</blockquote>
+<h2 id="in-parameters-page-216">in Parameters: Page 216</h2>
+<blockquote>
+<p>The in modifier makes the parameter a <code>readonly</code> variable</p>
+</blockquote>
+<p>用 <code>in</code> 传递值类型时，形参为只读类型。</p>
+<blockquote>
+<p>The <code>in</code> modifier is mainly used with value types. However, you can use it with reference types as well. When using the <code>in</code> modifier with reference types, you can change the content of the variable, but not the variable itself.</p>
+</blockquote>
+<p>用 <code>in</code> 传递引用类型时，形参绑定的对象固定，不能把形参绑定到其他对象上。这点和不用 <code>in</code> 传递引用类型是一样的，所以 <code>in</code> 传递引用类型不常见。</p>
+<blockquote>
+<p>作为 <code>in</code> 参数传递的变量在方法调用中传递之前必须进行初始化。 但是，所调用的方法可能不会分配值或修改参数。</p>
+<p>--- <a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/in-parameter-modifier">Microsoft Docs</a></p>
+</blockquote>
+<h1 id="nullable-types-page-217">NULLABLE TYPES: Page 217</h1>
+<blockquote>
+<p>With the following code snippet, <code>x1</code> is a normal <em>int</em>, and <code>x2</code> is a <em>nullable int</em>. Because <code>x2</code> is a <em>nullable int</em>, <code>null</code> can be assigned to <em>x2</em>:</p>
+<pre><code class="language-cs">int x1 = 1; 
+int? x2 = null;
+</code></pre>
+</blockquote>
+<blockquote>
+<p>Because an <code>int</code> cannot have a value that cannot be assigned to <code>int?</code>, passing a variable of <code>int</code> to <code>int?</code> always succeeds and is accepted from the compiler:</p>
+<pre><code class="language-cs">int? x3 = x1;
+</code></pre>
+</blockquote>
+<p>可空类型赋值为普通类型可以直接赋值。</p>
+<blockquote>
+<p>The reverse is not true. <code>int?</code> cannot be directly assigned to <code>int</code>. This can fail, and thus a cast is required:</p>
+<pre><code class="language-cs">int x4 = (int) x3;
+</code></pre>
+</blockquote>
+<p>普通类型赋值为可空类型必须显性转换 (<code>cast</code>)。</p>
+<blockquote>
+<p>Using the coalescing operator <code>??</code>, there’s a shorter syntax possible with nullable types. In a case where <code>x3</code> is <code>null</code>, <code>−1</code> is set with the variable <code>x6</code>; otherwise you take the value of <code>x3</code>:</p>
+<pre><code class="language-cs">int x6 = x3 ?? -1;
+</code></pre>
+</blockquote>
+<p>双问号前是非空情况的赋值，双问号后是为空情况的赋值。</p>
+<blockquote>
+<p>With nullable types, you can use all operators that are available with the underlying types—for example, <code>+, -, *, /</code> and more with <code>int?</code>. You can use nullable types with every struct type, not only with predefined C# types. You can read more about nullable types and what’s behind the scenes in Chapter 5, “Generics.”</p>
+</blockquote>
+<p>所有 <code>struct</code> 类型都可以作为可空类型。</p>
+<h1 id="enum-types-page-219">ENUM TYPES: Page 219</h1>
+<blockquote>
+<p>An enumeration is a value type that contains a list of named constants, such as the Color type shown here. The enumeration type is defined by using the enum keyword (code file <code>EnumSample/Color.cs</code>):</p>
+<pre><code class="language-cs">public enum Color {
+   Red, 
+   Green, 
+   Blue
+}
+</code></pre>
+</blockquote>
+<p>枚举类型的声明。</p>
+<blockquote>
+<p>You can declare variables of enum types, such as the variable c1, and assign a value from the enumeration by setting one of the named constants prefixed with the name of the enum type</p>
+<pre><code class="language-cs">private static void ColorSamples() 
+{
+    Color c1 = Color.Red; 
+    Console.WriteLine(c1); //...
+}
+</code></pre>
+</blockquote>
+<p>枚举类型的调用。</p>
+<blockquote>
+<p>By default, the type behind the enum type is an int. The underlying type can be changed to other integral types (byte, short, int, long with signed and unsigned variants). The values of the named constants are incremental values starting with 0, but they can be changed to other values:</p>
+<pre><code class="language-cs">public enum Color : short 
+{
+    Red = 1, 
+    Green = 2, 
+    Blue = 3
+}
+</code></pre>
+</blockquote>
+<p>枚举类型默认是整型，声明时可以在冒号后指定类型。</p>
+<blockquote>
+<p>You can change a number to an enumeration value and back using casts.</p>
+<pre><code class="language-cs">Color c2 = (Color)2; 
+short number = (short)c2;
+</code></pre>
+</blockquote>
+<p>枚举类型可以和普通类型进行显示转换。</p>
+<blockquote>
+<p>You can also use an enum type to assign multiple options to a variable and not just one of the enum constants. To do this, the values assigned to the constants must be <strong>different bits</strong>, and the <code>Flags</code> attribute needs to be set with the enum.</p>
+<pre><code class="language-cs">[Flags] 
+public enum DaysOfWeek 
+{
+    Monday = 0x1, 
+    Tuesday = 0x2, 
+    Wednesday = 0x4, 
+    Thursday = 0x8, 
+    Friday = 0x10, 
+    Saturday = 0x20, 
+    Sunday = 0x40
+}
+</code></pre>
+<pre><code class="language-cs">DaysOfWeek mondayAndWednesday = DaysOfWeek.Monday | DaysOfWeek.Wednesday; 
+Console.WriteLine(mondayAndWednesday);
+</code></pre>
+<pre><code class="language-sh">Monday, Tuesday
+</code></pre>
+</blockquote>
+<p>一个变量赋值多个枚举值，需要在声明枚举类型时时添加 <code>[Flags]</code> 特性。</p>
+<blockquote>
+<p>Setting different bits, it is also possible to combine single bits to cover multiple values, such as Weekend with a value of <code>0x60</code> that combines Saturday and Sunday with the logical OR operator, Workday to combine all the days from Monday to Friday, and AllWeek to combine Workday and Weekend with the logical OR operator (code file <code>EnumSample/DaysOfWeek.cs</code>):</p>
+<pre><code class="language-cs">[Flags] 
+public enum DaysOfWeek 
+{
+    Monday = 0x1, 
+    Tuesday = 0x2, 
+    Wednesday = 0x4, 
+    Thursday = 0x8, 
+    Friday = 0x10, 
+    Saturday = 0x20, 
+    Sunday = 0x40, 
+    Weekend = Saturday | Sunday,
+    Workday = 0x1f, 
+    AllWeek = Workday | Weekend
+}
+</code></pre>
+</blockquote>
+<p>枚举类型与位运算相结合的高级用法。</p>
+<h1 id="partial-classes-page-222">PARTIAL CLASSES: Page 222</h1>
+<blockquote>
+<p>To use the <code>partial</code> keyword, simply place partial before <em>class, struct, or interface</em>. In the following example, the class <code>SampleClass</code> resides in two separate source files, <code>SampleClassAutogenerated.cs</code> and <code>SampleClass.cs</code>:</p>
+<pre><code class="language-cs">//SampleClassAutogenerated.cs 
+partial class SampleClass 
+{
+    public void MethodOne() { } 
+}
+</code></pre>
+<pre><code class="language-cs">//SampleClass.cs 
+partial class SampleClass 
+{
+    public void MethodTwo() { } 
+}
+</code></pre>
+<p>If any of the following keywords are used in describing the class, the same must apply to all partials of the same type:</p>
+<ul>
+<li>public</li>
+<li>private</li>
+<li>protected</li>
+<li>internal</li>
+<li>abstract</li>
+<li>sealed</li>
+<li>new</li>
+<li>generic constraints</li>
+</ul>
+</blockquote>
+<p>局部类是 C# 独有的精华。</p>
+<blockquote>
+<p>Partial classes can contain <em>partial methods</em>. This is extremely useful if generated code should invoke methods that might not exist at all. The programmer extending the partial class can decide to create a custom implementation of the partial method, or do nothing. The following code snippet contains a partial class with the method MethodOne that invokes the method <code>APartialMethod</code>. The method <code>APartialMethod</code> is declared with the partial keyword; thus, it does not need any implementation. If there’s not an implementation, the compiler removes the invocation of this method:</p>
+<pre><code class="language-cs">//SampleClassAutogenerated.cs 
+partial class SampleClass 
+{
+    public void MethodOne() 
+    {
+        APartialMethod();
+    } 
+
+    public partial void APartialMethod();
+}
+</code></pre>
+<p>An implementation of the partial method can be done within any other part of the partial class, as shown in the following code snippet. With this method in place, the compiler creates code within <code>MethodOne</code> to invoke this <code>APartialMethod</code> declared here:</p>
+<pre><code class="language-cs">// SampleClass.cs 
+partial class SampleClass: IOtherSampleClass 
+{
+    public void APartialMethod() 
+    {
+        // implementation of APartialMethod 
+    } 
+}
+</code></pre>
+<p>A partial method needs to be of type <code>void</code>. Otherwise the compiler cannot remove the invocation in case no implementation exists.</p>
+</blockquote>
+<ul>
+<li>局部类中可以包含局部方法。</li>
+<li>局部方法的思路大致是这样：方法声明和方法实现可以分开来做。</li>
+<li>局部方法不能被外部直接调用，不可以加上类似 <code>public</code> 这样的访问修饰符。</li>
+<li>局部方法的作用是这样：我们在设计一个类型的时候，某个操作是需要的，但在类型设计阶段还不知道如何实现。所以，我们需要先放置一个占位符。</li>
+<li>局部方法可以只声明不实现，编译器会忽略未实现的方法。</li>
+<li>局部方法必须是 <code>void</code> 类型。</li>
+<li>在任何使用 <code>Partial</code> 方法的地方，我们都可以用 <code>delegate</code> 去实现。</li>
+</ul>
+<h1 id="extension-methods-page-225">EXTENSION METHODS: Page 225</h1>
+<blockquote>
+<p>Extension methods are static methods that can look like part of a class without actually being in the source code for the class.</p>
+</blockquote>
+<p>拓展方法必须是静态的。</p>
+<blockquote>
+<p>Extension methods can be used to extend interfaces. This way you can have common functionality for all the classes that implement this interface. Interfaces are explained in Chapter 4.</p>
+</blockquote>
+<p>拓展方法可以拓展接口。</p>
+<blockquote>
+<p>This option is also possible when inheritance cannot be used (for example, the class is sealed).</p>
+</blockquote>
+<p>拓展方法可以不作用于子类。</p>
+<p>详情参考 <a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/extension-methods">Microsoft Docs</a></p>
+<h1 id="the-object-class-page-227">THE OBJECT CLASS: Page 227</h1>
+<blockquote>
+<p>For the time being, the following list summarizes the purpose of each method:</p>
+<ul>
+<li><code>ToString</code>:A fairly basic, quick-and-easy string representation. Use it when you want a quick idea of the contents of an object, perhaps for debugging purposes. It provides very little choice regarding how to format the data. For example, dates can, in principle, be expressed in a huge variety of formats, but <code>DateTime</code>.<code>ToString</code> does not offer you any choice in this regard. If you need a more sophisticated string representation—for example, one that takes into account your formatting preferences or the culture (the locale) —then you should implement the <code>IFormattable</code> interface (see Chapter 9, “Strings and Regular Expressions”).</li>
+<li><code>GetHashCode</code>: If objects are placed in a data structure known as a map (also known as a hash table or dictionary), it is used by classes that manipulate these structures to determine where to place an object in the structure. If you intend your class to be used as a key for a dictionary, you need to override <code>GetHashCode</code>. Some fairly strict requirements exist for how you implement your overload, which you learn about when you examine dictionaries in Chapter 10, “Collections.”</li>
+<li><code>Equals</code> (both versions) and <code>ReferenceEquals</code>: As you'll note by the existence of three different methods aimed at comparing the equality of objects, the .NET Framework has quite a sophisticated scheme for measuring equality. Subtle differences exist between how these three methods, along with the comparison operator, ==, are intended to be used. In addition, restrictions exist on how you should override the virtual, one-parameter version of <code>Equals</code> if you choose to do so, because certain base classes in the <code>System.Collections</code> namespace call the method and expect it to behave in certain ways. You explore the use of these methods in Chapter 6 when you examine operators.</li>
+<li><code>Finalize</code>: Covered in Chapter 17, this method is intended as the nearest that C# has to C++-style destructors. It is called when a reference object is garbage collected to clean up resources. The <code>Object</code> implementation of <code>Finalize</code> doesn’t actually do anything and is ignored by the garbage collector. You normally override Finalize if an object owns references to unmanaged resources that need to be removed when the object is deleted. The garbage collector cannot do this directly because it only knows about managed resources, so it relies on any finalizers that you supply.</li>
+<li><code>GetType</code>: This object returns an instance of a class derived from <code>System.Type</code>, so it can provide an extensive range of information about the class of which your object is a member, including base type, methods, properties, and so on. <code>System.Type</code> also provides the entry point into .NET’s reflection technology. Chapter 16 examines this topic.</li>
+<li><code>MemberwiseClone</code>: The only member of <code>System.Object</code> that isn't examined in detail anywhere in the book. That's because it is fairly simple in concept. It just makes a copy of the object and returns a reference (or in the case of a value type, a boxed reference) to the copy. Note that the copy made is a shallow copy, meaning it copies all the value types in the class. If the class contains any embedded references, then only the references are copied, not the objects referred to. This method is protected and cannot be called to copy external objects. Nor is it virtual, so you cannot override its implementation.</li>
+</ul>
+</blockquote>
+<p>这部分太底层，暂时不用学。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zhangyue-vhyt.github.io/post/how-to-make-csharp-discord-bot/">
+                  <h3 class="post-title">
+                    How To Make C# Discord Bot
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
