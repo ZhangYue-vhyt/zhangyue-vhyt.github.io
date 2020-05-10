@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-10T21:51:06.253Z</updated>
+    <updated>2020-05-10T22:02:34.070Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/csharp-notes/</id>
         <link href="https://zhangyue-vhyt.github.io/post/csharp-notes/">
         </link>
-        <updated>2020-05-10T08:26:14.000Z</updated>
+        <updated>2020-05-09T20:26:14.000Z</updated>
         <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>内容以《C#高级编程》为索引，《C#编程指南》、《C#语言规范》等官方文档为参考。</p>
 <h1 id="chapter-1-net-applications-and-tools">Chapter 1: .NET Applications and Tools</h1>
@@ -102,6 +102,30 @@
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/extension-methods">扩展方法（C# 编程指南）</a></li>
 </ul>
 <h1 id="chapter-4-object-oriented-programming-with-c">Chapter 4: Object-Oriented Programming with C#</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/object-oriented-programming">面向对象的编程 (C#)</a></li>
+</ul>
+<h2 id="object-orientation">OBJECT ORIENTATION</h2>
+<blockquote>
+<p>The three most important concepts of object-orientation are inheritance, encapsulation, and polymorphism.</p>
+</blockquote>
+<p>封装、继承、多态是面向对象的编程的三个主要特征。</p>
+<h2 id="inheritance">INHERITANCE</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/inheritance">继承（C# 编程指南）</a></li>
+</ul>
+<h2 id="modifiers">MODIFIERS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers">访问修饰符（C# 编程指南）</a></li>
+</ul>
+<h2 id="interfaces">INTERFACES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/interfaces/">接口（C# 编程指南）</a></li>
+</ul>
+<h2 id="is-and-as-operators">IS AND AS OPERATORS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/how-to/safely-cast-using-pattern-matching-is-and-as-operators">如何使用模式匹配以及 is 和 as 运算符安全地进行强制转换</a></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
