@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-12T01:49:11.107Z</updated>
+    <updated>2020-05-12T03:29:23.963Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/csharp-notes/</id>
         <link href="https://zhangyue-vhyt.github.io/post/csharp-notes/">
         </link>
-        <updated>2020-05-07T20:26:14.000Z</updated>
+        <updated>2020-05-07T08:26:14.000Z</updated>
         <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>内容以《C#高级编程》为索引，《C#编程指南》、《C#语言规范》等官方文档为参考。</p>
 <h1 id="chapter-1-net-applications-and-tools">Chapter 1: .NET Applications and Tools</h1>
@@ -279,6 +279,63 @@ Console.WriteLine(StaticDemo&lt;string&gt;.x); // writes 4
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/user-defined-conversion-operators">用户定义转换运算符（C# 引用）</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/conversions#user-defined-conversions">用户定义的转换</a></li>
+</ul>
+<h1 id="chapter-7-arrays">Chapter 7: Arrays</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/arrays/">数组（C# 编程指南）</a></li>
+</ul>
+<h2 id="simple-arrays">SIMPLE ARRAYS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/arrays/single-dimensional-arrays">一维数组（C# 编程指南）</a></li>
+</ul>
+<h2 id="multidimensional-arrays">MULTIDIMENSIONAL ARRAYS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/arrays/multidimensional-arrays">多维数组（C# 编程指南）</a></li>
+</ul>
+<h2 id="jagged-arrays">JAGGED ARRAYS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/arrays/jagged-arrays">交错数组（C# 编程指南）</a></li>
+</ul>
+<h2 id="ranger">RANGER</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/tutorials/ranges-indexes">索引和范围</a></li>
+</ul>
+<h2 id="array-class">ARRAY CLASS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.array?view=netcore-3.1">Array 类</a></li>
+</ul>
+<h3 id="copying-arrays">Copying Arrays</h3>
+<h4 id="shallow-copy">Shallow copy</h4>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.array.constrainedcopy?view=netcore-3.1">Array.ConstrainedCopy</a> 推荐！</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.array.copy?view=netcore-3.1">Array.Copy 方法</a> <code>Array.ConstrainedCopy</code> 的弱化版，复制失败时可能会破坏目标数组。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.array.copyto?view=netcore-3.1">Array.CopyTo 方法</a> 只能复制一维数组。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.array.clone?view=netcore-3.1">Array.Clone 方法</a> 返回值是 <code>object</code> 类型。</li>
+</ul>
+<h4 id="deep-copy">Deep copy</h4>
+<blockquote>
+<p>If you need a deep copy of an array containing reference types, you have to iterate the array and create new objects.</p>
+</blockquote>
+<h2 id="arrays-as-parameters">ARRAYS AS PARAMETERS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/arrays/passing-arrays-as-arguments">将数组作为参数传递（C# 编程指南）</a></li>
+</ul>
+<h2 id="enumerators">ENUMERATORS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/arrays/using-foreach-with-arrays">对数组使用 foreach（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/iterators">迭代器 (C#)</a></li>
+</ul>
+<h2 id="structural-comparison">STRUCTURAL COMPARISON</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.collections.structuralcomparisons?view=netcore-3.1">StructuralComparisons 类</a></li>
+</ul>
+<h2 id="spans">SPANS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.span-1?view=netcore-3.1">跨<T > 和数组</a></li>
+</ul>
+<h2 id="array-pools">ARRAY POOLS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.buffers.arraypool-1?view=netcore-3.1">ArrayPool<T> 类</a></li>
 </ul>
 ]]></content>
     </entry>
