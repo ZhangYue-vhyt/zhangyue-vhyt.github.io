@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1589148149767">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1589247354334">
 <link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
 
 
@@ -33,7 +33,7 @@ C# 语言和 .NET Framework 简介
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
-        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1589148149767" class="site-logo">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1589247354334" class="site-logo">
         <h1 class="site-title">咸鱼の家</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -100,7 +100,7 @@ C# 语言和 .NET Framework 简介
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">C#学习资料</h2>
-            <div class="post-date">2020-05-09</div>
+            <div class="post-date">2020-05-08</div>
             
               <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
               </div>
@@ -151,6 +151,7 @@ C# 语言和 .NET Framework 简介
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/preprocessor-directives/">C# 预处理器指令</a></li>
 </ul>
+<p>这部分内容建议跳过，以后用到再补。</p>
 <h2 id="c-programming-guidelines">C# PROGRAMMING GUIDELINES</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/design-guidelines/naming-guidelines">命名规则</a></li>
@@ -215,6 +216,154 @@ C# 语言和 .NET Framework 简介
 <h2 id="is-and-as-operators">IS AND AS OPERATORS</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/how-to/safely-cast-using-pattern-matching-is-and-as-operators">如何使用模式匹配以及 is 和 as 运算符安全地进行强制转换</a></li>
+</ul>
+<h1 id="chapter-5-generics">Chapter 5: Generics</h1>
+<h2 id="generics-overview">GENERICS OVERVIEW</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/">泛型（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/generics/">.NET 中的泛型</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/generic-type-parameters">泛型类型参数 -（C# 编程指南）</a></li>
+</ul>
+<h2 id="creating-generic-classes">CREATING GENERIC CLASSES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/generic-classes">泛型类（C# 编程指南）</a></li>
+</ul>
+<h2 id="generics-features">GENERICS FEATURES</h2>
+<h3 id="default-values">Default Values</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/previous-versions/visualstudio/visual-studio-2010/xwth0h0d(v=vs.100)">泛型代码中的默认关键字（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/default">default value 表达式（C# 参考）</a></li>
+</ul>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters">类型参数的约束（C# 编程指南）</a></li>
+</ul>
+<h3 id="inheritance-2">Inheritance</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/generic-classes">泛型类（C# 编程指南）</a></li>
+</ul>
+<h3 id="static-members">Static Members</h3>
+<blockquote>
+<p>Static members of generic classes are shared with only one instantiation of the class, and they require special attention. Consider the following example, where the class <code>StaticDemo&lt;T&gt;</code> contains the static field <code>x</code>:</p>
+<pre><code class="language-cs">public class StaticDemo&lt;T&gt;
+{
+        public static int x;
+}
+</code></pre>
+<p>Because the class <code>StaticDemo&lt;T&gt;</code> is used with both a <code>string</code> type and an <code>int</code> type, two sets of static fields exist:</p>
+<pre><code class="language-cs">StaticDemo&lt;string&gt;.x = 4;
+StaticDemo&lt;int&gt;.x = 5;
+Console.WriteLine(StaticDemo&lt;string&gt;.x); // writes 4
+</code></pre>
+</blockquote>
+<p>泛型类是支持静态成员的，但官方不建议这么做。</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1000?view=vs-2019">CA1000: Do not declare static members on generic types</a></li>
+</ul>
+<h2 id="generic-interfaces">GENERIC INTERFACES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/generics/interfaces">泛型接口</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/generic-interfaces">泛型接口（C# 编程指南）</a></li>
+</ul>
+<h3 id="covariance-and-contra-variance">Covariance and Contra-Variance</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/covariance-contravariance/">协变和逆变 (C#)</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/generics/covariance-and-contravariance">泛型中的协变和逆变</a></li>
+</ul>
+<h3 id="covariance-with-generic-interfaces">Covariance with Generic Interfaces</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/generics/covariance-and-contravariance#generic-interfaces-with-covariant-type-parameters">具有协变类型参数的泛型接口</a></li>
+</ul>
+<h3 id="contra-variance-with-generic-interfaces">Contra-Variance with Generic Interfaces</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/generics/covariance-and-contravariance#generic-interfaces-with-contravariant-generic-type-parameters">具有逆变泛型类型参数的泛型接口</a></li>
+</ul>
+<h2 id="generic-structs">GENERIC STRUCTS</h2>
+<blockquote>
+<p>Similar to classes, structs can be generic as well. They are very similar to generic classes with the exception of inheritance features.</p>
+</blockquote>
+<p>泛型结构体除了无法继承，其他和泛型类相似。</p>
+<p>书上关于 <code>Nullable&lt;T&gt;</code> 的代码运行失败，跳过这部分。</p>
+<h2 id="generic-methods">GENERIC METHODS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/generic-methods">泛型方法（C# 编程指南）</a></li>
+</ul>
+<h1 id="chapter-6-operators-and-casts">Chapter 6: Operators and Casts</h1>
+<h3 id="operators">OPERATORS</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/">C# 运算符（C# 参考）</a></li>
+</ul>
+<h3 id="the-checked-and-unchecked-operators">The checked and unchecked Operators</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/checked">checked（C# 参考）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/unchecked">unchecked（C# 参考）</a></li>
+</ul>
+<h3 id="the-is-operator">The <code>is</code> Operator</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/is">is（C# 参考）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/type-testing-and-cast#is-operator">is 运算符</a></li>
+</ul>
+<h3 id="the-as-operator">The <code>as</code> Operator</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/how-to/safely-cast-using-pattern-matching-is-and-as-operators">如何使用模式匹配以及 is 和 as 运算符安全地进行强制转换</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/type-testing-and-cast#as-operator">as 运算符</a></li>
+</ul>
+<h3 id="the-sizeof-operator">The <code>sizeof</code> Operator</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/sizeof">sizeof 运算符（C# 参考）</a></li>
+</ul>
+<h3 id="the-typeof-operator">The <code>typeof</code> Operator</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/type-testing-and-cast#typeof-operator">typeof 运算符</a></li>
+</ul>
+<h3 id="the-nameof-operator">The <code>nameof</code> Operator</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/nameof">nameof 表达式（C# 参考）</a></li>
+</ul>
+<h3 id="the-index-operator">The <code>index</code> Operator</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/arrays/">数组（C# 编程指南）</a></li>
+</ul>
+<h3 id="nullable-types-and-operators">Nullable Types and Operators</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/nullable-value-types">可为空的值类型（C# 参考）</a></li>
+</ul>
+<h3 id="the-null-coalescing-operator">The Null Coalescing Operator</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/null-coalescing-operator">?? 和 ??= 运算符（C# 参考）</a></li>
+</ul>
+<h3 id="the-null-conditional-operator">The Null-Conditional Operator</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-">Null 条件运算符 ?. 和 ?[]</a></li>
+</ul>
+<h3 id="operator-precedence-and-associativity">Operator Precedence and Associativity</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/#operator-precedence">运算符优先级</a></li>
+</ul>
+<h2 id="using-binary-operators">USING BINARY OPERATORS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators">位运算符和移位运算符（C# 参考）</a></li>
+</ul>
+<h2 id="type-safety">TYPE SAFETY</h2>
+<h3 id="type-conversions">Type Conversions</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/types/casting-and-type-conversions">强制转换和类型转换（C# 编程指南）</a></li>
+</ul>
+<h3 id="boxing-and-unboxing">Boxing and Unboxing</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/types/boxing-and-unboxing">装箱和取消装箱（C# 编程指南）</a></li>
+</ul>
+<h2 id="comparing-objects-for-equality">COMPARING OBJECTS FOR EQUALITY</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/statements-expressions-operators/equality-comparisons">相等性比较（C# 编程指南）</a></li>
+</ul>
+<h2 id="operator-overloading">OPERATOR OVERLOADING</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/operator-overloading">运算符重载（C# 引用）</a></li>
+</ul>
+<h2 id="implementing-custom-index-operators">IMPLEMENTING CUSTOM INDEX OPERATORS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/indexers/">索引器（C# 编程指南）</a></li>
 </ul>
 
             </div>
