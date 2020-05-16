@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-15T20:11:17.177Z</updated>
+    <updated>2020-05-16T20:56:10.171Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -11,13 +11,14 @@
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 咸鱼の家</rights>
     <entry>
-        <title type="html"><![CDATA[《C#高级编程》Chapter 10 与官方文档]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/csharp-notes-10/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/csharp-notes-10/">
+        <title type="html"><![CDATA[《C#高级编程》Chapter 10-17 与官方文档]]></title>
+        <id>https://zhangyue-vhyt.github.io/post/csharp-notes-10to17/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/csharp-notes-10to17/">
         </link>
-        <updated>2020-05-14T20:09:24.000Z</updated>
+        <updated>2020-05-13T20:09:24.000Z</updated>
         <content type="html"><![CDATA[<h1 id="chapter-10-collections">Chapter 10: Collections</h1>
 <ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/collections/">集合和数据结构</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/collections">集合 (C#)</a></li>
 </ul>
 <h2 id="collection-interfaces-and-types">COLLECTION INTERFACES AND TYPES</h2>
@@ -161,6 +162,44 @@
 </tr>
 </tbody>
 </table>
+<h1 id="chapter-11-special-collections">Chapter 11: Special Collections</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.collections.specialized?view=netcore-3.1">System.Collections.Specialized 命名空间</a></li>
+</ul>
+<h2 id="working-with-bits">WORKING WITH BITS</h2>
+<p><em><strong>高阶知识，以后再补</strong></em></p>
+<h2 id="observable-collections">OBSERVABLE COLLECTIONS</h2>
+<p><em><strong>高阶知识，以后再补</strong></em></p>
+<h2 id="immutable-collections">IMMUTABLE COLLECTIONS</h2>
+<p><em><strong>高阶知识，以后再补</strong></em></p>
+<h2 id="concurrent-collections">CONCURRENT COLLECTIONS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/collections/thread-safe/">线程安全集合</a></li>
+</ul>
+<h1 id="chapter-12-language-integrated-query">Chapter 12: Language Integrated Query</h1>
+<h2 id="linq-overview">LINQ OVERVIEW</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/linq/linq-in-csharp">C# 中的 LINQ</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/linq/">语言集成查询 (LINQ)</a></li>
+</ul>
+<h2 id="standard-query-operators">STANDARD QUERY OPERATORS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/linq/query-expression-syntax-for-standard-query-operators">标准查询运算符的查询表达式语法 (C#)</a></li>
+</ul>
+<h2 id="parallel-linq">PARALLEL LINQ</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-programming/introduction-to-plinq">PLINQ 介绍</a></li>
+</ul>
+<h2 id="expression-trees">EXPRESSION TREES</h2>
+<p><em><strong>高阶知识，以后再补</strong></em></p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/expression-trees">表达式树</a></li>
+</ul>
+<h2 id="linq-providers">LINQ PROVIDERS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/linq/how-to-add-custom-methods-for-linq-queries">如何为 LINQ 查询添加自定义方法 (C#)</a></li>
+</ul>
+<h1 id="functional-programming-with-c">Functional Programming with C#</h1>
 ]]></content>
     </entry>
     <entry>
