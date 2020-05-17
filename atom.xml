@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-17T08:16:57.965Z</updated>
+    <updated>2020-05-17T19:46:28.557Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/csharp-notes-10to17/</id>
         <link href="https://zhangyue-vhyt.github.io/post/csharp-notes-10to17/">
         </link>
-        <updated>2020-05-12T20:09:24.000Z</updated>
+        <updated>2020-05-12T08:09:24.000Z</updated>
         <content type="html"><![CDATA[<h1 id="chapter-10-collections">Chapter 10: Collections</h1>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/collections/">集合和数据结构</a></li>
@@ -255,7 +255,7 @@
 </ul>
 <h1 id="chapter-17-managed-and-unmanaged-memory">Chapter 17: Managed and Unmanaged Memory</h1>
 <ul>
-<li>此章设计底层理论知识，建议看书。</li>
+<li>此章涉及底层理论知识，建议看书。</li>
 <li>除 GC 部分外的高阶知识可以以后补。</li>
 </ul>
 <h2 id="memory-management-under-the-hood">MEMORY MANAGEMENT UNDER THE HOOD</h2>
