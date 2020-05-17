@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-16T20:56:10.171Z</updated>
+    <updated>2020-05-17T08:16:57.965Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/csharp-notes-10to17/</id>
         <link href="https://zhangyue-vhyt.github.io/post/csharp-notes-10to17/">
         </link>
-        <updated>2020-05-13T20:09:24.000Z</updated>
+        <updated>2020-05-12T20:09:24.000Z</updated>
         <content type="html"><![CDATA[<h1 id="chapter-10-collections">Chapter 10: Collections</h1>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/collections/">集合和数据结构</a></li>
@@ -179,6 +179,7 @@
 <h1 id="chapter-12-language-integrated-query">Chapter 12: Language Integrated Query</h1>
 <h2 id="linq-overview">LINQ OVERVIEW</h2>
 <ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/using-linq">LINQ（语言集成查询）</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/linq/linq-in-csharp">C# 中的 LINQ</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/linq/">语言集成查询 (LINQ)</a></li>
 </ul>
@@ -199,7 +200,105 @@
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/linq/how-to-add-custom-methods-for-linq-queries">如何为 LINQ 查询添加自定义方法 (C#)</a></li>
 </ul>
-<h1 id="functional-programming-with-c">Functional Programming with C#</h1>
+<h1 id="chapter-13-functional-programming-with-c">Chapter 13: Functional Programming with C#</h1>
+<ul>
+<li>C# 不是函数式语言，对纯函数式编程感兴趣请选择 F#。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/linq/functional-programming-vs-imperative-programming">函数编程与命令式编程 (C#)</a></li>
+</ul>
+<h2 id="tuples">TUPLES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/tuples">C# 元组类型</a></li>
+</ul>
+<h2 id="pattern-matching">PATTERN MATCHING</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/pattern-matching">模式匹配</a></li>
+</ul>
+<h1 id="chapter-14-errors-and-exceptions">Chapter 14: Errors and Exceptions</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/exceptions/">异常和异常处理（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/exceptions/">在 .NET 中处理和引发异常</a></li>
+</ul>
+<h1 id="chapter-15-asynchronous-programming">Chapter 15: Asynchronous Programming</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/async">异步编程</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/async/">使用 Async 和 Await 的异步编程</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-processing-and-concurrency">.NET 中的并行处理、并发和异步编程</a></li>
+</ul>
+<h2 id="error-handling">ERROR HANDLING</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/try-catch#async-method-example">异步方法示例</a></li>
+</ul>
+<h1 id="chapter-16-reflection-metadata-and-dynamic-programming">Chapter 16: Reflection, Metadata, and Dynamic Programming</h1>
+<ul>
+<li>此章设计底层理论知识，建议看书。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/55694402">Siki——C#高级教程 (37~43) 反射和特性</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/metadata-and-self-describing-components">元数据和自描述组件</a></li>
+</ul>
+<h2 id="custom-attributes">CUSTOM ATTRIBUTES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/attributes/">特性 (C#)</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/attributes/">利用特性扩展元数据</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/tutorials/attributes">在 C# 中使用属性</a></li>
+</ul>
+<h2 id="using-reflection">USING REFLECTION</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/41282759">C#反射机制</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/reflection">反射 (C#)</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/reflection-and-codedom/reflection">.NET 中的反射</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/assembly/">.NET 中的程序集</a></li>
+</ul>
+<h2 id="the-dynamic-type">THE DYNAMIC TYPE</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type">动态类型</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/types/using-type-dynamic">使用类型 dynamic（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/reflection-and-codedom/">.NET Framework 中的动态编程</a></li>
+</ul>
+<h1 id="chapter-17-managed-and-unmanaged-memory">Chapter 17: Managed and Unmanaged Memory</h1>
+<ul>
+<li>此章设计底层理论知识，建议看书。</li>
+<li>除 GC 部分外的高阶知识可以以后补。</li>
+</ul>
+<h2 id="memory-management-under-the-hood">MEMORY MANAGEMENT UNDER THE HOOD</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/">垃圾回收</a></li>
+</ul>
+<h2 id="strong-and-weak-references">STRONG AND WEAK REFERENCES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/weak-references">弱引用</a></li>
+</ul>
+<h2 id="working-with-unmanaged-resources">WORKING WITH UNMANAGED RESOURCES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/unmanaged">清理非托管资源</a></li>
+</ul>
+<h2 id="unsafe-code">UNSAFE CODE</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/unsafe-code-pointers/">不安全代码和指针（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/unsafe">unsafe（C# 参考）</a></li>
+</ul>
+<h2 id="reference-semantics">REFERENCE SEMANTICS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-7#ref-locals-and-returns">Ref 局部变量和返回结果</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-7-2#safe-efficient-code-enhancements">安全高效的代码的增强功能</a></li>
+</ul>
+<h2 id="spant">SPAN<T></h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.span-1?view=netcore-3.1">Span<T> 结构</a></li>
+</ul>
+<blockquote>
+<p>Chapter 3 includes creating reference types (classes) and value types (structs). Instances of classes are stored on the managed heap. The value of structs can be stored on the stack, or, when boxing is used, on the managed heap. Now we have another kind: a type that can have its value only on the stack but never on the heap, sometimes called <em>ref-like</em> types. Boxing is not possible with these types. Such a type is declared with the <code>ref struct</code> keyword. Using <code>ref struct</code> gives some additional behaviors and restrictions. The restrictions are the following:</p>
+<ul>
+<li>They can't be added as array items.</li>
+<li>They can't be used as generic type argument.</li>
+<li>They can't be boxed.</li>
+<li>They can't be static fields.</li>
+<li>They can only be instance fields of ref-like types.</li>
+</ul>
+</blockquote>
+<h2 id="platform-invoke">PLATFORM INVOKE</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/interop/marshaling-data-with-platform-invoke">用平台调用封送数据</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/interop/platform-invoke-examples">平台调用示例</a></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
@@ -207,7 +306,7 @@
         <id>https://zhangyue-vhyt.github.io/post/csharp-notes-1to9/</id>
         <link href="https://zhangyue-vhyt.github.io/post/csharp-notes-1to9/">
         </link>
-        <updated>2020-05-04T08:26:14.000Z</updated>
+        <updated>2020-05-03T20:26:14.000Z</updated>
         <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>内容以《C#高级编程》为索引，《C#编程指南》、《C#语言规范》等官方文档为参考。</p>
 <h1 id="chapter-1-net-applications-and-tools">Chapter 1: .NET Applications and Tools</h1>
@@ -534,6 +633,7 @@ Console.WriteLine(StaticDemo&lt;string&gt;.x); // writes 4
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/delegates-overview">委托简介</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/delegates/">委托（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/delegates-lambdas">委托和 lambda</a></li>
 </ul>
 <h3 id="simple-delegate-example">Simple Delegate Example</h3>
 <ul>
