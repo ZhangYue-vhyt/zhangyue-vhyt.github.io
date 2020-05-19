@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>《C#高级编程》- .Net Core and Windows Runtime | 咸鱼の家</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1589871342624">
+<link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Introduction
+这部分是关于 .NET Core and the Windows Runtime 的内容。
+Chapter 19: Libraries, Assemblies, Packages, and NuGet
+
+此章为项目..." />
+    <meta name="keywords" content="C#高级编程,C#" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1589871342624" class="site-logo">
+        <h1 class="site-title">咸鱼の家</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.zhangyue.dev" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      海带缠潜艇，雾霾防激光。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhangyue-vhyt.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">《C#高级编程》- .Net Core and Windows Runtime</h2>
+            <div class="post-date">2020-05-16</div>
+            
+              <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="introduction">Introduction</h1>
+<p>这部分是关于 .NET Core and the Windows Runtime 的内容。</p>
+<h1 id="chapter-19-libraries-assemblies-packages-and-nuget">Chapter 19: Libraries, Assemblies, Packages, and NuGet</h1>
+<ul>
+<li>此章为项目管理，不涉及编程。</li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/core/tools">.NET Core CLI overview</a></li>
+</ul>
+<h1 id="chapter-20-dependency-injection">Chapter 20: Dependency Injection</h1>
+<h2 id="what-is-dependency-injection">WHAT IS DEPENDENCY INJECTION?</h2>
+<p>这里先介绍下控制反转：</p>
+<blockquote>
+<p>控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI）</p>
+</blockquote>
+<p>依赖注入是控制反转的一种实现方式</p>
+<p>具体什么是控制反转呢？</p>
+<blockquote>
+<p><code>Class A</code> 中用到了 <code>Class B</code> 的对象 <code>b</code>，一般情况下，需要在 <code>A</code> 的代码中显式的 <code>new</code> 一个 <code>B</code> 的对象。<br>
+采用依赖注入技术之后，<code>A</code> 的代码只需要定义一个私有的 <code>B</code> 对象，不需要直接 <code>new</code> 来获得这个对象，而是通过相关的容器控制程序来将B对象在外部 <code>new</code> 出来并注入到A类里的引用中。而具体获取的方法、对象被获取时的状态由配置文件（如 <code>XML</code>）来指定。</p>
+</blockquote>
+<p>简单地说，就是当 <code>A</code> 对象依赖 <code>B</code> 对象时，传统的做法时在 <code>A</code> 中 <code>new</code> 一个 <code>B</code> 对象，现在改为：在外部先 <code>new</code> 一个B对象，然后通过 <code>class A</code> 的构造函数传递给 <code>A</code> 对象。</p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></li>
+<li><a href="https://angular.cn/guide/architecture-services">服务与依赖注入简介</a></li>
+</ul>
+<h3 id="using-a-service-without-dependency-injection">Using a Service Without Dependency Injection</h3>
+<p>代码来源于《C#高级编程》</p>
+<p>创建一个依赖/服务</p>
+<pre><code class="language-cs">public class GreetingService 
+{
+    public string Greet(string name) =&gt; $&quot;Hello, {name}&quot;; 
+}
+</code></pre>
+<p>创建一个使用服务的类</p>
+<pre><code class="language-cs">public class HomeController 
+{
+    public string Hello(string name) 
+    {
+        var service = new GreetingService(); 
+        return service.Greet(name);
+    } 
+}
+</code></pre>
+<p><code>Main</code> 函数</p>
+<pre><code class="language-cs">static void Main() 
+{
+    var controller = new HomeController(); 
+    string result = controller.Hello(&quot;Stephanie&quot;); 
+    Console.WriteLine(result);
+}
+</code></pre>
+<h3 id="using-dependency-injection">Using Dependency Injection</h3>
+<blockquote>
+<p>使用接口或基类抽象化依赖关系实现。</p>
+<p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
+</blockquote>
+<p>创建服务接口</p>
+<pre><code class="language-cs">public interface IGreetingService 
+{
+    string Greet(string name); 
+}
+</code></pre>
+<p>创建服务</p>
+<pre><code class="language-cs">public class GreetingService : IGreetingService 
+{
+    public string Greet(string name) =&gt; $&quot;Hello, {name}&quot;; 
+}
+</code></pre>
+<p>创建一个依赖服务的类</p>
+<pre><code class="language-cs">public class HomeController 
+{
+    private readonly IGreetingService _greetingService; 
+
+    public HomeController(IGreetingService greetingService) 
+    {
+        _greetingService = greetingService ?? throw new
+            ArgumentNullException(nameof(greetingService)); 
+    }
+
+    public string Hello(string name) =&gt;
+        _greetingService.Greet(name); 
+}
+</code></pre>
+<p><code>Main</code> 函数</p>
+<pre><code class="language-cs">static void Main() 
+{
+    var controller = new HomeController(new GreetingService()); 
+    string result = controller.Hello(&quot;Matthias&quot;); 
+    Console.WriteLine(result);
+}
+</code></pre>
+<h2 id="using-the-net-core-di-container">USING THE .NET CORE DI CONTAINER</h2>
+<blockquote>
+<ul>
+<li>注册服务容器中的依赖关系。 ASP.NET Core 提供了一个内置的服务容器 <code>IServiceProvider</code>。 服务已在应用的 <code>Startup.ConfigureServices</code> 方法中注册。</li>
+<li>将服务注入 到使用它的类的构造函数中。 框架负责创建依赖关系的实例，并在不再需要时对其进行处理。</li>
+</ul>
+<p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
+</blockquote>
+<p>服务容器的示例：</p>
+<pre><code class="language-cs">static ServiceProvider RegisterServices() 
+{
+    var services = new ServiceCollection(); // 创建一个服务容器
+    services.AddSingleton&lt;IGreetingService, GreetingService&gt;();
+    services.AddTransient&lt;HomeController&gt;(); 
+    return services.BuildServiceProvider();
+}
+</code></pre>
+<p><code>Main</code> 函数</p>
+<pre><code class="language-cs">static void Main() 
+{
+    using (ServiceProvider container = RegisterServices()) 
+    {
+        var controller =
+            container.GetRequiredService&lt;HomeController&gt;(); 
+        string result = controller.Hello(&quot;Katharina&quot;); 
+        Console.WriteLine(result);
+    } 
+}
+</code></pre>
+<h2 id="lifetime-of-services">LIFETIME OF SERVICES</h2>
+<blockquote>
+<p>Registering a service as a singleton always returns the same instance, and registering a service as transient returns a new object every time the service is injected.</p>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/b6ydw8yBs/" class="tag">
+                    C#高级编程
+                  </a>
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/htwe1iOBpj/" class="tag">
+                    C#
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zhangyue-vhyt.github.io/post/csharp-notes-2/">
+                  <h3 class="post-title">
+                    《C#高级编程》- The C# Language Part 2
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

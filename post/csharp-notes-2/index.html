@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>《C#高级编程》- The C# Language Part 2 | 咸鱼の家</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1589871342624">
+<link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Introduction
+Chapter 18 是关于 IDE 的，不重要所以未收录。
+Chapter 10: Collections
+
+集合和数据结构
+集合 (C#)
+
+COLLECTION INTERFACES AND TYPES
+
+
+..." />
+    <meta name="keywords" content="C#高级编程,C#" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1589871342624" class="site-logo">
+        <h1 class="site-title">咸鱼の家</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.zhangyue.dev" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      海带缠潜艇，雾霾防激光。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhangyue-vhyt.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">《C#高级编程》- The C# Language Part 2</h2>
+            <div class="post-date">2020-05-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="introduction">Introduction</h1>
+<p>Chapter 18 是关于 IDE 的，不重要所以未收录。</p>
+<h1 id="chapter-10-collections">Chapter 10: Collections</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/collections/">集合和数据结构</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/collections">集合 (C#)</a></li>
+</ul>
+<h2 id="collection-interfaces-and-types">COLLECTION INTERFACES AND TYPES</h2>
+<table>
+<thead>
+<tr>
+<th>INTERFACE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IEnumerable&lt;T&gt;</code></td>
+<td>The interface <code>IEnumerable</code> is required by the <code>foreach</code> statement. This interface defines the method <code>GetEnumerator</code>, which returns an enumerator that implements the <code>IEnumerator</code> interface.</td>
+</tr>
+<tr>
+<td><code>ICollection&lt;T&gt;</code></td>
+<td><code>ICollection&lt;T&gt;</code> is implemented by generic collection classes. With this you can get the number of items in the collection <code>Count</code> property), and copy the collection to an array (<code>CopyTo</code> method). You can also add and remove items from the collection (<code>Add, Remove, Clear</code>).</td>
+</tr>
+<tr>
+<td><code>IList&lt;T&gt;</code></td>
+<td>The <code>IList&lt;T&gt;</code> interface is for lists where elements can be accessed from their position. This interface defines an indexer, as well as ways to insert or remove items from specific positions (<code>Insert, RemoveAt</code> methods). <code>IList&lt;T&gt;</code> derives from <code>ICollection&lt;T&gt;</code>.</td>
+</tr>
+<tr>
+<td><code>ISet&lt;T&gt;</code></td>
+<td>This interface is implemented by sets. Sets allow combining different sets into a union, getting the intersection of two sets, and checking whether two sets overlap. <code>ISet&lt;T&gt;</code> derives from <code>ICollection&lt;T&gt;</code>.</td>
+</tr>
+<tr>
+<td><code>IDictionary&lt;TKey, TValue&gt;</code></td>
+<td>The interface <code>IDictionary&lt;TKey, TValue&gt;</code> is implemented by generic collection classes that have a key and a value. With this interface all the keys and values can be accessed, items can be accessed with an indexer of type key, and items can be added or removed.</td>
+</tr>
+<tr>
+<td><code>ILookup&lt;TKey, TValue&gt;</code></td>
+<td>Like the <code>IDictionary&lt;TKey, TValue&gt;</code> interface, lookups have keys and values. However, with lookups the collection can contain multiple values with one key.</td>
+</tr>
+<tr>
+<td><code>IComparer&lt;T&gt;</code></td>
+<td>The interface <code>IComparer&lt;T&gt;</code> is implemented by a comparer and used to sort elements inside a collection with the <code>Compare</code> method.</td>
+</tr>
+<tr>
+<td><code>IEqualityComparer&lt;T&gt;</code></td>
+<td><code>IEqualityComparer&lt;T&gt;</code>  is implemented by a comparer that can be used for keys in a dictionary. With this interface the objects can be compared for equality.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="performance">PERFORMANCE</h2>
+<p>COLLECTION|ADD|INSERT|REMOVE|ITEM|SORT|FIND</p>
+<table>
+<thead>
+<tr>
+<th>COLLECTION</th>
+<th>ADD</th>
+<th>INSERT</th>
+<th>REMOVE</th>
+<th>ITEM</th>
+<th>SORT</th>
+<th>FIND</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List&lt;T&gt;</code></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> if the collection must be resized</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O (n \log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> worst case <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n ^ 2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+</tr>
+<tr>
+<td><code>Stack&lt;T&gt;</code></td>
+<td><code>Push</code>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>, or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> if the stack must be resized</td>
+<td>n/a</td>
+<td><code>Pop</code>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td><code>Queue&lt;T&gt;</code></td>
+<td><code>Enqueue</code>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>, or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> if the queue must be resized</td>
+<td>n/a</td>
+<td><code>Dequeue</code>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td><code>HashSet&lt;T&gt;</code></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> if the set must be resized</td>
+<td><code>Add</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td><code>SortedSet&lt;T&gt;</code></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> if the set must be resized</td>
+<td><code>Add</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td><code>LinkedList&lt;T&gt;</code></td>
+<td><code>AddLast</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td><code>Add After</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td>n/a</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+</tr>
+<tr>
+<td><code>Dictionary&lt;TKey, TValue&gt;</code></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td><code>SortedDictionary&lt;TKey, TValue&gt;</code></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td><code>SortedList&lt;TKey, TValue&gt;</code></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> for unsorted data, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> for end of list, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> if resize is needed</td>
+<td>n/a</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> to read/write, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> if the key is in the list, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> if the key is not in the list</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-11-special-collections">Chapter 11: Special Collections</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.collections.specialized?view=netcore-3.1">System.Collections.Specialized 命名空间</a></li>
+</ul>
+<h2 id="working-with-bits">WORKING WITH BITS</h2>
+<p><em><strong>高阶知识，以后再补</strong></em></p>
+<h2 id="observable-collections">OBSERVABLE COLLECTIONS</h2>
+<p><em><strong>高阶知识，以后再补</strong></em></p>
+<h2 id="immutable-collections">IMMUTABLE COLLECTIONS</h2>
+<p><em><strong>高阶知识，以后再补</strong></em></p>
+<h2 id="concurrent-collections">CONCURRENT COLLECTIONS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/collections/thread-safe/">线程安全集合</a></li>
+</ul>
+<h1 id="chapter-12-language-integrated-query">Chapter 12: Language Integrated Query</h1>
+<h2 id="linq-overview">LINQ OVERVIEW</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/using-linq">LINQ（语言集成查询）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/linq/linq-in-csharp">C# 中的 LINQ</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/linq/">语言集成查询 (LINQ)</a></li>
+</ul>
+<h2 id="standard-query-operators">STANDARD QUERY OPERATORS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/linq/query-expression-syntax-for-standard-query-operators">标准查询运算符的查询表达式语法 (C#)</a></li>
+</ul>
+<h2 id="parallel-linq">PARALLEL LINQ</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-programming/introduction-to-plinq">PLINQ 介绍</a></li>
+</ul>
+<h2 id="expression-trees">EXPRESSION TREES</h2>
+<p><em><strong>高阶知识，以后再补</strong></em></p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/expression-trees">表达式树</a></li>
+</ul>
+<h2 id="linq-providers">LINQ PROVIDERS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/linq/how-to-add-custom-methods-for-linq-queries">如何为 LINQ 查询添加自定义方法 (C#)</a></li>
+</ul>
+<h1 id="chapter-13-functional-programming-with-c">Chapter 13: Functional Programming with C#</h1>
+<ul>
+<li>C# 不是函数式语言，对纯函数式编程感兴趣请选择 F#。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/linq/functional-programming-vs-imperative-programming">函数编程与命令式编程 (C#)</a></li>
+</ul>
+<h2 id="tuples">TUPLES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/tuples">C# 元组类型</a></li>
+</ul>
+<h2 id="pattern-matching">PATTERN MATCHING</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/pattern-matching">模式匹配</a></li>
+</ul>
+<h1 id="chapter-14-errors-and-exceptions">Chapter 14: Errors and Exceptions</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/exceptions/">异常和异常处理（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/exceptions/">在 .NET 中处理和引发异常</a></li>
+</ul>
+<h1 id="chapter-15-asynchronous-programming">Chapter 15: Asynchronous Programming</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/async">异步编程</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/async/">使用 Async 和 Await 的异步编程</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-processing-and-concurrency">.NET 中的并行处理、并发和异步编程</a></li>
+</ul>
+<h2 id="error-handling">ERROR HANDLING</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/try-catch#async-method-example">异步方法示例</a></li>
+</ul>
+<h1 id="chapter-16-reflection-metadata-and-dynamic-programming">Chapter 16: Reflection, Metadata, and Dynamic Programming</h1>
+<ul>
+<li>此章设计底层理论知识，建议看书。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/55694402">Siki——C#高级教程 (37~43) 反射和特性</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/metadata-and-self-describing-components">元数据和自描述组件</a></li>
+</ul>
+<h2 id="custom-attributes">CUSTOM ATTRIBUTES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/attributes/">特性 (C#)</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/attributes/">利用特性扩展元数据</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/tutorials/attributes">在 C# 中使用属性</a></li>
+</ul>
+<h2 id="using-reflection">USING REFLECTION</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/41282759">C#反射机制</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/reflection">反射 (C#)</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/reflection-and-codedom/reflection">.NET 中的反射</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/assembly/">.NET 中的程序集</a></li>
+</ul>
+<h2 id="the-dynamic-type">THE DYNAMIC TYPE</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type">动态类型</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/types/using-type-dynamic">使用类型 dynamic（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/reflection-and-codedom/">.NET Framework 中的动态编程</a></li>
+</ul>
+<h1 id="chapter-17-managed-and-unmanaged-memory">Chapter 17: Managed and Unmanaged Memory</h1>
+<ul>
+<li>此章涉及底层理论知识，建议看书。</li>
+<li>除 GC 部分外的高阶知识可以以后补。</li>
+</ul>
+<h2 id="memory-management-under-the-hood">MEMORY MANAGEMENT UNDER THE HOOD</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/">垃圾回收</a></li>
+</ul>
+<h2 id="strong-and-weak-references">STRONG AND WEAK REFERENCES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/weak-references">弱引用</a></li>
+</ul>
+<h2 id="working-with-unmanaged-resources">WORKING WITH UNMANAGED RESOURCES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/unmanaged">清理非托管资源</a></li>
+</ul>
+<h2 id="unsafe-code">UNSAFE CODE</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/unsafe-code-pointers/">不安全代码和指针（C# 编程指南）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/unsafe">unsafe（C# 参考）</a></li>
+</ul>
+<h2 id="reference-semantics">REFERENCE SEMANTICS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-7#ref-locals-and-returns">Ref 局部变量和返回结果</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-7-2#safe-efficient-code-enhancements">安全高效的代码的增强功能</a></li>
+</ul>
+<h2 id="spant">SPAN<T></h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.span-1?view=netcore-3.1">Span<T> 结构</a></li>
+</ul>
+<blockquote>
+<p>Chapter 3 includes creating reference types (classes) and value types (structs). Instances of classes are stored on the managed heap. The value of structs can be stored on the stack, or, when boxing is used, on the managed heap. Now we have another kind: a type that can have its value only on the stack but never on the heap, sometimes called <em>ref-like</em> types. Boxing is not possible with these types. Such a type is declared with the <code>ref struct</code> keyword. Using <code>ref struct</code> gives some additional behaviors and restrictions. The restrictions are the following:</p>
+<ul>
+<li>They can't be added as array items.</li>
+<li>They can't be used as generic type argument.</li>
+<li>They can't be boxed.</li>
+<li>They can't be static fields.</li>
+<li>They can only be instance fields of ref-like types.</li>
+</ul>
+</blockquote>
+<h2 id="platform-invoke">PLATFORM INVOKE</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/interop/marshaling-data-with-platform-invoke">用平台调用封送数据</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/interop/platform-invoke-examples">平台调用示例</a></li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/b6ydw8yBs/" class="tag">
+                    C#高级编程
+                  </a>
+                
+                  <a href="https://zhangyue-vhyt.github.io/tag/htwe1iOBpj/" class="tag">
+                    C#
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zhangyue-vhyt.github.io/post/csharp-notes-1/">
+                  <h3 class="post-title">
+                    《C#高级编程》- The C# Language Part 1
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
