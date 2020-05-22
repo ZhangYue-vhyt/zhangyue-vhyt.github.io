@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1589871755110">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1590179310365">
 <link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
 
 
@@ -32,7 +32,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
-        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1589871755110" class="site-logo">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1590179310365" class="site-logo">
         <h1 class="site-title">咸鱼の家</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -99,7 +99,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">《C#高级编程》- .Net Core and Windows Runtime</h2>
-            <div class="post-date">2020-05-16</div>
+            <div class="post-date">2020-05-15</div>
             
               <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
               </div>
@@ -128,17 +128,18 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></li>
 <li><a href="https://angular.cn/guide/architecture-services">服务与依赖注入简介</a></li>
+<li>在 .Net Core 中，可以把除了 <code>StartUp</code> 和 <code>Program</code> 之外的类都当作服务。</li>
 </ul>
 <h3 id="using-a-service-without-dependency-injection">Using a Service Without Dependency Injection</h3>
 <p>代码来源于《C#高级编程》</p>
 <p>创建一个依赖/服务</p>
-<pre><code class="language-cs">public class GreetingService 
+<pre><code class="language-csharp">public class GreetingService 
 {
     public string Greet(string name) =&gt; $&quot;Hello, {name}&quot;; 
 }
 </code></pre>
-<p>创建一个使用服务的类</p>
-<pre><code class="language-cs">public class HomeController 
+<p>创建一个使用上述服务的新服务</p>
+<pre><code class="language-csharp">public class HomeController 
 {
     public string Hello(string name) 
     {
@@ -148,7 +149,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 }
 </code></pre>
 <p><code>Main</code> 函数</p>
-<pre><code class="language-cs">static void Main() 
+<pre><code class="language-csharp">static void Main() 
 {
     var controller = new HomeController(); 
     string result = controller.Hello(&quot;Stephanie&quot;); 
@@ -161,19 +162,19 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
 </blockquote>
 <p>创建服务接口</p>
-<pre><code class="language-cs">public interface IGreetingService 
+<pre><code class="language-csharp">public interface IGreetingService 
 {
     string Greet(string name); 
 }
 </code></pre>
 <p>创建服务</p>
-<pre><code class="language-cs">public class GreetingService : IGreetingService 
+<pre><code class="language-csharp">public class GreetingService : IGreetingService 
 {
     public string Greet(string name) =&gt; $&quot;Hello, {name}&quot;; 
 }
 </code></pre>
-<p>创建一个依赖服务的类</p>
-<pre><code class="language-cs">public class HomeController 
+<p>创建一个依赖上述服务的新服务</p>
+<pre><code class="language-csharp">public class HomeController 
 {
     private readonly IGreetingService _greetingService; 
 
@@ -188,7 +189,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 }
 </code></pre>
 <p><code>Main</code> 函数</p>
-<pre><code class="language-cs">static void Main() 
+<pre><code class="language-csharp">static void Main() 
 {
     var controller = new HomeController(new GreetingService()); 
     string result = controller.Hello(&quot;Matthias&quot;); 
@@ -204,7 +205,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
 </blockquote>
 <p>服务容器的示例：</p>
-<pre><code class="language-cs">static ServiceProvider RegisterServices() 
+<pre><code class="language-csharp">static ServiceProvider RegisterServices() 
 {
     var services = new ServiceCollection(); // 创建一个服务容器
     services.AddSingleton&lt;IGreetingService, GreetingService&gt;();
@@ -213,7 +214,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 }
 </code></pre>
 <p><code>Main</code> 函数</p>
-<pre><code class="language-cs">static void Main() 
+<pre><code class="language-csharp">static void Main() 
 {
     using (ServiceProvider container = RegisterServices()) 
     {
@@ -225,9 +226,122 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 }
 </code></pre>
 <h2 id="lifetime-of-services">LIFETIME OF SERVICES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes">服务生存期</a></li>
+<li><a href="https://itcodemonkey.com/article/14400.html">.NET Core 注入中的三种模式：Singleton、Scoped 和 Transient</a></li>
+</ul>
+<h3 id="using-singleton-and-transient-services">Using Singleton and Transient Services</h3>
 <blockquote>
 <p>Registering a service as a singleton always returns the same instance, and registering a service as transient returns a new object every time the service is injected.</p>
 </blockquote>
+<h3 id="using-scoped-services">Using Scoped Services</h3>
+<blockquote>
+<p>Services can also be registered within a scope. This is something inbetween transient and singleton. With singleton, only a single instance is created. Transient creates a new instance every time the service is requested from the container. With scoped, always the same instance is returned from the same scope, but from a different scope a different instance is returned.</p>
+</blockquote>
+<h2 id="initialization-of-services-using-options-and-using-configuration-files">INITIALIZATION OF SERVICES USING OPTIONS and USING CONFIGURATION FILES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">ASP.NET Core 中的选项模式</a></li>
+<li><a href="https://www.cnblogs.com/wzk153/p/11307014.html">（13）ASP.NET Core2.2 中的选项模式（Options）</a></li>
+</ul>
+<h2 id="creating-platform-independence">CREATING PLATFORM INDEPENDENCE</h2>
+<blockquote>
+<p>Dependency injection also can be used to use platform-specific features from platform-independent libraries.</p>
+</blockquote>
+<p>这部分内容是不跨平台的，以后有需要再补。</p>
+<h2 id="using-other-di-containers">USING OTHER DI CONTAINERS</h2>
+<blockquote>
+<p><code>Microsoft.Extensions.DependencyInjection</code> is a simple DI container; many third-party containers offer additional functionality. For example, Autofac allows configuration of the services in a configuration file.</p>
+</blockquote>
+<p>原生的 DI 容器非常轻量，如果需要更复杂的容器，推荐使用 <a href="https://autofaccn.readthedocs.io/zh/latest/">Autofac</a>。</p>
+<h1 id="chapter-21-tasks-and-parallel-programming">Chapter 21: Tasks and Parallel Programming</h1>
+<h2 id="overview">OVERVIEW</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-processing-and-concurrency">.NET 中的并行处理、并发和异步编程</a></li>
+<li>C# 使用 <code>Task</code> 进行异步编程，<code>Parallel</code> 类进行并行编程。如果想要更多的控制权限，使用 <code>Thread</code>。</li>
+<li>需要同步机制 <code>synchronization</code> 去防止竞争危害 (race condition) 和死锁 (deadlock)。</li>
+<li>除了 <code>synchronization</code> 外，使用不可变类型 (immutable types) 也是一种方案。</li>
+</ul>
+<h2 id="parallel-class">PARALLEL CLASS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-programming/data-parallelism-task-parallel-library?view=netcore-3.1">数据并行（任务并行库）</a></li>
+</ul>
+<p>代码演示：</p>
+<pre><code class="language-csharp">public static void Log(string prefix) =&gt;
+    Console.WriteLine($&quot;{prefix}, task: {Task.CurrentId}, &quot; +
+        $&quot;thread: {Thread.CurrentThread.ManagedThreadId}&quot;);
+</code></pre>
+<pre><code class="language-csharp">public static void ParallelFor() 
+{
+    ParallelLoopResult result = Parallel.For(0, 10, i =&gt; 
+    {
+        Log($&quot;S {i}&quot;); Task.Delay(10).Wait(); Log($&quot;E {i}&quot;);
+    }); 
+    Console.WriteLine($&quot;Is completed: {result.IsCompleted}&quot;); 
+}
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-sh">S 2 task: 1, thread: 3 
+S 4 task: 2, thread: 4 
+S 0 task: 4, thread: 2 
+S 6 task: 5, thread: 5 
+S 8 task: 3, thread: 6 
+E 6 task: 5, thread: 5 
+E 0 task: 4, thread: 2 
+S 1 task: 4, thread: 2 
+E 4 task: 2, thread: 4 
+S 5 task: 8, thread: 4 
+E 2 task: 1, thread: 3 
+S 9 task: 9, thread: 3 
+E 8 task: 3, thread: 6 
+S 3 task: 7, thread: 8 
+S 7 task: 6, thread: 5 
+E 5 task: 8, thread: 4 
+E 1 task: 4, thread: 2 
+E 3 task: 7, thread: 8 
+E 7 task: 6, thread: 5 
+E 9 task: 9, thread: 3 
+Is completed: True
+</code></pre>
+<p>修改代码：</p>
+<pre><code class="language-csharp">public static void ParallelForWithAsync()
+{
+    ParallelLoopResult result = 
+        Parallel.For(0, 10, async i =&gt; 
+        {
+            Log($&quot;S {i}&quot;); 
+            await Task.Delay(10); 
+            Log($&quot;E {i}&quot;);
+        });
+    Console.WriteLine($&quot;is completed: {result.IsCompleted}&quot;);
+}
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-sh">S 0, task: 5, thread: 1
+S 8, task: 8, thread: 7
+S 6, task: 7, thread: 8
+S 4, task: 9, thread: 6 
+S 2, task: 6, thread: 5 
+S 7, task: 7, thread: 8 
+S 1, task: 5, thread: 1 
+S 5, task: 9, thread: 6 
+S 9, task: 8, thread: 7 
+S 3, task: 6, thread: 5
+Is completed: True 
+E 2, task: , thread: 8 
+E 0, task: , thread: 8 
+E 8, task: , thread: 5 
+E 6, task: , thread: 7 
+E 4, task: , thread: 6 
+E 5, task: , thread: 7 
+E 7, task: , thread: 7 
+E 1, task: , thread: 6 
+E 3, task: , thread: 5 
+E 9, task: , thread: 8
+</code></pre>
+<h2 id="stopping-parallelfor-early">Stopping Parallel.For Early</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-programming/how-to-write-a-parallel-for-loop-with-thread-local-variables">如何：编写具有线程局部变量的 Parallel.For 循环</a></li>
+</ul>
 
             </div>
             
