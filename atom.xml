@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-25T12:37:19.762Z</updated>
+    <updated>2020-05-25T20:35:52.208Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/csharp-note-3/</id>
         <link href="https://zhangyue-vhyt.github.io/post/csharp-note-3/">
         </link>
-        <updated>2020-05-14T04:13:05.000Z</updated>
+        <updated>2020-05-13T04:13:05.000Z</updated>
         <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>这部分是关于 .NET Core and the Windows Runtime 的内容。</p>
 <h1 id="chapter-19-libraries-assemblies-packages-and-nuget">Chapter 19: Libraries, Assemblies, Packages, and NuGet</h1>
@@ -205,6 +205,20 @@
 <ul>
 <li>官方文档使用的是 <code>StreamReader</code> 和 <code>StreamWriter</code> 进行读写操作。</li>
 <li>对于小文件，<code>File.ReadAllText</code> 和 <code>File.WriteAllText</code> 是更便捷的方式，详情参考 <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.file?view=netcore-3.1">File 类</a></li>
+</ul>
+<h2 id="enumerating-files">ENUMERATING FILES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-enumerate-directories-and-files">如何：枚举目录和文件</a></li>
+</ul>
+<h2 id="working-with-streams">WORKING WITH STREAMS</h2>
+<blockquote>
+<p>A stream is an object used to transfer data.</p>
+</blockquote>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.filestream?view=netcore-3.1">FileStream 类</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-and-write-to-a-newly-created-data-file">如何：对新建的数据文件进行读取和写入</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-write-text-to-a-file">如何：将文本写入文件</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-text-from-a-file">如何：从文件中读取文本</a></li>
 </ul>
 ]]></content>
     </entry>
