@@ -758,3 +758,15 @@ a {
   font-size: 16px;
   margin: 4px 8px;
 }
+
+      .sidebar {
+        width: 480px;
+      }
+      .main-container {
+        margin-left: 480px;
+      }
+    
+      body {
+        background: #dee2e6;
+      }
+    

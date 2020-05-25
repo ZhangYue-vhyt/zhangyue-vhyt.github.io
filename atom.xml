@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-22T20:28:33.402Z</updated>
+    <updated>2020-05-25T12:37:19.762Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/csharp-note-3/</id>
         <link href="https://zhangyue-vhyt.github.io/post/csharp-note-3/">
         </link>
-        <updated>2020-05-15T04:13:05.000Z</updated>
+        <updated>2020-05-14T04:13:05.000Z</updated>
         <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>这部分是关于 .NET Core and the Windows Runtime 的内容。</p>
 <h1 id="chapter-19-libraries-assemblies-packages-and-nuget">Chapter 19: Libraries, Assemblies, Packages, and NuGet</h1>
@@ -165,93 +165,46 @@
 </blockquote>
 <p>原生的 DI 容器非常轻量，如果需要更复杂的容器，推荐使用 <a href="https://autofaccn.readthedocs.io/zh/latest/">Autofac</a>。</p>
 <h1 id="chapter-21-tasks-and-parallel-programming">Chapter 21: Tasks and Parallel Programming</h1>
+<ul>
+<li>《C#高级编程》中并行和异步内容过于详细庞杂，在学习时推荐上手练习 LeetCode 中 Concurrency 题目。</li>
+</ul>
 <h2 id="overview">OVERVIEW</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-processing-and-concurrency">.NET 中的并行处理、并发和异步编程</a></li>
 <li>C# 使用 <code>Task</code> 进行异步编程，<code>Parallel</code> 类进行并行编程。如果想要更多的控制权限，使用 <code>Thread</code>。</li>
 <li>需要同步机制 <code>synchronization</code> 去防止竞争危害 (race condition) 和死锁 (deadlock)。</li>
 <li>除了 <code>synchronization</code> 外，使用不可变类型 (immutable types) 也是一种方案。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/threading/overview-of-synchronization-primitives">同步基元概述</a></li>
 </ul>
 <h2 id="parallel-class">PARALLEL CLASS</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-programming/data-parallelism-task-parallel-library?view=netcore-3.1">数据并行（任务并行库）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.threading.tasks.parallel?view=netcore-3.1">Parallel 类</a></li>
+<li><a href="https://www.cnblogs.com/yunfeifei/p/3993401.html">5天玩转C#并行和多线程编程 —— 第一天 认识Parallel</a></li>
 </ul>
-<p>代码演示：</p>
-<pre><code class="language-csharp">public static void Log(string prefix) =&gt;
-    Console.WriteLine($&quot;{prefix}, task: {Task.CurrentId}, &quot; +
-        $&quot;thread: {Thread.CurrentThread.ManagedThreadId}&quot;);
-</code></pre>
-<pre><code class="language-csharp">public static void ParallelFor() 
-{
-    ParallelLoopResult result = Parallel.For(0, 10, i =&gt; 
-    {
-        Log($&quot;S {i}&quot;); Task.Delay(10).Wait(); Log($&quot;E {i}&quot;);
-    }); 
-    Console.WriteLine($&quot;Is completed: {result.IsCompleted}&quot;); 
-}
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-sh">S 2 task: 1, thread: 3 
-S 4 task: 2, thread: 4 
-S 0 task: 4, thread: 2 
-S 6 task: 5, thread: 5 
-S 8 task: 3, thread: 6 
-E 6 task: 5, thread: 5 
-E 0 task: 4, thread: 2 
-S 1 task: 4, thread: 2 
-E 4 task: 2, thread: 4 
-S 5 task: 8, thread: 4 
-E 2 task: 1, thread: 3 
-S 9 task: 9, thread: 3 
-E 8 task: 3, thread: 6 
-S 3 task: 7, thread: 8 
-S 7 task: 6, thread: 5 
-E 5 task: 8, thread: 4 
-E 1 task: 4, thread: 2 
-E 3 task: 7, thread: 8 
-E 7 task: 6, thread: 5 
-E 9 task: 9, thread: 3 
-Is completed: True
-</code></pre>
-<p>修改代码：</p>
-<pre><code class="language-csharp">public static void ParallelForWithAsync()
-{
-    ParallelLoopResult result = 
-        Parallel.For(0, 10, async i =&gt; 
-        {
-            Log($&quot;S {i}&quot;); 
-            await Task.Delay(10); 
-            Log($&quot;E {i}&quot;);
-        });
-    Console.WriteLine($&quot;is completed: {result.IsCompleted}&quot;);
-}
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-sh">S 0, task: 5, thread: 1
-S 8, task: 8, thread: 7
-S 6, task: 7, thread: 8
-S 4, task: 9, thread: 6 
-S 2, task: 6, thread: 5 
-S 7, task: 7, thread: 8 
-S 1, task: 5, thread: 1 
-S 5, task: 9, thread: 6 
-S 9, task: 8, thread: 7 
-S 3, task: 6, thread: 5
-Is completed: True 
-E 2, task: , thread: 8 
-E 0, task: , thread: 8 
-E 8, task: , thread: 5 
-E 6, task: , thread: 7 
-E 4, task: , thread: 6 
-E 5, task: , thread: 7 
-E 7, task: , thread: 7 
-E 1, task: , thread: 6 
-E 3, task: , thread: 5 
-E 9, task: , thread: 8
-</code></pre>
-<h2 id="stopping-parallelfor-early">Stopping Parallel.For Early</h2>
+<h2 id="tasks">TASKS</h2>
+<blockquote>
+<p>Parallel.For用起来方便，但是在实际开发中还是尽量少用，因为它的不可控性太高，有点简单粗暴的感觉，可能带来一些不必要的&quot;麻烦&quot;,最好还是使用Task，因为Task的可控性较好。</p>
+<p>--- 5天玩转 C# 并行和多线程编程</p>
+</blockquote>
 <ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-programming/how-to-write-a-parallel-for-loop-with-thread-local-variables">如何：编写具有线程局部变量的 Parallel.For 循环</a></li>
+<li><a href="https://www.cnblogs.com/yunfeifei/p/4106318.html">5天玩转C#并行和多线程编程 —— 第三天 认识和使用Task</a></li>
+</ul>
+<h1 id="chapter-22-files-and-streams">Chapter 22: Files and Streams</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/">文件和流 I/O</a></li>
+</ul>
+<h2 id="managing-the-file-system">MANAGING THE FILE SYSTEM</h2>
+<blockquote>
+<p>Directories or folders? These terms are often used interchangeably. Directory is a classical term for a file system object. A directory contains files and other directories. A folder has its origin with Apple's Lisa and is a GUI object. Often it is associated with an icon to map to a directory.</p>
+</blockquote>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/#files-and-directories">文件和目录</a></li>
+</ul>
+<h3 id="using-file-to-read-and-write">Using File to Read and Write</h3>
+<ul>
+<li>官方文档使用的是 <code>StreamReader</code> 和 <code>StreamWriter</code> 进行读写操作。</li>
+<li>对于小文件，<code>File.ReadAllText</code> 和 <code>File.WriteAllText</code> 是更便捷的方式，详情参考 <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.file?view=netcore-3.1">File 类</a></li>
 </ul>
 ]]></content>
     </entry>
