@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1590438949797">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1590462162874">
 <link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
 
 
@@ -32,7 +32,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
-        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1590438949797" class="site-logo">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1590462162874" class="site-logo">
         <h1 class="site-title">咸鱼の家</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -99,7 +99,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">《C#高级编程》- .Net Core and Windows Runtime</h2>
-            <div class="post-date">2020-05-13</div>
+            <div class="post-date">2020-05-12</div>
             
               <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
               </div>
@@ -132,70 +132,22 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 </ul>
 <h3 id="using-a-service-without-dependency-injection">Using a Service Without Dependency Injection</h3>
 <p>代码来源于《C#高级编程》</p>
-<p>创建一个依赖/服务</p>
-<pre><code class="language-csharp">public class GreetingService 
-{
-    public string Greet(string name) =&gt; $&quot;Hello, {name}&quot;; 
-}
-</code></pre>
-<p>创建一个使用上述服务的新服务</p>
-<pre><code class="language-csharp">public class HomeController 
-{
-    public string Hello(string name) 
-    {
-        var service = new GreetingService(); 
-        return service.Greet(name);
-    } 
-}
-</code></pre>
-<p><code>Main</code> 函数</p>
-<pre><code class="language-csharp">static void Main() 
-{
-    var controller = new HomeController(); 
-    string result = controller.Hello(&quot;Stephanie&quot;); 
-    Console.WriteLine(result);
-}
-</code></pre>
+<ol>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/GreetingService.cs">创建一个依赖/服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/HomeController.cs">创建一个使用上述服务的新服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/Program.cs"><code>Main</code> 函数</a></li>
+</ol>
 <h3 id="using-dependency-injection">Using Dependency Injection</h3>
 <blockquote>
 <p>使用接口或基类抽象化依赖关系实现。</p>
 <p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
 </blockquote>
-<p>创建服务接口</p>
-<pre><code class="language-csharp">public interface IGreetingService 
-{
-    string Greet(string name); 
-}
-</code></pre>
-<p>创建服务</p>
-<pre><code class="language-csharp">public class GreetingService : IGreetingService 
-{
-    public string Greet(string name) =&gt; $&quot;Hello, {name}&quot;; 
-}
-</code></pre>
-<p>创建一个依赖上述服务的新服务</p>
-<pre><code class="language-csharp">public class HomeController 
-{
-    private readonly IGreetingService _greetingService; 
-
-    public HomeController(IGreetingService greetingService) 
-    {
-        _greetingService = greetingService ?? throw new
-            ArgumentNullException(nameof(greetingService)); 
-    }
-
-    public string Hello(string name) =&gt;
-        _greetingService.Greet(name); 
-}
-</code></pre>
-<p><code>Main</code> 函数</p>
-<pre><code class="language-csharp">static void Main() 
-{
-    var controller = new HomeController(new GreetingService()); 
-    string result = controller.Hello(&quot;Matthias&quot;); 
-    Console.WriteLine(result);
-}
-</code></pre>
+<ol>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/IGreetingService.cs">创建被依赖的服务接口</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/GreetingService.cs">创建被依赖的服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/HomeController.cs">创建一个依赖上述服务的新服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/Program.cs"><code>Main</code> 函数</a></li>
+</ol>
 <h2 id="using-the-net-core-di-container">USING THE .NET CORE DI CONTAINER</h2>
 <blockquote>
 <ul>
@@ -205,26 +157,12 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
 </blockquote>
 <p>服务容器的示例：</p>
-<pre><code class="language-csharp">static ServiceProvider RegisterServices() 
-{
-    var services = new ServiceCollection(); // 创建一个服务容器
-    services.AddSingleton&lt;IGreetingService, GreetingService&gt;();
-    services.AddTransient&lt;HomeController&gt;(); 
-    return services.BuildServiceProvider();
-}
-</code></pre>
-<p><code>Main</code> 函数</p>
-<pre><code class="language-csharp">static void Main() 
-{
-    using (ServiceProvider container = RegisterServices()) 
-    {
-        var controller =
-            container.GetRequiredService&lt;HomeController&gt;(); 
-        string result = controller.Hello(&quot;Katharina&quot;); 
-        Console.WriteLine(result);
-    } 
-}
-</code></pre>
+<ol>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/IGreetingService.cs">创建被依赖的服务接口</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/GreetingService.cs">创建被依赖的服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/HomeController.cs">创建一个依赖上述服务的新服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/Program.cs"><code>Main</code> 函数</a></li>
+</ol>
 <h2 id="lifetime-of-services">LIFETIME OF SERVICES</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes">服务生存期</a></li>
@@ -242,6 +180,8 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">ASP.NET Core 中的选项模式</a></li>
 <li><a href="https://www.cnblogs.com/wzk153/p/11307014.html">（13）ASP.NET Core2.2 中的选项模式（Options）</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithOptions">DI with options example</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithConfiguration">DI with configuration files example</a></li>
 </ul>
 <h2 id="creating-platform-independence">CREATING PLATFORM INDEPENDENCE</h2>
 <blockquote>
@@ -253,6 +193,9 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <p><code>Microsoft.Extensions.DependencyInjection</code> is a simple DI container; many third-party containers offer additional functionality. For example, Autofac allows configuration of the services in a configuration file.</p>
 </blockquote>
 <p>原生的 DI 容器非常轻量，如果需要更复杂的容器，推荐使用 <a href="https://autofaccn.readthedocs.io/zh/latest/">Autofac</a>。</p>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithAutofac">DI with Autofac example</a></li>
+</ul>
 <h1 id="chapter-21-tasks-and-parallel-programming">Chapter 21: Tasks and Parallel Programming</h1>
 <ul>
 <li>《C#高级编程》中并行和异步内容过于详细庞杂，在学习时推荐上手练习 LeetCode 中 Concurrency 题目。</li>
@@ -304,10 +247,53 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <p>A stream is an object used to transfer data.</p>
 </blockquote>
 <ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/StreamSamples/Program.cs">Stream Samples</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.filestream?view=netcore-3.1">FileStream 类</a></li>
+</ul>
+<h2 id="using-readers-and-writers">USING READERS AND WRITERS</h2>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/ReaderWriterSamples/Program.cs">Reader Writer Samples</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-and-write-to-a-newly-created-data-file">如何：对新建的数据文件进行读取和写入</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-write-text-to-a-file">如何：将文本写入文件</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-text-from-a-file">如何：从文件中读取文本</a></li>
+</ul>
+<h2 id="compressing-files">COMPRESSING FILES</h2>
+<blockquote>
+<p>Both <code>DeflateStream</code> and <code>GZipStream</code> use the same algorithm for compression (in fact, <code>GZipStream</code> uses <code>DeflateStream</code> behind the scenes), but <code>GZipStream</code> adds a cyclic redundancy check to detect data corruption. <code>Brotli</code> is a relatively new open-source compression algorithm from Google. The speed of <code>Brotli</code> is similar to deflate, but it offers a better compression. Contrary to most other compression algorithms, it uses a dictionary for often-used words for better compression. Nowadays this algorithm is supported by most modern browsers.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs">Compress File Sample</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-compress-and-extract-files">如何：压缩和解压缩文件</a></li>
+</ul>
+<h3 id="using-brotli">Using Brotli</h3>
+<blockquote>
+<p>Add the NuGet package <code>System.IO.Compression.Brotli</code> and instantiate the <code>BrotliStream</code> class</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs#L90-L100">Compress file with Brotli example</a></li>
+</ul>
+<blockquote>
+<p>Decompression works accordingly using <code>BrotliStream</code>:</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs#L102-L116">Decompress file with Brotli example</a></li>
+</ul>
+<h2 id="watching-file-changes">WATCHING FILE CHANGES</h2>
+<blockquote>
+<p>With <code>FileSystemWatcher</code>, you can monitor file changes. Events are fired on creating, renaming, deleting, and changing files. This can be used in scenarios where you need to react on file changes — for example, with a server when a file is uploaded, or in a case where a file is cached in memory and the cache needs to be invalidated when the file changes.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/FileMonitor/Program.cs">File monitor samples</a></li>
+</ul>
+<h2 id="working-with-memory-mapped-files">WORKING WITH MEMORY MAPPED FILES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/memory-mapped-files">内存映射文件</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/MemoryMappedFilesSample/Program.cs">Memory mapped files sample</a></li>
+</ul>
+<h2 id="communicating-with-pipes">COMMUNICATING WITH PIPES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipe-operations">.NET 中的管道操作</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipelines">.NET 中的 System.IO.Pipelines</a></li>
 </ul>
 
             </div>
