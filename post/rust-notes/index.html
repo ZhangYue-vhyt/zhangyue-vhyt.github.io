@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>How To Make C# Discord Bot | 咸鱼の家</title>
+<title>《Rust 编程之道》笔记 | 咸鱼の家</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -19,9 +19,14 @@
 
 
     <meta name="description" content="前言
-此文是跟着视频 How To Make C# Discord Bot 学习时需要注意的地方，主要是使用新方案替代视频中已经不可用的旧方案。
-How To Make A C# Discord Bot - Setting Up - Par..." />
-    <meta name="keywords" content="C#,游戏" />
+Rust 学习笔记
+第1章 新时代的语言
+书中这部分内容可以跳过。此处罗列下 Rust 和 C# 中术语的映射关系。
+
+Workspace -&gt; Solution
+Crate -&gt; Project
+Module -&gt;..." />
+    <meta name="keywords" content="Rust" />
   </head>
   <body>
     <div id="app" class="main">
@@ -96,42 +101,78 @@ How To Make A C# Discord Bot - Setting Up - Par..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">How To Make C# Discord Bot</h2>
-            <div class="post-date">2020-04-17</div>
+            <h2 class="post-title">《Rust 编程之道》笔记</h2>
+            <div class="post-date">2020-05-25</div>
             
-              <div class="feature-container" style="background-image: url('https://i.ytimg.com/vi/7-tyLCAO4mY/maxresdefault.jpg')">
+              <div class="feature-container" style="background-image: url('https://www.rust-lang.org/static/images/rust-social-wide.jpg')">
               </div>
             
             <div class="post-content" v-pre>
               <h1 id="前言">前言</h1>
-<p>此文是跟着视频 <a href="https://www.youtube.com/playlist?list=PLS6sInD7ThM0Zb8F_KBl4T_jGF1e3apsc">How To Make C# Discord Bot</a> 学习时需要注意的地方，主要是使用新方案替代视频中已经不可用的旧方案。</p>
-<h1 id="how-to-make-a-c-discord-bot-setting-up-part-1"><a href="https://youtu.be/7-tyLCAO4mY">How To Make A C# Discord Bot - Setting Up - Part 1</a></h1>
+<p>Rust 学习笔记</p>
+<h1 id="第1章-新时代的语言">第1章 新时代的语言</h1>
+<p>书中这部分内容可以跳过。此处罗列下 Rust 和 C# 中术语的映射关系。</p>
 <ol>
-<li><code>CommandsNextModule</code> -&gt; <code>CommandsNextExtension</code></li>
-<li>在定义 <code>Config</code> 对象时，使用 <code>DTO class</code> 替代视频中的 <code>struct</code>。</li>
-<li>使用 <code>dotnet core 3.0+</code> 自带的 <code>System.Text.Json</code> 替代 <code>Newtonsoft.Json</code></li>
+<li>Workspace -&gt; Solution</li>
+<li>Crate -&gt; Project</li>
+<li>Module -&gt; Namespace</li>
+<li>Trait -&gt; Interface</li>
+<li>Struct -&gt; Class</li>
+<li>Function -&gt; Method</li>
 </ol>
-<pre><code class="language-csharp">ConfigDTO configDTO;
-using(FileStream fs = File.OpenRead(&quot;config.json&quot;))
-{
-    configDTO = await JsonSerializer.DeserializeAsync&lt;ConfigDTO&gt;
-        (
-            fs,
-            new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
-        );
-}
+<h1 id="第10章-模块化编程">第10章 模块化编程</h1>
+<h2 id="100-cargo-工作空间">10.0 Cargo 工作空间</h2>
+<p>这部分内容书里面没有。是我自己加的</p>
+<ul>
+<li>Rust 中的工作空间 (Workspace) 即 C# 的解决方案 (Solution)。</li>
+<li><a href="https://kaisery.github.io/trpl-zh-cn/ch14-03-cargo-workspaces.html">Cargo 工作空间</a></li>
+</ul>
+<h3 id="1001-新建一个工作空间">10.0.1 新建一个工作空间</h3>
+<pre><code class="language-sh">mkdir &lt;workspace&gt;
+cd &lt;workspace&gt;
+touch Cargo.toml
+code Cargo.toml
+</code></pre>
+<h4 id="对映的-dotnet-操作">对映的 dotnet 操作</h4>
+<pre><code class="language-sh">dotnet new sln -o &lt;workspace&gt;
+cd &lt;workspace&gt;
+</code></pre>
+<h3 id="1002-新建一个不带-git-的-lib-crate">10.0.2 新建一个不带 git 的 lib crate</h3>
+<pre><code class="language-sh">cargo new &lt;lib_name&gt; --lib --vcs none
+</code></pre>
+<h4 id="对映的-dotnet-操作-2">对映的 dotnet 操作</h4>
+<pre><code class="language-sh">dotnet new classlib -o &lt;lib_name&gt;
+</code></pre>
+<h3 id="1003-新建一个不带-git-的-bin-crate">10.0.3 新建一个不带 git 的 bin crate</h3>
+<pre><code class="language-sh">cargo new &lt;name&gt; --vcs none
+</code></pre>
+<h4 id="对映的-dotnet-操作-3">对映的 dotnet 操作</h4>
+<pre><code class="language-sh">dotnet new console -o &lt;bin_name&gt;
+</code></pre>
+<h3 id="1004-构建依赖关系">10.0.4 构建依赖关系</h3>
+<p>添加以下内容到 <code>&lt;workspace&gt;/Cargo.toml</code></p>
+<pre><code class="language-toml">[workspace]
+members = [
+    &quot;&lt;lib_name&gt;&quot;,
+    &quot;&lt;bin_name&gt;&quot;
+]
+</code></pre>
+<p>添加以下内容到 <code>&lt;bin_name&gt;/Cargo.toml</code> 以表明依赖关系</p>
+<pre><code class="language-toml">[dependencies]
+&lt;lib_name&gt; = { path = &quot;../&lt;lib_name&gt;&quot; }
+</code></pre>
+<h4 id="对映的-dotnet-操作-4">对映的 dotnet 操作</h4>
+<pre><code class="language-sh">dotnet sln add &lt;lib_name&gt;/&lt;lib_name&gt;.csproj
+dotnet sln add &lt;bin_name&gt;/&lt;bin_name&gt;.csproj
+dotnet add ./&lt;bin_name&gt;/&lt;bin_name&gt;.csproj reference ./&lt;lib_name&gt;/&lt;lib_name&gt;.csproj
 </code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://zhangyue-vhyt.github.io/tag/htwe1iOBpj/" class="tag">
-                    C#
-                  </a>
-                
-                  <a href="https://zhangyue-vhyt.github.io/tag/FIsaBddUaI/" class="tag">
-                    游戏
+                  <a href="https://zhangyue-vhyt.github.io/tag/Hk5KLJtRV/" class="tag">
+                    Rust
                   </a>
                 
               </div>
@@ -139,9 +180,9 @@ using(FileStream fs = File.OpenRead(&quot;config.json&quot;))
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zhangyue-vhyt.github.io/post/tools/">
+                <a href="https://zhangyue-vhyt.github.io/post/csharp-note-3/">
                   <h3 class="post-title">
-                    工具箱
+                    《C#高级编程》- .Net Core and Windows Runtime
                   </h3>
                 </a>
               </div>

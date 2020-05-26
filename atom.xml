@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-26T03:02:47.807Z</updated>
+    <updated>2020-05-26T09:05:06.750Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -11,11 +11,77 @@
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 咸鱼の家</rights>
     <entry>
+        <title type="html"><![CDATA[《Rust 编程之道》笔记]]></title>
+        <id>https://zhangyue-vhyt.github.io/post/rust-notes/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/rust-notes/">
+        </link>
+        <updated>2020-05-25T20:33:00.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>Rust 学习笔记</p>
+<h1 id="第1章-新时代的语言">第1章 新时代的语言</h1>
+<p>书中这部分内容可以跳过。此处罗列下 Rust 和 C# 中术语的映射关系。</p>
+<ol>
+<li>Workspace -&gt; Solution</li>
+<li>Crate -&gt; Project</li>
+<li>Module -&gt; Namespace</li>
+<li>Trait -&gt; Interface</li>
+<li>Struct -&gt; Class</li>
+<li>Function -&gt; Method</li>
+</ol>
+<h1 id="第10章-模块化编程">第10章 模块化编程</h1>
+<h2 id="100-cargo-工作空间">10.0 Cargo 工作空间</h2>
+<p>这部分内容书里面没有。是我自己加的</p>
+<ul>
+<li>Rust 中的工作空间 (Workspace) 即 C# 的解决方案 (Solution)。</li>
+<li><a href="https://kaisery.github.io/trpl-zh-cn/ch14-03-cargo-workspaces.html">Cargo 工作空间</a></li>
+</ul>
+<h3 id="1001-新建一个工作空间">10.0.1 新建一个工作空间</h3>
+<pre><code class="language-sh">mkdir &lt;workspace&gt;
+cd &lt;workspace&gt;
+touch Cargo.toml
+code Cargo.toml
+</code></pre>
+<h4 id="对映的-dotnet-操作">对映的 dotnet 操作</h4>
+<pre><code class="language-sh">dotnet new sln -o &lt;workspace&gt;
+cd &lt;workspace&gt;
+</code></pre>
+<h3 id="1002-新建一个不带-git-的-lib-crate">10.0.2 新建一个不带 git 的 lib crate</h3>
+<pre><code class="language-sh">cargo new &lt;lib_name&gt; --lib --vcs none
+</code></pre>
+<h4 id="对映的-dotnet-操作-2">对映的 dotnet 操作</h4>
+<pre><code class="language-sh">dotnet new classlib -o &lt;lib_name&gt;
+</code></pre>
+<h3 id="1003-新建一个不带-git-的-bin-crate">10.0.3 新建一个不带 git 的 bin crate</h3>
+<pre><code class="language-sh">cargo new &lt;name&gt; --vcs none
+</code></pre>
+<h4 id="对映的-dotnet-操作-3">对映的 dotnet 操作</h4>
+<pre><code class="language-sh">dotnet new console -o &lt;bin_name&gt;
+</code></pre>
+<h3 id="1004-构建依赖关系">10.0.4 构建依赖关系</h3>
+<p>添加以下内容到 <code>&lt;workspace&gt;/Cargo.toml</code></p>
+<pre><code class="language-toml">[workspace]
+members = [
+    &quot;&lt;lib_name&gt;&quot;,
+    &quot;&lt;bin_name&gt;&quot;
+]
+</code></pre>
+<p>添加以下内容到 <code>&lt;bin_name&gt;/Cargo.toml</code> 以表明依赖关系</p>
+<pre><code class="language-toml">[dependencies]
+&lt;lib_name&gt; = { path = &quot;../&lt;lib_name&gt;&quot; }
+</code></pre>
+<h4 id="对映的-dotnet-操作-4">对映的 dotnet 操作</h4>
+<pre><code class="language-sh">dotnet sln add &lt;lib_name&gt;/&lt;lib_name&gt;.csproj
+dotnet sln add &lt;bin_name&gt;/&lt;bin_name&gt;.csproj
+dotnet add ./&lt;bin_name&gt;/&lt;bin_name&gt;.csproj reference ./&lt;lib_name&gt;/&lt;lib_name&gt;.csproj
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[《C#高级编程》- .Net Core and Windows Runtime]]></title>
         <id>https://zhangyue-vhyt.github.io/post/csharp-note-3/</id>
         <link href="https://zhangyue-vhyt.github.io/post/csharp-note-3/">
         </link>
-        <updated>2020-05-12T16:13:05.000Z</updated>
+        <updated>2020-05-12T04:13:05.000Z</updated>
         <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>这部分是关于 .NET Core and the Windows Runtime 的内容。</p>
 <h1 id="chapter-19-libraries-assemblies-packages-and-nuget">Chapter 19: Libraries, Assemblies, Packages, and NuGet</h1>
@@ -108,9 +174,7 @@
 <li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithAutofac">DI with Autofac example</a></li>
 </ul>
 <h1 id="chapter-21-tasks-and-parallel-programming">Chapter 21: Tasks and Parallel Programming</h1>
-<ul>
-<li>《C#高级编程》中并行和异步内容过于详细庞杂，在学习时推荐上手练习 LeetCode 中 Concurrency 题目。</li>
-</ul>
+<p>《C#高级编程》中并行和异步内容过于详细庞杂，在学习时推荐上手练习 LeetCode 的 Concurrency 和 Codewar 的多线程题目。</p>
 <h2 id="overview">OVERVIEW</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-processing-and-concurrency">.NET 中的并行处理、并发和异步编程</a></li>
@@ -202,10 +266,24 @@
 <li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/MemoryMappedFilesSample/Program.cs">Memory mapped files sample</a></li>
 </ul>
 <h2 id="communicating-with-pipes">COMMUNICATING WITH PIPES</h2>
+<blockquote>
+<p>管道本质上就是一个文件，前面的进程以写方式打开文件，后面的进程以读方式打开。这样前面写完后面读，于是就实现了通信。实际上管道的设计也是遵循 UNIX 的“一切皆文件”设计原则的，它本质上就是一个文件。Linux 系统直接把管道实现成了一种文件系统，借助 VFS 给应用程序提供操作接口。<br>
+虽然实现形态上是文件，但是管道本身并不占用磁盘或者其他外部存储的空间。在Linux的实现上，它占用的是内存空间。所以，Linux上的管道就是一个操作方式为文件的内存缓冲区。<br>
+--- <a href="https://zhuanlan.zhihu.com/p/58489873">Linux 的进程间通信：管道</a></p>
+</blockquote>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipe-operations">.NET 中的管道操作</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipelines">.NET 中的 System.IO.Pipelines</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/AnonymousPipes/Program.cs">Anonymous Pipes</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesReader/Program.cs">Pipes Reader</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesWriter/Program.cs">Pipes Writer</a></li>
 </ul>
+<h2 id="using-files-and-streams-with-the-windows-runtime">USING FILES AND STREAMS WITH THE WINDOWS RUNTIME</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-convert-between-dotnet-streams-and-winrt-streams">如何：在 .NET Framework 和 Windows 运行时流之间进行转换（仅限 Windows）</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/WindowsAppEditor">Windows App Editor</a></li>
+</ul>
+<h1 id="chapter-23-networking">Chapter 23: Networking</h1>
 ]]></content>
     </entry>
     <entry>

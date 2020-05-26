@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1590462162874">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1590483889195">
 <link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
 
 
@@ -32,7 +32,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
-        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1590462162874" class="site-logo">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1590483889195" class="site-logo">
         <h1 class="site-title">咸鱼の家</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -197,9 +197,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithAutofac">DI with Autofac example</a></li>
 </ul>
 <h1 id="chapter-21-tasks-and-parallel-programming">Chapter 21: Tasks and Parallel Programming</h1>
-<ul>
-<li>《C#高级编程》中并行和异步内容过于详细庞杂，在学习时推荐上手练习 LeetCode 中 Concurrency 题目。</li>
-</ul>
+<p>《C#高级编程》中并行和异步内容过于详细庞杂，在学习时推荐上手练习 LeetCode 的 Concurrency 和 Codewar 的多线程题目。</p>
 <h2 id="overview">OVERVIEW</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-processing-and-concurrency">.NET 中的并行处理、并发和异步编程</a></li>
@@ -291,10 +289,24 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/MemoryMappedFilesSample/Program.cs">Memory mapped files sample</a></li>
 </ul>
 <h2 id="communicating-with-pipes">COMMUNICATING WITH PIPES</h2>
+<blockquote>
+<p>管道本质上就是一个文件，前面的进程以写方式打开文件，后面的进程以读方式打开。这样前面写完后面读，于是就实现了通信。实际上管道的设计也是遵循 UNIX 的“一切皆文件”设计原则的，它本质上就是一个文件。Linux 系统直接把管道实现成了一种文件系统，借助 VFS 给应用程序提供操作接口。<br>
+虽然实现形态上是文件，但是管道本身并不占用磁盘或者其他外部存储的空间。在Linux的实现上，它占用的是内存空间。所以，Linux上的管道就是一个操作方式为文件的内存缓冲区。<br>
+--- <a href="https://zhuanlan.zhihu.com/p/58489873">Linux 的进程间通信：管道</a></p>
+</blockquote>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipe-operations">.NET 中的管道操作</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipelines">.NET 中的 System.IO.Pipelines</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/AnonymousPipes/Program.cs">Anonymous Pipes</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesReader/Program.cs">Pipes Reader</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesWriter/Program.cs">Pipes Writer</a></li>
 </ul>
+<h2 id="using-files-and-streams-with-the-windows-runtime">USING FILES AND STREAMS WITH THE WINDOWS RUNTIME</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-convert-between-dotnet-streams-and-winrt-streams">如何：在 .NET Framework 和 Windows 运行时流之间进行转换（仅限 Windows）</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/WindowsAppEditor">Windows App Editor</a></li>
+</ul>
+<h1 id="chapter-23-networking">Chapter 23: Networking</h1>
 
             </div>
             
