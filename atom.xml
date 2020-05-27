@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-26T09:08:11.206Z</updated>
+    <updated>2020-05-27T19:57:38.617Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,10 +15,10 @@
         <id>https://zhangyue-vhyt.github.io/post/rust-notes/</id>
         <link href="https://zhangyue-vhyt.github.io/post/rust-notes/">
         </link>
-        <updated>2020-05-24T20:33:00.000Z</updated>
+        <updated>2020-05-24T08:33:00.000Z</updated>
         <content type="html"><![CDATA[<h1 id="前言">前言</h1>
 <p>Rust 学习笔记</p>
-<h1 id="第1章-新时代的语言">第1章 新时代的语言</h1>
+<h1 id="第-1-章-新时代的语言">第 1 章 新时代的语言</h1>
 <p>书中这部分内容可以跳过。此处罗列下 Rust 和 C# 中术语的映射关系。</p>
 <ol>
 <li>Workspace -&gt; Solution</li>
@@ -28,7 +28,46 @@
 <li>Struct -&gt; Class</li>
 <li>Function -&gt; Method</li>
 </ol>
-<h1 id="第10章-模块化编程">第10章 模块化编程</h1>
+<ul>
+<li><a href="https://prev.rust-lang.org/zh-CN/documentation.html">Rust 语言文档</a></li>
+</ul>
+<h1 id="第-2-章-流程控制">第 2 章 流程控制</h1>
+<h2 id="253-match-表达式与模式匹配">2.5.3 <code>match</code> 表达式与模式匹配</h2>
+<blockquote>
+<p><code>match</code> 用于匹配各种情况。有点类似其他编程语言中的 <code>switch</code> 或 <code>case</code> 语句。</p>
+</blockquote>
+<ul>
+<li><a href="https://kaisery.github.io/trpl-zh-cn/ch06-02-match.html"><code>match</code> 控制流运算符</a></li>
+<li><a href="https://rustwiki.org/zh-CN/rust-by-example/flow_control/match.html"><code>match</code> 匹配</a></li>
+</ul>
+<h2 id="254-if-let-和-while-let-表达式">2.5.4 <code>if let</code> 和 <code>while let</code> 表达式</h2>
+<ul>
+<li><a href="https://kaisery.github.io/trpl-zh-cn/ch06-03-if-let.html"><code>if let</code> 简单控制流</a></li>
+<li><a href="https://rustwiki.org/zh-CN/rust-by-example/flow_control/if_let.html">if let</a></li>
+<li><a href="https://rustwiki.org/zh-CN/rust-by-example/flow_control/while_let.html">while let</a></li>
+</ul>
+<h1 id="第-8-章-字符串与集合类型">第 8 章 字符串与集合类型</h1>
+<h2 id="82-集合类型">8.2 集合类型</h2>
+<h3 id="821-动态可增长数组">8.2.1 动态可增长数组</h3>
+<h4 id="相等性">相等性</h4>
+<pre><code class="language-rust">let a = vec![1,2,3];
+let b = vec![1,2,3];
+assert!(a.eq(&amp;b));  // True
+</code></pre>
+<h3 id="822-映射集">8.2.2 映射集</h3>
+<h1 id="第-9-章-构建健壮的程序">第 9 章 构建健壮的程序</h1>
+<h2 id="93-分层处理错误">9.3 分层处理错误</h2>
+<h3 id="931-可选值-optiont">9.3.1 可选值 <code>Option&lt;T&gt;</code></h3>
+<ul>
+<li><a href="https://rustwiki.org/zh-CN/rust-by-example/error/option_unwrap.html"><code>Option</code> 和 <code>unwrap</code></a></li>
+<li><a href="https://rustwiki.org/zh-CN/rust-by-example/error/option_unwrap/map.html">组合算子：<code>map</code></a></li>
+<li><a href="https://rustwiki.org/zh-CN/rust-by-example/error/option_unwrap/and_then.html">组合算子：<code>and_then</code></a></li>
+</ul>
+<h4 id="932-错误处理-resultt-e">9.3.2 错误处理 <code>Result&lt;T, E&gt;</code></h4>
+<ul>
+<li><a href="https://rustwiki.org/zh-CN/rust-by-example/error/result.html">结果 <code>Result</code></a></li>
+</ul>
+<h1 id="第-10-章-模块化编程">第 10 章 模块化编程</h1>
 <h2 id="100-cargo-工作空间">10.0 Cargo 工作空间</h2>
 <p>这部分内容书里面没有，是我自己加的。</p>
 <ul>
@@ -73,6 +112,12 @@ members = [
 dotnet sln add &lt;bin_name&gt;/&lt;bin_name&gt;.csproj
 dotnet add ./&lt;bin_name&gt;/&lt;bin_name&gt;.csproj reference ./&lt;lib_name&gt;/&lt;lib_name&gt;.csproj
 </code></pre>
+<h2 id="102-模块系统">10.2 模块系统</h2>
+<ul>
+<li><a href="https://kaisery.gitbooks.io/rust-book-chinese/content/content/Crates%20and%20Modules%20crate%20%E5%92%8C%E6%A8%A1%E5%9D%97.html">包装箱和模块</a></li>
+<li><a href="https://kaisery.gitbooks.io/rust-book-chinese/content/content/Testing%20%E6%B5%8B%E8%AF%95.html">测试</a></li>
+<li>每一个 <code>mod.rs</code> 都要添加 <code>pub mod &lt;submod&gt;</code> 。</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
