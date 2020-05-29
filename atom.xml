@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-29T18:50:41.538Z</updated>
+    <updated>2020-05-29T19:45:08.865Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/mozilla-flow/</id>
         <link href="https://zhangyue-vhyt.github.io/post/mozilla-flow/">
         </link>
-        <updated>2020-05-27T08:43:38.000Z</updated>
+        <updated>2020-05-26T20:43:38.000Z</updated>
         <content type="html"><![CDATA[<h1 id="perftest-notebook">Perftest Notebook</h1>
 <ul>
 <li><a href="https://wiki.mozilla.org/TestEngineering/Performance/NewContributors">New Contributors to Perftest</a></li>
@@ -40,7 +40,7 @@ ac_add_options --enable-debug
 </blockquote>
 <h2 id="test">Test</h2>
 <ul>
-<li>Linter:: <code>./mach lint --warnings --outgoing</code></li>
+<li>Linter: <code>./mach lint --warnings --outgoing</code></li>
 <li>Unit Test:: <code>./mach python-test --python=3 python/mozperftest/mozperftest/tests/</code></li>
 <li>Debug Run: <code>./mach perftest python/mozperftest/mozperftest/tests/example.js</code></li>
 </ul>
@@ -56,6 +56,7 @@ ac_add_options --enable-debug
 <li>Rebase: <code>hg rebase -r &lt;current_revision&gt; --dest &lt;latest_revision&gt;</code></li>
 <li>Submig: <code>moz-phab</code> (Make sure <code>MozPhab</code> is installed by <code>pip3</code>)</li>
 </ul>
+<h1 id="wsl">WSL</h1>
 ]]></content>
     </entry>
     <entry>
