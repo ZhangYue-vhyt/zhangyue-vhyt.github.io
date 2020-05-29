@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>黑色沙漠M 导入韩服捏脸数据 | 咸鱼の家</title>
+<title>Mozilla Development Flow | 咸鱼の家</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,15 +18,15 @@
 
 
 
-    <meta name="description" content="模拟器
-夜神、雷电、蓝叠
-安装 ES File Explore
-直接 Google Play 下载
-下载 QooApp 并安装
-模拟器中的浏览器搜索 QooApp, 官网不一定下得到，可以从第三方下载
-安装黑沙
-QooApp 中搜索 bla..." />
-    <meta name="keywords" content="黑色沙漠M,游戏,手游" />
+    <meta name="description" content="Perftest Notebook
+
+New Contributors to Perftest
+Mercurial Overview
+Firefox Contributors' Quick Reference
+
+Artifact Mode
+..." />
+    <meta name="keywords" content="Mozilla" />
   </head>
   <body>
     <div id="app" class="main">
@@ -101,62 +101,59 @@ QooApp 中搜索 bla..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">黑色沙漠M 导入韩服捏脸数据</h2>
-            <div class="post-date">2020-03-31</div>
+            <h2 class="post-title">Mozilla Development Flow</h2>
+            <div class="post-date">2020-05-27</div>
             
-              <div class="feature-container" style="background-image: url('https://imgo3.hackhome.com/img2018/6/29/9/573054323.jpg')">
+              <div class="feature-container" style="background-image: url('https://www.mozilla.org/media/protocol/img/logos/firefox/browser/og.4ad05d4125a5.png')">
               </div>
             
             <div class="post-content" v-pre>
-              <h1 id="模拟器">模拟器</h1>
-<p>夜神、雷电、蓝叠</p>
-<h1 id="安装-es-file-explore">安装 ES File Explore</h1>
-<p>直接 <code>Google Play</code> 下载</p>
-<h1 id="下载-qooapp-并安装">下载 QooApp 并安装</h1>
-<p>模拟器中的浏览器搜索 <code>QooApp</code>, 官网不一定下得到，可以从第三方下载</p>
-<h1 id="安装黑沙">安装黑沙</h1>
-<p><code>QooApp</code> 中搜索 <code>black desert mobile</code>，日韩台服都有</p>
-<h1 id="运行黑沙">运行黑沙</h1>
-<p>墙外无任何困难</p>
-<h1 id="按作者搜索捏脸作品">按作者搜索捏脸作品</h1>
-<p>需要复制作者姓名，如果是韩语并且是图片，使用 <a href="https://online.easyscreenocr.com/Home/KoreanOCR">OCR 工具</a></p>
-<h1 id="导出导入-捏脸数据">导出/导入 捏脸数据</h1>
-<ol>
-<li>关闭游戏，关闭模拟器。</li>
-<li>克隆备份模拟器。</li>
-<li>在备份模拟器中开游戏。</li>
-<li>导出捏脸数据。<br>
-<img src="https://truth.bahamut.com.tw/s01/201812/19900231d8b37a5f62c51a6c278d32aa.JPG" alt="image" loading="lazy"></li>
-<li>关闭韩服。</li>
-<li>打开美服，进入角色捏脸界面，右上角缓存一下建立缓存文件。</li>
-<li>打开 <code>ES File Explorer</code>。</li>
-<li><code>root</code> 权限打开，导出的数据在<code>/data/data/com.pearlabyss.blackdesertm/files/res/customization</code>文件夹。第二个<code>data</code>文件夹可能会变动。</li>
-<li>同样复制一份数据到 <code>/mnt/shared/Pictures</code>。<br>
-<img src="https://truth.bahamut.com.tw/s01/201812/de78ecc725b5ac88bd746746881db850.JPG" alt="image" loading="lazy"></li>
-<li>通过模拟器与 PC 共享文件，导出数据到 PC 以作备份。</li>
-<li>将所需要的数据黏贴到<code>/data/data/com.pearlabyss.blackdesertm.gl/files/res/customization</code>。</li>
-<li>打开美服，载入数据。</li>
-<li>如果失败，调用备份模拟器和数据。</li>
-</ol>
-<h1 id="参考">参考</h1>
+              <h1 id="perftest-notebook">Perftest Notebook</h1>
 <ul>
-<li><a href="https://forum.gamer.com.tw/C.php?bsn=32841&amp;snA=7859">【攻略】韓版、台版捏臉數據導出教學(圖多) 12/6修改</a></li>
+<li><a href="https://wiki.mozilla.org/TestEngineering/Performance/NewContributors">New Contributors to Perftest</a></li>
+<li><a href="https://firefox-source-docs.mozilla.org/contributing/vcs/mercurial.html#using-hg-clone">Mercurial Overview</a></li>
+<li><a href="https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html">Firefox Contributors' Quick Reference</a></li>
+</ul>
+<h2 id="artifact-mode">Artifact Mode</h2>
+<blockquote>
+<p>If you are not working on the C/C++ files you can also opt for Artifact Builds which are much faster. To enable artifact build set up a <code>.mozconfig</code> file with the following options:</p>
+<pre><code># Automatically download and use compiled C++ components:
+# This option will disable C/C++ compilation
+ac_add_options --enable-artifact-builds
+
+# Write build artifacts to (not mandatory):
+mk_add_options MOZ_OBJDIR=./objdir-frontend
+</code></pre>
+<p>If you plan to walk through code with a debugger, set up a <code>.mozconfig</code> file with the following options:</p>
+<pre><code>ac_add_options --disable-optimize
+ac_add_options --enable-debug
+</code></pre>
+<p>--- <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Simple_Firefox_build/Linux_and_MacOS_build_preparation">Linux build preparation</a></p>
+</blockquote>
+<h2 id="test">Test</h2>
+<ul>
+<li>Linter:: <code>./mach lint --warnings --outgoing</code></li>
+<li>Unit Test:: <code>./mach python-test --python=3 python/mozperftest/mozperftest/tests/</code></li>
+<li>Debug Run: <code>./mach perftest python/mozperftest/mozperftest/tests/example.js</code></li>
+</ul>
+<h2 id="version-contral-by-mercurial">Version Contral by Mercurial</h2>
+<ul>
+<li>Pull: <code>hg pull --verbose https://hg.mozilla.org/mozilla-central/</code></li>
+<li>Commit: Using VSCode Extension.</li>
+<li>Changes: Using VSCode Extension.</li>
+<li>Amend: <code>hg commit --amend</code></li>
+<li>Current revision: <code>hg head</code> or <code>hg heads</code></li>
+<li>Latest revision: <code>hg log</code> after <code>pull</code></li>
+<li>Update: <code>hg up -r &lt;revision&gt;</code></li>
+<li>Rebase: <code>hg rebase -r &lt;current_revision&gt; --dest &lt;latest_revision&gt;</code></li>
 </ul>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://zhangyue-vhyt.github.io/tag/-bfFxS0I2/" class="tag">
-                    黑色沙漠M
-                  </a>
-                
-                  <a href="https://zhangyue-vhyt.github.io/tag/FIsaBddUaI/" class="tag">
-                    游戏
-                  </a>
-                
-                  <a href="https://zhangyue-vhyt.github.io/tag/WlMpEb06jc/" class="tag">
-                    手游
+                  <a href="https://zhangyue-vhyt.github.io/tag/-Q7lptSAm/" class="tag">
+                    Mozilla
                   </a>
                 
               </div>
@@ -164,9 +161,9 @@ QooApp 中搜索 bla..." />
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zhangyue-vhyt.github.io/post/bdm-na-guild/">
+                <a href="https://zhangyue-vhyt.github.io/post/rust-notes/">
                   <h3 class="post-title">
-                    黑色沙漠M 美服 Heidel 华人公会
+                    《Rust 编程之道》笔记
                   </h3>
                 </a>
               </div>
