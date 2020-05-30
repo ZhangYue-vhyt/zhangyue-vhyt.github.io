@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>工具箱 | 咸鱼の家</title>
+<title>Mozilla Development Flow | 咸鱼の家</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,20 +18,15 @@
 
 
 
-    <meta name="description" content="Documents
-Google Docs
+    <meta name="description" content="WSL2
+sudo apt-get install imagemagick
 
-Vizzlo 画图工具
+Perftest Notebook
 
-AI
-
-AI写论文-小论文神器
-AI检查英语作文-微软小英爱写作
-AI智能原创-5118大数据平台
-AI写自媒体稿子-Giiso写作机器人
-AI写诗-九歌
-AI作画-自..." />
-    <meta name="keywords" content="工具" />
+New Contributors to Perftest
+Mercurial Overview
+Firefox Contri..." />
+    <meta name="keywords" content="Mozilla" />
   </head>
   <body>
     <div id="app" class="main">
@@ -106,41 +101,63 @@ AI作画-自..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">工具箱</h2>
-            <div class="post-date">2020-04-17</div>
+            <h2 class="post-title">Mozilla Development Flow</h2>
+            <div class="post-date">2020-05-25</div>
             
-              <div class="feature-container" style="background-image: url('https://5b0988e595225.cdn.sohucs.com/images/20190926/4c2fea190de04f608ba4fd7e6397d8c1.jpeg')">
+              <div class="feature-container" style="background-image: url('https://www.mozilla.org/media/protocol/img/logos/firefox/browser/og.4ad05d4125a5.png')">
               </div>
             
             <div class="post-content" v-pre>
-              <h1 id="documents">Documents</h1>
-<h2 id="google-docs">Google Docs</h2>
+              <h1 id="wsl2">WSL2</h1>
+<pre><code class="language-sh">sudo apt-get install imagemagick
+</code></pre>
+<h1 id="perftest-notebook">Perftest Notebook</h1>
 <ul>
-<li><a href="https://vizzlo.com/">Vizzlo 画图工具</a></li>
+<li><a href="https://wiki.mozilla.org/TestEngineering/Performance/NewContributors">New Contributors to Perftest</a></li>
+<li><a href="https://firefox-source-docs.mozilla.org/contributing/vcs/mercurial.html#using-hg-clone">Mercurial Overview</a></li>
+<li><a href="https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html">Firefox Contributors' Quick Reference</a></li>
 </ul>
-<h1 id="ai">AI</h1>
+<h2 id="artifact-mode">Artifact Mode</h2>
+<blockquote>
+<p>If you are not working on the C/C++ files you can also opt for Artifact Builds which are much faster. To enable artifact build set up a <code>.mozconfig</code> file with the following options:</p>
+<pre><code># Automatically download and use compiled C++ components:
+# This option will disable C/C++ compilation
+ac_add_options --enable-artifact-builds
+
+# Write build artifacts to (not mandatory):
+mk_add_options MOZ_OBJDIR=./objdir-frontend
+</code></pre>
+<p>If you plan to walk through code with a debugger, set up a <code>.mozconfig</code> file with the following options:</p>
+<pre><code>ac_add_options --disable-optimize
+ac_add_options --enable-debug
+</code></pre>
+<p>--- <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Simple_Firefox_build/Linux_and_MacOS_build_preparation">Linux build preparation</a></p>
+</blockquote>
+<h2 id="test">Test</h2>
 <ul>
-<li><a href="https://essay.1ts.fun/">AI写论文-小论文神器</a></li>
-<li><a href="https://aimwriting.mtutor.engkoo.com/#more">AI检查英语作文-微软小英爱写作</a></li>
-<li><a href="https://wyc.5118.com/?t=zhihu&amp;id=20950693&amp;u=yuan_xing_ke">AI智能原创-5118大数据平台</a></li>
-<li><a href="https://www.giiso.com/#/">AI写自媒体稿子-Giiso写作机器人</a></li>
-<li><a href="http://jiuge.thunlp.cn/fengge.html">AI写诗-九歌</a></li>
-<li><a href="https://petalica-paint.pixiv.dev/index_zh.html">AI作画-自动给画上色</a></li>
-<li><a href="https://bigjpg.com/">AI无损放大图片</a></li>
-<li><a href="http://duilian.msra.cn/app/couplet.aspx">AI写对联-微软对对联</a></li>
-<li><a href="http://www.seeprettyface.com/index.html">AI生成照片-高颜值人脸AI生成器</a></li>
+<li>Linter: <code>./mach lint --warnings --outgoing</code></li>
+<li>Unit Test:: <code>./mach python-test --python=3 python/mozperftest/mozperftest/tests/</code></li>
+<li>Debug Run: <code>./mach perftest python/mozperftest/mozperftest/tests/example.js</code></li>
 </ul>
-<h1 id="windows-terminal-themes">Windows Terminal Themes</h1>
+<h2 id="version-contral-by-mercurial">Version Contral by Mercurial</h2>
 <ul>
-<li><a href="https://atomcorp.github.io/themes/">Windows Terminal Themes</a></li>
+<li>Pull: <code>hg pull --verbose https://hg.mozilla.org/mozilla-central/</code></li>
+<li>Commit: Using VSCode Extension.</li>
+<li>Changes: Using VSCode Extension.</li>
+<li>Amend: <code>hg commit --amend</code></li>
+<li>Current revision: <code>hg head</code> or <code>hg heads</code></li>
+<li>Latest revision: <code>hg log</code> after <code>pull</code></li>
+<li>Update: <code>hg up -r &lt;revision&gt;</code></li>
+<li>Rebase: <code>hg rebase -r &lt;current_revision&gt; --dest &lt;latest_revision&gt;</code></li>
+<li>Submit: <code>moz-phab</code> (Make sure <code>MozPhab</code> is installed by <code>pip3</code>)</li>
 </ul>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://zhangyue-vhyt.github.io/tag/8rmpGU_3l/" class="tag">
-                    工具
+                  <a href="https://zhangyue-vhyt.github.io/tag/-Q7lptSAm/" class="tag">
+                    Mozilla
                   </a>
                 
               </div>
@@ -148,9 +165,9 @@ AI作画-自..." />
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zhangyue-vhyt.github.io/post/create-constant-in-python/">
+                <a href="https://zhangyue-vhyt.github.io/post/rust-notes/">
                   <h3 class="post-title">
-                    Python 中创建 const 常量
+                    《Rust 编程之道》笔记
                   </h3>
                 </a>
               </div>

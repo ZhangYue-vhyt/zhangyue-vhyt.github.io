@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-29T19:45:08.865Z</updated>
+    <updated>2020-05-30T07:15:14.945Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -12,11 +12,14 @@
     <rights>All rights reserved 2020, 咸鱼の家</rights>
     <entry>
         <title type="html"><![CDATA[Mozilla Development Flow]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/mozilla-flow/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/mozilla-flow/">
+        <id>https://zhangyue-vhyt.github.io/post/mozilla-development-flow/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/mozilla-development-flow/">
         </link>
-        <updated>2020-05-26T20:43:38.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="perftest-notebook">Perftest Notebook</h1>
+        <updated>2020-05-25T20:43:38.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="wsl2">WSL2</h1>
+<pre><code class="language-sh">sudo apt-get install imagemagick
+</code></pre>
+<h1 id="perftest-notebook">Perftest Notebook</h1>
 <ul>
 <li><a href="https://wiki.mozilla.org/TestEngineering/Performance/NewContributors">New Contributors to Perftest</a></li>
 <li><a href="https://firefox-source-docs.mozilla.org/contributing/vcs/mercurial.html#using-hg-clone">Mercurial Overview</a></li>
@@ -54,9 +57,8 @@ ac_add_options --enable-debug
 <li>Latest revision: <code>hg log</code> after <code>pull</code></li>
 <li>Update: <code>hg up -r &lt;revision&gt;</code></li>
 <li>Rebase: <code>hg rebase -r &lt;current_revision&gt; --dest &lt;latest_revision&gt;</code></li>
-<li>Submig: <code>moz-phab</code> (Make sure <code>MozPhab</code> is installed by <code>pip3</code>)</li>
+<li>Submit: <code>moz-phab</code> (Make sure <code>MozPhab</code> is installed by <code>pip3</code>)</li>
 </ul>
-<h1 id="wsl">WSL</h1>
 ]]></content>
     </entry>
     <entry>
