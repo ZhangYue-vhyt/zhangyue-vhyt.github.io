@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1590822908968">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1591586611410">
 <link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
 
 
@@ -19,10 +19,8 @@
 
 
     <meta name="description" content="Introduction
-这部分是关于 .NET Core and the Windows Runtime 的内容。
-Chapter 19: Libraries, Assemblies, Packages, and NuGet
-
-此章为项目..." />
+这部分是关于 .NET Core and the Windows Runtime 的内容。官方文档参照 .Net 指南 和 .Net Core 文档 为主。
+Chapter 19: Libraries, Assem..." />
     <meta name="keywords" content="C#高级编程,C#" />
   </head>
   <body>
@@ -32,7 +30,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
-        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1590822908968" class="site-logo">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1591586611410" class="site-logo">
         <h1 class="site-title">咸鱼の家</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -99,14 +97,14 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">《C#高级编程》- .Net Core and Windows Runtime</h2>
-            <div class="post-date">2020-05-10</div>
+            <div class="post-date">2020-05-07</div>
             
               <div class="feature-container" style="background-image: url('https://csharpdotchristiannageldotcom.files.wordpress.com/2018/04/professionalcsharp7cover.jpg')">
               </div>
             
             <div class="post-content" v-pre>
               <h1 id="introduction">Introduction</h1>
-<p>这部分是关于 .NET Core and the Windows Runtime 的内容。</p>
+<p>这部分是关于 .NET Core and the Windows Runtime 的内容。官方文档参照 <a href="https://docs.microsoft.com/zh-cn/dotnet/standard/">.Net 指南</a> 和 <a href="https://docs.microsoft.com/zh-cn/aspnet/core/?view=aspnetcore-3.1">.Net Core 文档</a> 为主。</p>
 <h1 id="chapter-19-libraries-assemblies-packages-and-nuget">Chapter 19: Libraries, Assemblies, Packages, and NuGet</h1>
 <ul>
 <li>此章为项目管理，不涉及编程。</li>
@@ -245,12 +243,12 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <p>A stream is an object used to transfer data.</p>
 </blockquote>
 <ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/StreamSamples/Program.cs">Stream Samples</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/StreamSamples/Program.cs">StreamSamples</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.filestream?view=netcore-3.1">FileStream 类</a></li>
 </ul>
 <h2 id="using-readers-and-writers">USING READERS AND WRITERS</h2>
 <ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/ReaderWriterSamples/Program.cs">Reader Writer Samples</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/ReaderWriterSamples/Program.cs">ReaderWriterSamples</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-and-write-to-a-newly-created-data-file">如何：对新建的数据文件进行读取和写入</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-write-text-to-a-file">如何：将文本写入文件</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-text-from-a-file">如何：从文件中读取文本</a></li>
@@ -260,7 +258,7 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <p>Both <code>DeflateStream</code> and <code>GZipStream</code> use the same algorithm for compression (in fact, <code>GZipStream</code> uses <code>DeflateStream</code> behind the scenes), but <code>GZipStream</code> adds a cyclic redundancy check to detect data corruption. <code>Brotli</code> is a relatively new open-source compression algorithm from Google. The speed of <code>Brotli</code> is similar to deflate, but it offers a better compression. Contrary to most other compression algorithms, it uses a dictionary for often-used words for better compression. Nowadays this algorithm is supported by most modern browsers.</p>
 </blockquote>
 <ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs">Compress File Sample</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs">CompressFileSample</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-compress-and-extract-files">如何：压缩和解压缩文件</a></li>
 </ul>
 <h3 id="using-brotli">Using Brotli</h3>
@@ -281,12 +279,12 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <p>With <code>FileSystemWatcher</code>, you can monitor file changes. Events are fired on creating, renaming, deleting, and changing files. This can be used in scenarios where you need to react on file changes — for example, with a server when a file is uploaded, or in a case where a file is cached in memory and the cache needs to be invalidated when the file changes.</p>
 </blockquote>
 <ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/FileMonitor/Program.cs">File monitor samples</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/FileMonitor/Program.cs">FileMonitor</a></li>
 </ul>
 <h2 id="working-with-memory-mapped-files">WORKING WITH MEMORY MAPPED FILES</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/memory-mapped-files">内存映射文件</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/MemoryMappedFilesSample/Program.cs">Memory mapped files sample</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/MemoryMappedFilesSample/Program.cs">MemoryMappedFilesSample</a></li>
 </ul>
 <h2 id="communicating-with-pipes">COMMUNICATING WITH PIPES</h2>
 <blockquote>
@@ -297,23 +295,51 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipe-operations">.NET 中的管道操作</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipelines">.NET 中的 System.IO.Pipelines</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/AnonymousPipes/Program.cs">Anonymous Pipes</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesReader/Program.cs">Pipes Reader</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesWriter/Program.cs">Pipes Writer</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/AnonymousPipes/Program.cs">AnonymousPipes</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesReader/Program.cs">PipesReader</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesWriter/Program.cs">PipesWriter</a></li>
 </ul>
 <h2 id="using-files-and-streams-with-the-windows-runtime">USING FILES AND STREAMS WITH THE WINDOWS RUNTIME</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-convert-between-dotnet-streams-and-winrt-streams">如何：在 .NET Framework 和 Windows 运行时流之间进行转换（仅限 Windows）</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/WindowsAppEditor">Windows App Editor</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/WindowsAppEditor">WindowsAppEditor</a></li>
 </ul>
 <h1 id="chapter-23-networking">Chapter 23: Networking</h1>
 <blockquote>
 <p>The two namespaces of most interest for networking are <code>System.Net</code> and <code>System.Net.Sockets</code>. The <code>System.Net</code> namespace is generally concerned with higher-level operations, such as downloading and uploading files, and making web requests using HTTP and other protocols, whereas <code>System.Net.Sockets</code> contains classes to perform lower-level operations. You will find these classes useful when you want to work directly with sockets or protocols, such as TCP/IP.</p>
 </blockquote>
+<blockquote>
+<p>The HTTP protocol is based on TCP, and thus the HttpXX classes offered an abstraction layer over the TcpXX classes. The TcpXX classes, however, give you more control. You can even get more control than offered by the TcpXX or UdpXX classes with sockets. With sockets, you can use different protocols, not only protocols based on TCP or UDP, and also create your own protocol. What might be even more important is that you can have more control over TCP- or UDP-based protocols.</p>
+</blockquote>
 <h2 id="the-httpclient-class">THE HTTPCLIENT CLASS</h2>
+<p>这部分是客户端内容</p>
 <blockquote>
 <p>The <code>HttpClient</code> class is used to send an HTTP request and receive the response from the request. It is in the <code>System.Net.Http</code> namespace. The classes in the <code>System.Net.Http</code> namespace help make it easy to consume web services for both clients and server.</p>
 </blockquote>
+<p>传统 <code>HttpClient</code> 的基本用法</p>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/master/Networking/NetworkingSamples/HttpClientSample/HttpClientSamples.cs">HttpClientSamples</a></li>
+</ul>
+<p>新版本的 .Net Core 推荐使用 <code>IHttpClientFactory</code> 来创建 <code>HttpClient</code>。</p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.1">在 ASP.NET Core 中使用 IHttpClientFactory 发出 HTTP 请求</a></li>
+<li><a href="https://www.cnblogs.com/willick/p/net-core-httpclient.html">.NET Core 中正确使用 HttpClient 的姿势</a></li>
+</ul>
+<h2 id="working-with-the-weblistener-class">WORKING WITH THE WEBLISTENER CLASS</h2>
+<p>我们的 web 程序需要一个宿主,所以 <code>CreateHostBuilder</code> 这个方法就创建了一个 <code>IHostBuilder</code>. 而且我们还需要 Web Server.</p>
+<p>Asp.Net Core 自带了两种 http servers, 一个是 <code>WebListener</code> , 它只能用于 Windows 系统, 另一个是 <code>kestrel</code> , 它是跨平台的.</p>
+<p><code>WebListener</code> 是一个只能运行在 Windows 上的 ASP.NET Core web 服务器，基于 <code>Http.Sys</code> 内核模块驱动构建。</p>
+<h1 id="chapter-24-security">Chapter 24: Security</h1>
+<h2 id="verifying-user-information">VERIFYING USER INFORMATION</h2>
+<blockquote>
+<p>Two fundamental pillars of security are authentication and authorization. Authentication is the process of identifying the user, and authorization occurs afterward to verify that the identified user is allowed to access a specific resource.</p>
+</blockquote>
+<p>这部分内容还是用 IdentityServer 更好。</p>
+<ul>
+<li><a href="https://identityserver4.readthedocs.io/en/latest/">IdentityServer 官方文档</a></li>
+</ul>
+<hr>
+<p>剩下的内容单靠书本上的理论知识无法充分理解，需要实战演练。</p>
 
             </div>
             
@@ -332,9 +358,9 @@ Chapter 19: Libraries, Assemblies, Packages, and NuGet
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zhangyue-vhyt.github.io/post/csharp-notes-2/">
+                <a href="https://zhangyue-vhyt.github.io/post/csharp-notes-1/">
                   <h3 class="post-title">
-                    《C#高级编程》- The C# Language Part 2
+                    《C#高级编程》- The C# Language Part 1
                   </h3>
                 </a>
               </div>

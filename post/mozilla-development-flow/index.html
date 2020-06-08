@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1590822908968">
+<link rel="shortcut icon" href="https://zhangyue-vhyt.github.io/favicon.ico?v=1591586611410">
 <link rel="stylesheet" href="https://zhangyue-vhyt.github.io/styles/main.css">
 
 
@@ -18,14 +18,12 @@
 
 
 
-    <meta name="description" content="WSL2
-sudo apt-get install imagemagick
+    <meta name="description" content="WSL2 Debian/Ubuntu
+sudo apt update
+sudo apt install imagemagick python3-pip build-essential
+pip3 install mozphab
 
-Perftest Notebook
-
-New Contributors to Perftest
-Mercurial Overview
-Firefox Contri..." />
+Build ..." />
     <meta name="keywords" content="Mozilla" />
   </head>
   <body>
@@ -35,7 +33,7 @@ Firefox Contri..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zhangyue-vhyt.github.io">
-        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1590822908968" class="site-logo">
+        <img src="https://zhangyue-vhyt.github.io/images/avatar.png?v=1591586611410" class="site-logo">
         <h1 class="site-title">咸鱼の家</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -102,18 +100,19 @@ Firefox Contri..." />
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">Mozilla Development Flow</h2>
-            <div class="post-date">2020-05-25</div>
+            <div class="post-date">2020-05-24</div>
             
               <div class="feature-container" style="background-image: url('https://www.mozilla.org/media/protocol/img/logos/firefox/browser/og.4ad05d4125a5.png')">
               </div>
             
             <div class="post-content" v-pre>
-              <h1 id="wsl2">WSL2</h1>
-<pre><code class="language-sh">sudo apt-get install imagemagick
+              <h1 id="wsl2-debianubuntu">WSL2 Debian/Ubuntu</h1>
+<pre><code class="language-sh">sudo apt update
+sudo apt install imagemagick python3-pip build-essential
+pip3 install mozphab
 </code></pre>
-<h1 id="perftest-notebook">Perftest Notebook</h1>
+<h1 id="build-firefox">Build Firefox</h1>
 <ul>
-<li><a href="https://wiki.mozilla.org/TestEngineering/Performance/NewContributors">New Contributors to Perftest</a></li>
 <li><a href="https://firefox-source-docs.mozilla.org/contributing/vcs/mercurial.html#using-hg-clone">Mercurial Overview</a></li>
 <li><a href="https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html">Firefox Contributors' Quick Reference</a></li>
 </ul>
@@ -133,6 +132,10 @@ ac_add_options --enable-debug
 </code></pre>
 <p>--- <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Simple_Firefox_build/Linux_and_MacOS_build_preparation">Linux build preparation</a></p>
 </blockquote>
+<h1 id="perftest-notebook">Perftest Notebook</h1>
+<ul>
+<li><a href="https://wiki.mozilla.org/TestEngineering/Performance/NewContributors">New Contributors to Perftest</a></li>
+</ul>
 <h2 id="test">Test</h2>
 <ul>
 <li>Linter: <code>./mach lint --warnings --outgoing</code></li>
@@ -145,8 +148,7 @@ ac_add_options --enable-debug
 <li>Commit: Using VSCode Extension.</li>
 <li>Changes: Using VSCode Extension.</li>
 <li>Amend: <code>hg commit --amend</code></li>
-<li>Current revision: <code>hg head</code> or <code>hg heads</code></li>
-<li>Latest revision: <code>hg log</code> after <code>pull</code></li>
+<li>Check the current and latest revisions: <code>hg head</code> or <code>hg heads</code></li>
 <li>Update: <code>hg up -r &lt;revision&gt;</code></li>
 <li>Rebase: <code>hg rebase -r &lt;current_revision&gt; --dest &lt;latest_revision&gt;</code></li>
 <li>Submit: <code>moz-phab</code> (Make sure <code>MozPhab</code> is installed by <code>pip3</code>)</li>

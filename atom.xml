@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-05-30T07:15:14.945Z</updated>
+    <updated>2020-06-08T03:23:34.838Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,13 +15,14 @@
         <id>https://zhangyue-vhyt.github.io/post/mozilla-development-flow/</id>
         <link href="https://zhangyue-vhyt.github.io/post/mozilla-development-flow/">
         </link>
-        <updated>2020-05-25T20:43:38.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="wsl2">WSL2</h1>
-<pre><code class="language-sh">sudo apt-get install imagemagick
+        <updated>2020-05-24T08:43:38.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="wsl2-debianubuntu">WSL2 Debian/Ubuntu</h1>
+<pre><code class="language-sh">sudo apt update
+sudo apt install imagemagick python3-pip build-essential
+pip3 install mozphab
 </code></pre>
-<h1 id="perftest-notebook">Perftest Notebook</h1>
+<h1 id="build-firefox">Build Firefox</h1>
 <ul>
-<li><a href="https://wiki.mozilla.org/TestEngineering/Performance/NewContributors">New Contributors to Perftest</a></li>
 <li><a href="https://firefox-source-docs.mozilla.org/contributing/vcs/mercurial.html#using-hg-clone">Mercurial Overview</a></li>
 <li><a href="https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html">Firefox Contributors' Quick Reference</a></li>
 </ul>
@@ -41,6 +42,10 @@ ac_add_options --enable-debug
 </code></pre>
 <p>--- <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Simple_Firefox_build/Linux_and_MacOS_build_preparation">Linux build preparation</a></p>
 </blockquote>
+<h1 id="perftest-notebook">Perftest Notebook</h1>
+<ul>
+<li><a href="https://wiki.mozilla.org/TestEngineering/Performance/NewContributors">New Contributors to Perftest</a></li>
+</ul>
 <h2 id="test">Test</h2>
 <ul>
 <li>Linter: <code>./mach lint --warnings --outgoing</code></li>
@@ -53,8 +58,7 @@ ac_add_options --enable-debug
 <li>Commit: Using VSCode Extension.</li>
 <li>Changes: Using VSCode Extension.</li>
 <li>Amend: <code>hg commit --amend</code></li>
-<li>Current revision: <code>hg head</code> or <code>hg heads</code></li>
-<li>Latest revision: <code>hg log</code> after <code>pull</code></li>
+<li>Check the current and latest revisions: <code>hg head</code> or <code>hg heads</code></li>
 <li>Update: <code>hg up -r &lt;revision&gt;</code></li>
 <li>Rebase: <code>hg rebase -r &lt;current_revision&gt; --dest &lt;latest_revision&gt;</code></li>
 <li>Submit: <code>moz-phab</code> (Make sure <code>MozPhab</code> is installed by <code>pip3</code>)</li>
@@ -169,223 +173,6 @@ dotnet add ./&lt;bin_name&gt;/&lt;bin_name&gt;.csproj reference ./&lt;lib_name&g
 <li><a href="https://kaisery.gitbooks.io/rust-book-chinese/content/content/Testing%20%E6%B5%8B%E8%AF%95.html">测试</a></li>
 <li>每一个 <code>mod.rs</code> 都要添加 <code>pub mod &lt;submod&gt;</code> 。</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《C#高级编程》- .Net Core and Windows Runtime]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/csharp-note-3/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/csharp-note-3/">
-        </link>
-        <updated>2020-05-10T16:13:05.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>这部分是关于 .NET Core and the Windows Runtime 的内容。</p>
-<h1 id="chapter-19-libraries-assemblies-packages-and-nuget">Chapter 19: Libraries, Assemblies, Packages, and NuGet</h1>
-<ul>
-<li>此章为项目管理，不涉及编程。</li>
-<li><a href="https://docs.microsoft.com/en-us/dotnet/core/tools">.NET Core CLI overview</a></li>
-</ul>
-<h1 id="chapter-20-dependency-injection">Chapter 20: Dependency Injection</h1>
-<h2 id="what-is-dependency-injection">WHAT IS DEPENDENCY INJECTION?</h2>
-<p>这里先介绍下控制反转：</p>
-<blockquote>
-<p>控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI）</p>
-</blockquote>
-<p>依赖注入是控制反转的一种实现方式</p>
-<p>具体什么是控制反转呢？</p>
-<blockquote>
-<p><code>Class A</code> 中用到了 <code>Class B</code> 的对象 <code>b</code>，一般情况下，需要在 <code>A</code> 的代码中显式的 <code>new</code> 一个 <code>B</code> 的对象。<br>
-采用依赖注入技术之后，<code>A</code> 的代码只需要定义一个私有的 <code>B</code> 对象，不需要直接 <code>new</code> 来获得这个对象，而是通过相关的容器控制程序来将B对象在外部 <code>new</code> 出来并注入到A类里的引用中。而具体获取的方法、对象被获取时的状态由配置文件（如 <code>XML</code>）来指定。</p>
-</blockquote>
-<p>简单地说，就是当 <code>A</code> 对象依赖 <code>B</code> 对象时，传统的做法时在 <code>A</code> 中 <code>new</code> 一个 <code>B</code> 对象，现在改为：在外部先 <code>new</code> 一个B对象，然后通过 <code>class A</code> 的构造函数传递给 <code>A</code> 对象。</p>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></li>
-<li><a href="https://angular.cn/guide/architecture-services">服务与依赖注入简介</a></li>
-<li>在 .Net Core 中，可以把除了 <code>StartUp</code> 和 <code>Program</code> 之外的类都当作服务。</li>
-</ul>
-<h3 id="using-a-service-without-dependency-injection">Using a Service Without Dependency Injection</h3>
-<p>代码来源于《C#高级编程》</p>
-<ol>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/GreetingService.cs">创建一个依赖/服务</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/HomeController.cs">创建一个使用上述服务的新服务</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/Program.cs"><code>Main</code> 函数</a></li>
-</ol>
-<h3 id="using-dependency-injection">Using Dependency Injection</h3>
-<blockquote>
-<p>使用接口或基类抽象化依赖关系实现。</p>
-<p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
-</blockquote>
-<ol>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/IGreetingService.cs">创建被依赖的服务接口</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/GreetingService.cs">创建被依赖的服务</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/HomeController.cs">创建一个依赖上述服务的新服务</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/Program.cs"><code>Main</code> 函数</a></li>
-</ol>
-<h2 id="using-the-net-core-di-container">USING THE .NET CORE DI CONTAINER</h2>
-<blockquote>
-<ul>
-<li>注册服务容器中的依赖关系。 ASP.NET Core 提供了一个内置的服务容器 <code>IServiceProvider</code>。 服务已在应用的 <code>Startup.ConfigureServices</code> 方法中注册。</li>
-<li>将服务注入 到使用它的类的构造函数中。 框架负责创建依赖关系的实例，并在不再需要时对其进行处理。</li>
-</ul>
-<p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
-</blockquote>
-<p>服务容器的示例：</p>
-<ol>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/IGreetingService.cs">创建被依赖的服务接口</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/GreetingService.cs">创建被依赖的服务</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/HomeController.cs">创建一个依赖上述服务的新服务</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/Program.cs"><code>Main</code> 函数</a></li>
-</ol>
-<h2 id="lifetime-of-services">LIFETIME OF SERVICES</h2>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes">服务生存期</a></li>
-<li><a href="https://itcodemonkey.com/article/14400.html">.NET Core 注入中的三种模式：Singleton、Scoped 和 Transient</a></li>
-</ul>
-<h3 id="using-singleton-and-transient-services">Using Singleton and Transient Services</h3>
-<blockquote>
-<p>Registering a service as a singleton always returns the same instance, and registering a service as transient returns a new object every time the service is injected.</p>
-</blockquote>
-<h3 id="using-scoped-services">Using Scoped Services</h3>
-<blockquote>
-<p>Services can also be registered within a scope. This is something inbetween transient and singleton. With singleton, only a single instance is created. Transient creates a new instance every time the service is requested from the container. With scoped, always the same instance is returned from the same scope, but from a different scope a different instance is returned.</p>
-</blockquote>
-<h2 id="initialization-of-services-using-options-and-using-configuration-files">INITIALIZATION OF SERVICES USING OPTIONS and USING CONFIGURATION FILES</h2>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">ASP.NET Core 中的选项模式</a></li>
-<li><a href="https://www.cnblogs.com/wzk153/p/11307014.html">（13）ASP.NET Core2.2 中的选项模式（Options）</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithOptions">DI with options example</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithConfiguration">DI with configuration files example</a></li>
-</ul>
-<h2 id="creating-platform-independence">CREATING PLATFORM INDEPENDENCE</h2>
-<blockquote>
-<p>Dependency injection also can be used to use platform-specific features from platform-independent libraries.</p>
-</blockquote>
-<p>这部分内容是不跨平台的，以后有需要再补。</p>
-<h2 id="using-other-di-containers">USING OTHER DI CONTAINERS</h2>
-<blockquote>
-<p><code>Microsoft.Extensions.DependencyInjection</code> is a simple DI container; many third-party containers offer additional functionality. For example, Autofac allows configuration of the services in a configuration file.</p>
-</blockquote>
-<p>原生的 DI 容器非常轻量，如果需要更复杂的容器，推荐使用 <a href="https://autofaccn.readthedocs.io/zh/latest/">Autofac</a>。</p>
-<ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithAutofac">DI with Autofac example</a></li>
-</ul>
-<h1 id="chapter-21-tasks-and-parallel-programming">Chapter 21: Tasks and Parallel Programming</h1>
-<p>《C#高级编程》中并行和异步内容过于详细庞杂，在学习时推荐上手练习 LeetCode 的 Concurrency 和 Codewar 的多线程题目。</p>
-<h2 id="overview">OVERVIEW</h2>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-processing-and-concurrency">.NET 中的并行处理、并发和异步编程</a></li>
-<li>C# 使用 <code>Task</code> 进行异步编程，<code>Parallel</code> 类进行并行编程。如果想要更多的控制权限，使用 <code>Thread</code>。</li>
-<li>需要同步机制 <code>synchronization</code> 去防止竞争危害 (race condition) 和死锁 (deadlock)。</li>
-<li>除了 <code>synchronization</code> 外，使用不可变类型 (immutable types) 也是一种方案。</li>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/threading/overview-of-synchronization-primitives">同步基元概述</a></li>
-</ul>
-<h2 id="parallel-class">PARALLEL CLASS</h2>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-programming/data-parallelism-task-parallel-library?view=netcore-3.1">数据并行（任务并行库）</a></li>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.threading.tasks.parallel?view=netcore-3.1">Parallel 类</a></li>
-<li><a href="https://www.cnblogs.com/yunfeifei/p/3993401.html">5天玩转C#并行和多线程编程 —— 第一天 认识Parallel</a></li>
-</ul>
-<h2 id="tasks">TASKS</h2>
-<blockquote>
-<p>Parallel.For用起来方便，但是在实际开发中还是尽量少用，因为它的不可控性太高，有点简单粗暴的感觉，可能带来一些不必要的&quot;麻烦&quot;,最好还是使用Task，因为Task的可控性较好。</p>
-<p>--- 5天玩转 C# 并行和多线程编程</p>
-</blockquote>
-<ul>
-<li><a href="https://www.cnblogs.com/yunfeifei/p/4106318.html">5天玩转C#并行和多线程编程 —— 第三天 认识和使用Task</a></li>
-</ul>
-<h1 id="chapter-22-files-and-streams">Chapter 22: Files and Streams</h1>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/">文件和流 I/O</a></li>
-</ul>
-<h2 id="managing-the-file-system">MANAGING THE FILE SYSTEM</h2>
-<blockquote>
-<p>Directories or folders? These terms are often used interchangeably. Directory is a classical term for a file system object. A directory contains files and other directories. A folder has its origin with Apple's Lisa and is a GUI object. Often it is associated with an icon to map to a directory.</p>
-</blockquote>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/#files-and-directories">文件和目录</a></li>
-</ul>
-<h3 id="using-file-to-read-and-write">Using File to Read and Write</h3>
-<ul>
-<li>官方文档使用的是 <code>StreamReader</code> 和 <code>StreamWriter</code> 进行读写操作。</li>
-<li>对于小文件，<code>File.ReadAllText</code> 和 <code>File.WriteAllText</code> 是更便捷的方式，详情参考 <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.file?view=netcore-3.1">File 类</a></li>
-</ul>
-<h2 id="enumerating-files">ENUMERATING FILES</h2>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-enumerate-directories-and-files">如何：枚举目录和文件</a></li>
-</ul>
-<h2 id="working-with-streams">WORKING WITH STREAMS</h2>
-<blockquote>
-<p>A stream is an object used to transfer data.</p>
-</blockquote>
-<ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/StreamSamples/Program.cs">Stream Samples</a></li>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.filestream?view=netcore-3.1">FileStream 类</a></li>
-</ul>
-<h2 id="using-readers-and-writers">USING READERS AND WRITERS</h2>
-<ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/ReaderWriterSamples/Program.cs">Reader Writer Samples</a></li>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-and-write-to-a-newly-created-data-file">如何：对新建的数据文件进行读取和写入</a></li>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-write-text-to-a-file">如何：将文本写入文件</a></li>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-text-from-a-file">如何：从文件中读取文本</a></li>
-</ul>
-<h2 id="compressing-files">COMPRESSING FILES</h2>
-<blockquote>
-<p>Both <code>DeflateStream</code> and <code>GZipStream</code> use the same algorithm for compression (in fact, <code>GZipStream</code> uses <code>DeflateStream</code> behind the scenes), but <code>GZipStream</code> adds a cyclic redundancy check to detect data corruption. <code>Brotli</code> is a relatively new open-source compression algorithm from Google. The speed of <code>Brotli</code> is similar to deflate, but it offers a better compression. Contrary to most other compression algorithms, it uses a dictionary for often-used words for better compression. Nowadays this algorithm is supported by most modern browsers.</p>
-</blockquote>
-<ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs">Compress File Sample</a></li>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-compress-and-extract-files">如何：压缩和解压缩文件</a></li>
-</ul>
-<h3 id="using-brotli">Using Brotli</h3>
-<blockquote>
-<p>Add the NuGet package <code>System.IO.Compression.Brotli</code> and instantiate the <code>BrotliStream</code> class</p>
-</blockquote>
-<ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs#L90-L100">Compress file with Brotli example</a></li>
-</ul>
-<blockquote>
-<p>Decompression works accordingly using <code>BrotliStream</code>:</p>
-</blockquote>
-<ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs#L102-L116">Decompress file with Brotli example</a></li>
-</ul>
-<h2 id="watching-file-changes">WATCHING FILE CHANGES</h2>
-<blockquote>
-<p>With <code>FileSystemWatcher</code>, you can monitor file changes. Events are fired on creating, renaming, deleting, and changing files. This can be used in scenarios where you need to react on file changes — for example, with a server when a file is uploaded, or in a case where a file is cached in memory and the cache needs to be invalidated when the file changes.</p>
-</blockquote>
-<ul>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/FileMonitor/Program.cs">File monitor samples</a></li>
-</ul>
-<h2 id="working-with-memory-mapped-files">WORKING WITH MEMORY MAPPED FILES</h2>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/memory-mapped-files">内存映射文件</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/MemoryMappedFilesSample/Program.cs">Memory mapped files sample</a></li>
-</ul>
-<h2 id="communicating-with-pipes">COMMUNICATING WITH PIPES</h2>
-<blockquote>
-<p>管道本质上就是一个文件，前面的进程以写方式打开文件，后面的进程以读方式打开。这样前面写完后面读，于是就实现了通信。实际上管道的设计也是遵循 UNIX 的“一切皆文件”设计原则的，它本质上就是一个文件。Linux 系统直接把管道实现成了一种文件系统，借助 VFS 给应用程序提供操作接口。<br>
-虽然实现形态上是文件，但是管道本身并不占用磁盘或者其他外部存储的空间。在Linux的实现上，它占用的是内存空间。所以，Linux上的管道就是一个操作方式为文件的内存缓冲区。<br>
---- <a href="https://zhuanlan.zhihu.com/p/58489873">Linux 的进程间通信：管道</a></p>
-</blockquote>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipe-operations">.NET 中的管道操作</a></li>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipelines">.NET 中的 System.IO.Pipelines</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/AnonymousPipes/Program.cs">Anonymous Pipes</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesReader/Program.cs">Pipes Reader</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesWriter/Program.cs">Pipes Writer</a></li>
-</ul>
-<h2 id="using-files-and-streams-with-the-windows-runtime">USING FILES AND STREAMS WITH THE WINDOWS RUNTIME</h2>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-convert-between-dotnet-streams-and-winrt-streams">如何：在 .NET Framework 和 Windows 运行时流之间进行转换（仅限 Windows）</a></li>
-<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/WindowsAppEditor">Windows App Editor</a></li>
-</ul>
-<h1 id="chapter-23-networking">Chapter 23: Networking</h1>
-<blockquote>
-<p>The two namespaces of most interest for networking are <code>System.Net</code> and <code>System.Net.Sockets</code>. The <code>System.Net</code> namespace is generally concerned with higher-level operations, such as downloading and uploading files, and making web requests using HTTP and other protocols, whereas <code>System.Net.Sockets</code> contains classes to perform lower-level operations. You will find these classes useful when you want to work directly with sockets or protocols, such as TCP/IP.</p>
-</blockquote>
-<h2 id="the-httpclient-class">THE HTTPCLIENT CLASS</h2>
-<blockquote>
-<p>The <code>HttpClient</code> class is used to send an HTTP request and receive the response from the request. It is in the <code>System.Net.Http</code> namespace. The classes in the <code>System.Net.Http</code> namespace help make it easy to consume web services for both clients and server.</p>
-</blockquote>
 ]]></content>
     </entry>
     <entry>
@@ -679,6 +466,251 @@ dotnet add ./&lt;bin_name&gt;/&lt;bin_name&gt;.csproj reference ./&lt;lib_name&g
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/interop/marshaling-data-with-platform-invoke">用平台调用封送数据</a></li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/framework/interop/platform-invoke-examples">平台调用示例</a></li>
 </ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[《C#高级编程》- .Net Core and Windows Runtime]]></title>
+        <id>https://zhangyue-vhyt.github.io/post/csharp-note-3/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/csharp-note-3/">
+        </link>
+        <updated>2020-05-07T04:13:05.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>这部分是关于 .NET Core and the Windows Runtime 的内容。官方文档参照 <a href="https://docs.microsoft.com/zh-cn/dotnet/standard/">.Net 指南</a> 和 <a href="https://docs.microsoft.com/zh-cn/aspnet/core/?view=aspnetcore-3.1">.Net Core 文档</a> 为主。</p>
+<h1 id="chapter-19-libraries-assemblies-packages-and-nuget">Chapter 19: Libraries, Assemblies, Packages, and NuGet</h1>
+<ul>
+<li>此章为项目管理，不涉及编程。</li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/core/tools">.NET Core CLI overview</a></li>
+</ul>
+<h1 id="chapter-20-dependency-injection">Chapter 20: Dependency Injection</h1>
+<h2 id="what-is-dependency-injection">WHAT IS DEPENDENCY INJECTION?</h2>
+<p>这里先介绍下控制反转：</p>
+<blockquote>
+<p>控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI）</p>
+</blockquote>
+<p>依赖注入是控制反转的一种实现方式</p>
+<p>具体什么是控制反转呢？</p>
+<blockquote>
+<p><code>Class A</code> 中用到了 <code>Class B</code> 的对象 <code>b</code>，一般情况下，需要在 <code>A</code> 的代码中显式的 <code>new</code> 一个 <code>B</code> 的对象。<br>
+采用依赖注入技术之后，<code>A</code> 的代码只需要定义一个私有的 <code>B</code> 对象，不需要直接 <code>new</code> 来获得这个对象，而是通过相关的容器控制程序来将B对象在外部 <code>new</code> 出来并注入到A类里的引用中。而具体获取的方法、对象被获取时的状态由配置文件（如 <code>XML</code>）来指定。</p>
+</blockquote>
+<p>简单地说，就是当 <code>A</code> 对象依赖 <code>B</code> 对象时，传统的做法时在 <code>A</code> 中 <code>new</code> 一个 <code>B</code> 对象，现在改为：在外部先 <code>new</code> 一个B对象，然后通过 <code>class A</code> 的构造函数传递给 <code>A</code> 对象。</p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></li>
+<li><a href="https://angular.cn/guide/architecture-services">服务与依赖注入简介</a></li>
+<li>在 .Net Core 中，可以把除了 <code>StartUp</code> 和 <code>Program</code> 之外的类都当作服务。</li>
+</ul>
+<h3 id="using-a-service-without-dependency-injection">Using a Service Without Dependency Injection</h3>
+<p>代码来源于《C#高级编程》</p>
+<ol>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/GreetingService.cs">创建一个依赖/服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/HomeController.cs">创建一个使用上述服务的新服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/NoDI/Program.cs"><code>Main</code> 函数</a></li>
+</ol>
+<h3 id="using-dependency-injection">Using Dependency Injection</h3>
+<blockquote>
+<p>使用接口或基类抽象化依赖关系实现。</p>
+<p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
+</blockquote>
+<ol>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/IGreetingService.cs">创建被依赖的服务接口</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/GreetingService.cs">创建被依赖的服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/HomeController.cs">创建一个依赖上述服务的新服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDI/Program.cs"><code>Main</code> 函数</a></li>
+</ol>
+<h2 id="using-the-net-core-di-container">USING THE .NET CORE DI CONTAINER</h2>
+<blockquote>
+<ul>
+<li>注册服务容器中的依赖关系。 ASP.NET Core 提供了一个内置的服务容器 <code>IServiceProvider</code>。 服务已在应用的 <code>Startup.ConfigureServices</code> 方法中注册。</li>
+<li>将服务注入 到使用它的类的构造函数中。 框架负责创建依赖关系的实例，并在不再需要时对其进行处理。</li>
+</ul>
+<p>--- <a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1">在 ASP.NET Core 依赖注入</a></p>
+</blockquote>
+<p>服务容器的示例：</p>
+<ol>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/IGreetingService.cs">创建被依赖的服务接口</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/GreetingService.cs">创建被依赖的服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/HomeController.cs">创建一个依赖上述服务的新服务</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/WithDIContainer/Program.cs"><code>Main</code> 函数</a></li>
+</ol>
+<h2 id="lifetime-of-services">LIFETIME OF SERVICES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes">服务生存期</a></li>
+<li><a href="https://itcodemonkey.com/article/14400.html">.NET Core 注入中的三种模式：Singleton、Scoped 和 Transient</a></li>
+</ul>
+<h3 id="using-singleton-and-transient-services">Using Singleton and Transient Services</h3>
+<blockquote>
+<p>Registering a service as a singleton always returns the same instance, and registering a service as transient returns a new object every time the service is injected.</p>
+</blockquote>
+<h3 id="using-scoped-services">Using Scoped Services</h3>
+<blockquote>
+<p>Services can also be registered within a scope. This is something inbetween transient and singleton. With singleton, only a single instance is created. Transient creates a new instance every time the service is requested from the container. With scoped, always the same instance is returned from the same scope, but from a different scope a different instance is returned.</p>
+</blockquote>
+<h2 id="initialization-of-services-using-options-and-using-configuration-files">INITIALIZATION OF SERVICES USING OPTIONS and USING CONFIGURATION FILES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">ASP.NET Core 中的选项模式</a></li>
+<li><a href="https://www.cnblogs.com/wzk153/p/11307014.html">（13）ASP.NET Core2.2 中的选项模式（Options）</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithOptions">DI with options example</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithConfiguration">DI with configuration files example</a></li>
+</ul>
+<h2 id="creating-platform-independence">CREATING PLATFORM INDEPENDENCE</h2>
+<blockquote>
+<p>Dependency injection also can be used to use platform-specific features from platform-independent libraries.</p>
+</blockquote>
+<p>这部分内容是不跨平台的，以后有需要再补。</p>
+<h2 id="using-other-di-containers">USING OTHER DI CONTAINERS</h2>
+<blockquote>
+<p><code>Microsoft.Extensions.DependencyInjection</code> is a simple DI container; many third-party containers offer additional functionality. For example, Autofac allows configuration of the services in a configuration file.</p>
+</blockquote>
+<p>原生的 DI 容器非常轻量，如果需要更复杂的容器，推荐使用 <a href="https://autofaccn.readthedocs.io/zh/latest/">Autofac</a>。</p>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/DependencyInjection/DependencyInjectionSamples/DIWithAutofac">DI with Autofac example</a></li>
+</ul>
+<h1 id="chapter-21-tasks-and-parallel-programming">Chapter 21: Tasks and Parallel Programming</h1>
+<p>《C#高级编程》中并行和异步内容过于详细庞杂，在学习时推荐上手练习 LeetCode 的 Concurrency 和 Codewar 的多线程题目。</p>
+<h2 id="overview">OVERVIEW</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-processing-and-concurrency">.NET 中的并行处理、并发和异步编程</a></li>
+<li>C# 使用 <code>Task</code> 进行异步编程，<code>Parallel</code> 类进行并行编程。如果想要更多的控制权限，使用 <code>Thread</code>。</li>
+<li>需要同步机制 <code>synchronization</code> 去防止竞争危害 (race condition) 和死锁 (deadlock)。</li>
+<li>除了 <code>synchronization</code> 外，使用不可变类型 (immutable types) 也是一种方案。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/threading/overview-of-synchronization-primitives">同步基元概述</a></li>
+</ul>
+<h2 id="parallel-class">PARALLEL CLASS</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/parallel-programming/data-parallelism-task-parallel-library?view=netcore-3.1">数据并行（任务并行库）</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.threading.tasks.parallel?view=netcore-3.1">Parallel 类</a></li>
+<li><a href="https://www.cnblogs.com/yunfeifei/p/3993401.html">5天玩转C#并行和多线程编程 —— 第一天 认识Parallel</a></li>
+</ul>
+<h2 id="tasks">TASKS</h2>
+<blockquote>
+<p>Parallel.For用起来方便，但是在实际开发中还是尽量少用，因为它的不可控性太高，有点简单粗暴的感觉，可能带来一些不必要的&quot;麻烦&quot;,最好还是使用Task，因为Task的可控性较好。</p>
+<p>--- 5天玩转 C# 并行和多线程编程</p>
+</blockquote>
+<ul>
+<li><a href="https://www.cnblogs.com/yunfeifei/p/4106318.html">5天玩转C#并行和多线程编程 —— 第三天 认识和使用Task</a></li>
+</ul>
+<h1 id="chapter-22-files-and-streams">Chapter 22: Files and Streams</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/">文件和流 I/O</a></li>
+</ul>
+<h2 id="managing-the-file-system">MANAGING THE FILE SYSTEM</h2>
+<blockquote>
+<p>Directories or folders? These terms are often used interchangeably. Directory is a classical term for a file system object. A directory contains files and other directories. A folder has its origin with Apple's Lisa and is a GUI object. Often it is associated with an icon to map to a directory.</p>
+</blockquote>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/#files-and-directories">文件和目录</a></li>
+</ul>
+<h3 id="using-file-to-read-and-write">Using File to Read and Write</h3>
+<ul>
+<li>官方文档使用的是 <code>StreamReader</code> 和 <code>StreamWriter</code> 进行读写操作。</li>
+<li>对于小文件，<code>File.ReadAllText</code> 和 <code>File.WriteAllText</code> 是更便捷的方式，详情参考 <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.file?view=netcore-3.1">File 类</a></li>
+</ul>
+<h2 id="enumerating-files">ENUMERATING FILES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-enumerate-directories-and-files">如何：枚举目录和文件</a></li>
+</ul>
+<h2 id="working-with-streams">WORKING WITH STREAMS</h2>
+<blockquote>
+<p>A stream is an object used to transfer data.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/StreamSamples/Program.cs">StreamSamples</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.io.filestream?view=netcore-3.1">FileStream 类</a></li>
+</ul>
+<h2 id="using-readers-and-writers">USING READERS AND WRITERS</h2>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/ReaderWriterSamples/Program.cs">ReaderWriterSamples</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-and-write-to-a-newly-created-data-file">如何：对新建的数据文件进行读取和写入</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-write-text-to-a-file">如何：将文本写入文件</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-read-text-from-a-file">如何：从文件中读取文本</a></li>
+</ul>
+<h2 id="compressing-files">COMPRESSING FILES</h2>
+<blockquote>
+<p>Both <code>DeflateStream</code> and <code>GZipStream</code> use the same algorithm for compression (in fact, <code>GZipStream</code> uses <code>DeflateStream</code> behind the scenes), but <code>GZipStream</code> adds a cyclic redundancy check to detect data corruption. <code>Brotli</code> is a relatively new open-source compression algorithm from Google. The speed of <code>Brotli</code> is similar to deflate, but it offers a better compression. Contrary to most other compression algorithms, it uses a dictionary for often-used words for better compression. Nowadays this algorithm is supported by most modern browsers.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs">CompressFileSample</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-compress-and-extract-files">如何：压缩和解压缩文件</a></li>
+</ul>
+<h3 id="using-brotli">Using Brotli</h3>
+<blockquote>
+<p>Add the NuGet package <code>System.IO.Compression.Brotli</code> and instantiate the <code>BrotliStream</code> class</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs#L90-L100">Compress file with Brotli example</a></li>
+</ul>
+<blockquote>
+<p>Decompression works accordingly using <code>BrotliStream</code>:</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/CompressFileSample/Program.cs#L102-L116">Decompress file with Brotli example</a></li>
+</ul>
+<h2 id="watching-file-changes">WATCHING FILE CHANGES</h2>
+<blockquote>
+<p>With <code>FileSystemWatcher</code>, you can monitor file changes. Events are fired on creating, renaming, deleting, and changing files. This can be used in scenarios where you need to react on file changes — for example, with a server when a file is uploaded, or in a case where a file is cached in memory and the cache needs to be invalidated when the file changes.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/FileMonitor/Program.cs">FileMonitor</a></li>
+</ul>
+<h2 id="working-with-memory-mapped-files">WORKING WITH MEMORY MAPPED FILES</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/memory-mapped-files">内存映射文件</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/MemoryMappedFilesSample/Program.cs">MemoryMappedFilesSample</a></li>
+</ul>
+<h2 id="communicating-with-pipes">COMMUNICATING WITH PIPES</h2>
+<blockquote>
+<p>管道本质上就是一个文件，前面的进程以写方式打开文件，后面的进程以读方式打开。这样前面写完后面读，于是就实现了通信。实际上管道的设计也是遵循 UNIX 的“一切皆文件”设计原则的，它本质上就是一个文件。Linux 系统直接把管道实现成了一种文件系统，借助 VFS 给应用程序提供操作接口。<br>
+虽然实现形态上是文件，但是管道本身并不占用磁盘或者其他外部存储的空间。在Linux的实现上，它占用的是内存空间。所以，Linux上的管道就是一个操作方式为文件的内存缓冲区。<br>
+--- <a href="https://zhuanlan.zhihu.com/p/58489873">Linux 的进程间通信：管道</a></p>
+</blockquote>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipe-operations">.NET 中的管道操作</a></li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/pipelines">.NET 中的 System.IO.Pipelines</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/AnonymousPipes/Program.cs">AnonymousPipes</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesReader/Program.cs">PipesReader</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/PipesWriter/Program.cs">PipesWriter</a></li>
+</ul>
+<h2 id="using-files-and-streams-with-the-windows-runtime">USING FILES AND STREAMS WITH THE WINDOWS RUNTIME</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/io/how-to-convert-between-dotnet-streams-and-winrt-streams">如何：在 .NET Framework 和 Windows 运行时流之间进行转换（仅限 Windows）</a></li>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/tree/1548a1b211df1ed75a306eeacae3c1edf467c591/FilesAndStreams/FilesAndStreamsSamples/WindowsAppEditor">WindowsAppEditor</a></li>
+</ul>
+<h1 id="chapter-23-networking">Chapter 23: Networking</h1>
+<blockquote>
+<p>The two namespaces of most interest for networking are <code>System.Net</code> and <code>System.Net.Sockets</code>. The <code>System.Net</code> namespace is generally concerned with higher-level operations, such as downloading and uploading files, and making web requests using HTTP and other protocols, whereas <code>System.Net.Sockets</code> contains classes to perform lower-level operations. You will find these classes useful when you want to work directly with sockets or protocols, such as TCP/IP.</p>
+</blockquote>
+<blockquote>
+<p>The HTTP protocol is based on TCP, and thus the HttpXX classes offered an abstraction layer over the TcpXX classes. The TcpXX classes, however, give you more control. You can even get more control than offered by the TcpXX or UdpXX classes with sockets. With sockets, you can use different protocols, not only protocols based on TCP or UDP, and also create your own protocol. What might be even more important is that you can have more control over TCP- or UDP-based protocols.</p>
+</blockquote>
+<h2 id="the-httpclient-class">THE HTTPCLIENT CLASS</h2>
+<p>这部分是客户端内容</p>
+<blockquote>
+<p>The <code>HttpClient</code> class is used to send an HTTP request and receive the response from the request. It is in the <code>System.Net.Http</code> namespace. The classes in the <code>System.Net.Http</code> namespace help make it easy to consume web services for both clients and server.</p>
+</blockquote>
+<p>传统 <code>HttpClient</code> 的基本用法</p>
+<ul>
+<li><a href="https://github.com/ProfessionalCSharp/ProfessionalCSharp7/blob/master/Networking/NetworkingSamples/HttpClientSample/HttpClientSamples.cs">HttpClientSamples</a></li>
+</ul>
+<p>新版本的 .Net Core 推荐使用 <code>IHttpClientFactory</code> 来创建 <code>HttpClient</code>。</p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.1">在 ASP.NET Core 中使用 IHttpClientFactory 发出 HTTP 请求</a></li>
+<li><a href="https://www.cnblogs.com/willick/p/net-core-httpclient.html">.NET Core 中正确使用 HttpClient 的姿势</a></li>
+</ul>
+<h2 id="working-with-the-weblistener-class">WORKING WITH THE WEBLISTENER CLASS</h2>
+<p>我们的 web 程序需要一个宿主,所以 <code>CreateHostBuilder</code> 这个方法就创建了一个 <code>IHostBuilder</code>. 而且我们还需要 Web Server.</p>
+<p>Asp.Net Core 自带了两种 http servers, 一个是 <code>WebListener</code> , 它只能用于 Windows 系统, 另一个是 <code>kestrel</code> , 它是跨平台的.</p>
+<p><code>WebListener</code> 是一个只能运行在 Windows 上的 ASP.NET Core web 服务器，基于 <code>Http.Sys</code> 内核模块驱动构建。</p>
+<h1 id="chapter-24-security">Chapter 24: Security</h1>
+<h2 id="verifying-user-information">VERIFYING USER INFORMATION</h2>
+<blockquote>
+<p>Two fundamental pillars of security are authentication and authorization. Authentication is the process of identifying the user, and authorization occurs afterward to verify that the identified user is allowed to access a specific resource.</p>
+</blockquote>
+<p>这部分内容还是用 IdentityServer 更好。</p>
+<ul>
+<li><a href="https://identityserver4.readthedocs.io/en/latest/">IdentityServer 官方文档</a></li>
+</ul>
+<hr>
+<p>剩下的内容单靠书本上的理论知识无法充分理解，需要实战演练。</p>
 ]]></content>
     </entry>
     <entry>
@@ -1298,11 +1330,11 @@ dict1 = const.dict1
         <id>https://zhangyue-vhyt.github.io/post/bdm-na-guild/</id>
         <link href="https://zhangyue-vhyt.github.io/post/bdm-na-guild/">
         </link>
-        <updated>2020-03-31T04:05:33.000Z</updated>
+        <updated>2020-03-30T16:05:33.000Z</updated>
         <content type="html"><![CDATA[<h1 id="discord">Discord</h1>
 <p>手动加入 <code>discord.gg/pj5YEDj</code> 或者点击 <a href="https://discord.gg/pj5YEDj">这里</a></p>
 <h1 id="微信群">微信群</h1>
-<figure data-type="image" tabindex="1"><img src="https://zhangyue-vhyt.github.io/post-images/1590179306222.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://zhangyue-vhyt.github.io/post-images/1591586608208.png" alt="" loading="lazy"></figure>
 <h1 id="公会每日任务">公会每日任务<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
 <p><img src="https://zhangyue-vhyt.github.io/post-images/1585841757419.jpg" alt="" loading="lazy"><br>
 <img src="https://zhangyue-vhyt.github.io/post-images/1585841764714.jpg" alt="" loading="lazy"><br>
