@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-06-08T03:23:34.838Z</updated>
+    <updated>2020-06-10T12:52:54.481Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -66,13 +66,13 @@ ac_add_options --enable-debug
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[《Rust 编程之道》笔记]]></title>
+        <title type="html"><![CDATA[Rust 学习笔记]]></title>
         <id>https://zhangyue-vhyt.github.io/post/rust-notes/</id>
         <link href="https://zhangyue-vhyt.github.io/post/rust-notes/">
         </link>
-        <updated>2020-05-23T20:33:00.000Z</updated>
+        <updated>2020-05-23T08:33:00.000Z</updated>
         <content type="html"><![CDATA[<h1 id="前言">前言</h1>
-<p>Rust 学习笔记</p>
+<p>章节目录是根据《Rust 编程之道》排序的。</p>
 <h1 id="第-1-章-新时代的语言">第 1 章 新时代的语言</h1>
 <p>书中这部分内容可以跳过。此处罗列下 Rust 和 C# 中术语的映射关系。</p>
 <ol>
@@ -115,6 +115,7 @@ assert!(a.eq(&amp;b));  // True
 <h3 id="931-可选值-optiont">9.3.1 可选值 <code>Option&lt;T&gt;</code></h3>
 <ul>
 <li><a href="https://rustwiki.org/zh-CN/rust-by-example/error/option_unwrap.html"><code>Option</code> 和 <code>unwrap</code></a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/130487519">个人博客搭建日记 2020-04-14 学习rust</a></li>
 <li><a href="https://rustwiki.org/zh-CN/rust-by-example/error/option_unwrap/map.html">组合算子：<code>map</code></a></li>
 <li><a href="https://rustwiki.org/zh-CN/rust-by-example/error/option_unwrap/and_then.html">组合算子：<code>and_then</code></a></li>
 </ul>
