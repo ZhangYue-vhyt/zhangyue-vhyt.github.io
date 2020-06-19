@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-06-10T12:52:54.481Z</updated>
+    <updated>2020-06-19T19:57:26.833Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/mozilla-development-flow/</id>
         <link href="https://zhangyue-vhyt.github.io/post/mozilla-development-flow/">
         </link>
-        <updated>2020-05-24T08:43:38.000Z</updated>
+        <updated>2020-05-23T08:43:38.000Z</updated>
         <content type="html"><![CDATA[<h1 id="wsl2-debianubuntu">WSL2 Debian/Ubuntu</h1>
 <pre><code class="language-sh">sudo apt update
 sudo apt install imagemagick python3-pip build-essential
@@ -49,7 +49,7 @@ ac_add_options --enable-debug
 <h2 id="test">Test</h2>
 <ul>
 <li>Linter: <code>./mach lint --warnings --outgoing</code></li>
-<li>Unit Test:: <code>./mach python-test --python=3 python/mozperftest/mozperftest/tests/</code></li>
+<li>Unit Test:: <code>./mach perftest-test</code> or <code>./mach perftest-test -s</code></li>
 <li>Debug Run: <code>./mach perftest python/mozperftest/mozperftest/tests/example.js</code></li>
 </ul>
 <h2 id="version-contral-by-mercurial">Version Contral by Mercurial</h2>
