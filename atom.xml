@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-06-19T19:57:26.833Z</updated>
+    <updated>2020-06-25T03:28:18.001Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -10,6 +10,53 @@
     <logo>https://zhangyue-vhyt.github.io/images/avatar.png</logo>
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 咸鱼の家</rights>
+    <entry>
+        <title type="html"><![CDATA[.Net 解析 JSON]]></title>
+        <id>https://zhangyue-vhyt.github.io/post/dotnet-json/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/dotnet-json/">
+        </link>
+        <updated>2020-06-24T02:21:26.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="引言">引言</h1>
+<p>目前解析 JSON 用的库主流有两种，<code>System.Text.Json</code> 和 <code>Json.Net</code> 其中 <code>System.Text.Json</code> 是官方库，但还很不成熟。<code>Json.Net</code> 虽然是第三方库但也有官方背书，在 <code>Asp.Net</code> 官方模板中是直接引入的，功能完备项目成熟。本篇记录一下 <code>Json.Net</code> 的使用方法。</p>
+<h1 id="准备工作">准备工作</h1>
+<p>首先我们准备一份复杂嵌套的 <code>.json</code> 文件，比如 <a href="https://github.com/ZhangYue-vhyt/Games/blob/master/Black%20Desert%20Mobile/BlueStack/resources/events.json"><code>events.json</code></a>。</p>
+<h2 id="读取文件">读取文件</h2>
+<pre><code class="language-csharp">using System.IO;
+
+var jsonString = File.ReadAllText(@&quot;./resource/events.json&quot;);
+</code></pre>
+<p>这里读取文件采用的是 <code>File.ReadAllText</code>，因为要一次性读取所有内容。</p>
+<h2 id="反序列化">反序列化</h2>
+<pre><code class="language-csharp">using Newtonsoft.Json.Linq;
+
+void Deserialize(string jsonString)
+{
+    dynamic data = JObject.Parse(jsonString);
+    ...
+}
+</code></pre>
+<p>取出的数据可以向 python 那样操作</p>
+<pre><code class="language-csharp">data[&quot;AutoLock&quot;];
+data[&quot;Menu&quot;][&quot;Pet&quot;];
+data[&quot;BlackSpirit&quot;][&quot;DarkEnergy&quot;][&quot;AbsorbEnergy&quot;];
+</code></pre>
+<p>数据类型有 <code>JArray</code>、<code>JObject</code>、<code>JProperty</code>。</p>
+<h2 id="类型转换">类型转换</h2>
+<p><code>JProperty</code> 和 <code>JObject</code> 类型使用 <code>ToObject&lt;T&gt;()</code> 转换成 .Net 类型</p>
+<pre><code class="language-csharp">data[&quot;AutoLock&quot;][0][&quot;Timestamp&quot;].ToObject&lt;int&gt;();
+data[&quot;AutoLock&quot;][0][&quot;EventType&quot;].ToString();
+</code></pre>
+<p><code>JArray</code> 类型需要使用 Linq，参考<a href="https://www.newtonsoft.com/json/help/html/DeserializeWithLinq.htm">官方示例</a>。</p>
+<h2 id="序列化">序列化</h2>
+<pre><code class="language-csharp">var jsonString = JObject.FromObject(obj).ToString();    // Serializing objects.
+
+var jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);    // Serializing collections.
+</code></pre>
+<h2 id="写入文件">写入文件</h2>
+<pre><code class="language-csharp">File.WriteAllText(filePath, jsonString);
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Mozilla Development Flow]]></title>
         <id>https://zhangyue-vhyt.github.io/post/mozilla-development-flow/</id>
@@ -1324,30 +1371,6 @@ dict1 = const.dict1
 <ul>
 <li><a href="https://forum.gamer.com.tw/C.php?bsn=32841&amp;snA=7859">【攻略】韓版、台版捏臉數據導出教學(圖多) 12/6修改</a></li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[黑色沙漠M 美服 Heidel 华人公会]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/bdm-na-guild/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/bdm-na-guild/">
-        </link>
-        <updated>2020-03-30T16:05:33.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="discord">Discord</h1>
-<p>手动加入 <code>discord.gg/pj5YEDj</code> 或者点击 <a href="https://discord.gg/pj5YEDj">这里</a></p>
-<h1 id="微信群">微信群</h1>
-<figure data-type="image" tabindex="1"><img src="https://zhangyue-vhyt.github.io/post-images/1591586608208.png" alt="" loading="lazy"></figure>
-<h1 id="公会每日任务">公会每日任务<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
-<p><img src="https://zhangyue-vhyt.github.io/post-images/1585841757419.jpg" alt="" loading="lazy"><br>
-<img src="https://zhangyue-vhyt.github.io/post-images/1585841764714.jpg" alt="" loading="lazy"><br>
-<img src="https://zhangyue-vhyt.github.io/post-images/1585841769264.jpg" alt="" loading="lazy"></p>
-<h1 id="鸣谢">鸣谢</h1>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>工会成员 FenrirWolf 制作的工会每日任务教程。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 ]]></content>
     </entry>
 </feed>
