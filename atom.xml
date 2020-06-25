@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2020-06-25T03:28:18.001Z</updated>
+    <updated>2020-06-25T03:29:56.507Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangyue-vhyt.github.io/post/dotnet-json/</id>
         <link href="https://zhangyue-vhyt.github.io/post/dotnet-json/">
         </link>
-        <updated>2020-06-24T02:21:26.000Z</updated>
+        <updated>2020-06-23T02:21:26.000Z</updated>
         <content type="html"><![CDATA[<h1 id="引言">引言</h1>
 <p>目前解析 JSON 用的库主流有两种，<code>System.Text.Json</code> 和 <code>Json.Net</code> 其中 <code>System.Text.Json</code> 是官方库，但还很不成熟。<code>Json.Net</code> 虽然是第三方库但也有官方背书，在 <code>Asp.Net</code> 官方模板中是直接引入的，功能完备项目成熟。本篇记录一下 <code>Json.Net</code> 的使用方法。</p>
 <h1 id="准备工作">准备工作</h1>
