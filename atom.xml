@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangyue-vhyt.github.io</id>
     <title>咸鱼の家</title>
-    <updated>2021-01-27T23:27:36.733Z</updated>
+    <updated>2021-02-02T02:58:41.131Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangyue-vhyt.github.io"/>
     <link rel="self" href="https://zhangyue-vhyt.github.io/atom.xml"/>
@@ -10,6 +10,54 @@
     <logo>https://zhangyue-vhyt.github.io/images/avatar.png</logo>
     <icon>https://zhangyue-vhyt.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 咸鱼の家</rights>
+    <entry>
+        <title type="html"><![CDATA[[Config] ZSH Config File (.zshrc)]]></title>
+        <id>https://zhangyue-vhyt.github.io/post/zsh-config-file/</id>
+        <link href="https://zhangyue-vhyt.github.io/post/zsh-config-file/">
+        </link>
+        <updated>2021-02-01T10:54:48.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-shell">### Load antigen
+# Github
+# source ~/antigen.zsh
+
+# Manjaro
+# source /usr/share/zsh/share/antigen.zsh
+
+# OpenSUSE build service (include Fedora)
+# source /usr/share/antigen.zsh
+
+# Debian
+# source /usr/share/zsh-antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+antigen bundle docker
+antigen bundle docker-compose
+antigen bundle vi-mode
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Load the theme.
+antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+
+# Alias
+# alias_name = &lt;command
+
+
+# Tell Antigen that you're done.
+antigen apply
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[摄影] 富士胶片模拟]]></title>
         <id>https://zhangyue-vhyt.github.io/post/fujixweekly/</id>
@@ -19,32 +67,32 @@
         <content type="html"><![CDATA[<h1 id="xt-20">XT-20</h1>
 <h2 id="provia-万能">Provia 万能</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2615924"> <a href="https://fujixweekly.com/2020/03/22/fujifilm-x-t1-agfa-optima-provia-film-simulation-recipe/">Agfa Optima<label class="task-list-item-label" for="task-item-2615924"> [Agfa Optima](https://fujixweekly.com/2020/03/22/fujifilm-x-t1-agfa-optima-provia-film-simulation-recipe/)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2054692"> <a href="https://fujixweekly.com/2020/09/22/fujifilm-x-t200-bayer-film-simulation-recipe-analog-cool/">Analog Cool<label class="task-list-item-label" for="task-item-2054692"> [Analog Cool](https://fujixweekly.com/2020/09/22/fujifilm-x-t200-bayer-film-simulation-recipe-analog-cool/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-341126"> <a href="https://fujixweekly.com/2020/03/22/fujifilm-x-t1-agfa-optima-provia-film-simulation-recipe/">Agfa Optima<label class="task-list-item-label" for="task-item-341126"> [Agfa Optima](https://fujixweekly.com/2020/03/22/fujifilm-x-t1-agfa-optima-provia-film-simulation-recipe/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3438669"> <a href="https://fujixweekly.com/2020/09/22/fujifilm-x-t200-bayer-film-simulation-recipe-analog-cool/">Analog Cool<label class="task-list-item-label" for="task-item-3438669"> [Analog Cool](https://fujixweekly.com/2020/09/22/fujifilm-x-t200-bayer-film-simulation-recipe-analog-cool/)</label></li>
 </ul>
 <h2 id="velvia-艳丽">Velvia 艳丽</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3485828"> <a href="https://fujixweekly.com/2020/10/20/fujifilm-x-m1-x-trans-i-film-simulation-recipe-vivid-color/">Velvia<label class="task-list-item-label" for="task-item-3485828"> [Velvia](https://fujixweekly.com/2020/10/20/fujifilm-x-m1-x-trans-i-film-simulation-recipe-vivid-color/)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6722163"> <a href="https://fujixweekly.com/2020/07/22/fujifilm-xq1-x-trans-ii-film-simulation-recipe-lomography-color-100/">Lomography Color 100<label class="task-list-item-label" for="task-item-6722163"> [Lomography Color 100](https://fujixweekly.com/2020/07/22/fujifilm-xq1-x-trans-ii-film-simulation-recipe-lomography-color-100/)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5707732"> <a href="https://fujixweekly.com/2020/02/17/fujifilm-x-t1-x-trans-ii-ektachrome-100sw-film-simulation-recipe/">Ektachrome 100SW<label class="task-list-item-label" for="task-item-5707732"> [Ektachrome 100SW](https://fujixweekly.com/2020/02/17/fujifilm-x-t1-x-trans-ii-ektachrome-100sw-film-simulation-recipe/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6223427"> <a href="https://fujixweekly.com/2020/10/20/fujifilm-x-m1-x-trans-i-film-simulation-recipe-vivid-color/">Velvia<label class="task-list-item-label" for="task-item-6223427"> [Velvia](https://fujixweekly.com/2020/10/20/fujifilm-x-m1-x-trans-i-film-simulation-recipe-vivid-color/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1749662"> <a href="https://fujixweekly.com/2020/07/22/fujifilm-xq1-x-trans-ii-film-simulation-recipe-lomography-color-100/">Lomography Color 100<label class="task-list-item-label" for="task-item-1749662"> [Lomography Color 100](https://fujixweekly.com/2020/07/22/fujifilm-xq1-x-trans-ii-film-simulation-recipe-lomography-color-100/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1777655"> <a href="https://fujixweekly.com/2020/02/17/fujifilm-x-t1-x-trans-ii-ektachrome-100sw-film-simulation-recipe/">Ektachrome 100SW<label class="task-list-item-label" for="task-item-1777655"> [Ektachrome 100SW](https://fujixweekly.com/2020/02/17/fujifilm-x-t1-x-trans-ii-ektachrome-100sw-film-simulation-recipe/)</label></li>
 </ul>
 <h2 id="astia-柔和">Astia 柔和</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1575403"> <a href="https://fujixweekly.com/2020/08/22/fujifilm-x-trans-ii-film-simulation-recipe-astia/">Astia 万能<label class="task-list-item-label" for="task-item-1575403"> [Astia 万能](https://fujixweekly.com/2020/08/22/fujifilm-x-trans-ii-film-simulation-recipe-astia/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8152830"> <a href="https://fujixweekly.com/2020/08/22/fujifilm-x-trans-ii-film-simulation-recipe-astia/">Astia 万能<label class="task-list-item-label" for="task-item-8152830"> [Astia 万能](https://fujixweekly.com/2020/08/22/fujifilm-x-trans-ii-film-simulation-recipe-astia/)</label></li>
 </ul>
 <h2 id="classic-chrome-复古">Classic Chrome 复古</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5591551"> <a href="https://fujixweekly.com/2020/11/03/fujifilm-x100v-film-simulation-recipe-kodak-portra-800/">Kodak Portra 800<label class="task-list-item-label" for="task-item-5591551"> [Kodak Portra 800](https://fujixweekly.com/2020/11/03/fujifilm-x100v-film-simulation-recipe-kodak-portra-800/)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4071187"> <a href="https://fujixweekly.com/2020/03/29/not-my-fujifilm-x-t1-x-trans-ii-kodak-portra-160-film-simulation-recipe/">Kodak Portra 160<label class="task-list-item-label" for="task-item-4071187"> [Kodak Portra 160](https://fujixweekly.com/2020/03/29/not-my-fujifilm-x-t1-x-trans-ii-kodak-portra-160-film-simulation-recipe/)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-672049"> <a href="https://fujixweekly.com/2020/09/12/fujifilm-x100v-film-simulation-recipe-preet/">Bright Summer<label class="task-list-item-label" for="task-item-672049"> [Bright Summer](https://fujixweekly.com/2020/09/12/fujifilm-x100v-film-simulation-recipe-preet/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5359417"> <a href="https://fujixweekly.com/2020/11/03/fujifilm-x100v-film-simulation-recipe-kodak-portra-800/">Kodak Portra 800<label class="task-list-item-label" for="task-item-5359417"> [Kodak Portra 800](https://fujixweekly.com/2020/11/03/fujifilm-x100v-film-simulation-recipe-kodak-portra-800/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1498820"> <a href="https://fujixweekly.com/2020/03/29/not-my-fujifilm-x-t1-x-trans-ii-kodak-portra-160-film-simulation-recipe/">Kodak Portra 160<label class="task-list-item-label" for="task-item-1498820"> [Kodak Portra 160](https://fujixweekly.com/2020/03/29/not-my-fujifilm-x-t1-x-trans-ii-kodak-portra-160-film-simulation-recipe/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8752605"> <a href="https://fujixweekly.com/2020/09/12/fujifilm-x100v-film-simulation-recipe-preet/">Bright Summer<label class="task-list-item-label" for="task-item-8752605"> [Bright Summer](https://fujixweekly.com/2020/09/12/fujifilm-x100v-film-simulation-recipe-preet/)</label></li>
 </ul>
 <h2 id="classic-negative">Classic Negative</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3270310"> <a href="https://fujixweekly.com/2020/09/28/fujifilm-x100v-film-simulation-recipe-agfa-vista-100/">Agfa<label class="task-list-item-label" for="task-item-3270310"> [Agfa](https://fujixweekly.com/2020/09/28/fujifilm-x100v-film-simulation-recipe-agfa-vista-100/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6420878"> <a href="https://fujixweekly.com/2020/09/28/fujifilm-x100v-film-simulation-recipe-agfa-vista-100/">Agfa<label class="task-list-item-label" for="task-item-6420878"> [Agfa](https://fujixweekly.com/2020/09/28/fujifilm-x100v-film-simulation-recipe-agfa-vista-100/)</label></li>
 </ul>
 <h2 id="pro-neg-std-负片">PRO Neg. Std 负片</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9903554"> <a href="https://fujixweekly.com/2020/10/27/fujifilm-x-t1-x-trans-ii-film-simulation-recipe-porto-200/">Porto 200 秋意<label class="task-list-item-label" for="task-item-9903554"> [Porto 200 秋意](https://fujixweekly.com/2020/10/27/fujifilm-x-t1-x-trans-ii-film-simulation-recipe-porto-200/)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8803981"> <a href="https://fujixweekly.com/2020/10/27/fujifilm-x-t1-x-trans-ii-film-simulation-recipe-porto-200/">Porto 200 秋意<label class="task-list-item-label" for="task-item-8803981"> [Porto 200 秋意](https://fujixweekly.com/2020/10/27/fujifilm-x-t1-x-trans-ii-film-simulation-recipe-porto-200/)</label></li>
 </ul>
 <h1 id="富士胶片模拟表">富士胶片模拟表</h1>
 <figure data-type="image" tabindex="1"><img src="https://zhangyue-vhyt.github.io/post-images/1604558033705.jpg" alt="" loading="lazy"></figure>
@@ -1239,136 +1287,6 @@ using(FileStream fs = File.OpenRead(&quot;config.json&quot;))
 <ul>
 <li><a href="https://atomcorp.github.io/themes/">Windows Terminal Themes</a></li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Python 中创建 const 常量]]></title>
-        <id>https://zhangyue-vhyt.github.io/post/create-constant-in-python/</id>
-        <link href="https://zhangyue-vhyt.github.io/post/create-constant-in-python/">
-        </link>
-        <updated>2020-04-03T20:44:57.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="前言">前言</h1>
-<p>Python 没有 <code>const</code> 关键字，想要创建常量只能自己想办法。<br>
-这篇笔记介绍的是使用私有变量、单例模式、只读属性和不可变类型创建一个 <code>Constant</code> 类，在其中储存和调用所需要的常量值。</p>
-<h1 id="私有变量">私有变量<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
-<p>如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线 <code>__</code>，在Python中，实例的变量名如果以 <code>__</code> 开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问。</p>
-<h1 id="单例模式">单例模式<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h1>
-<pre><code class="language-py">class Constant(object):
-    &quot;&quot;&quot;
-    A singleton class to store all constants.
-    &quot;&quot;&quot;
-
-    __instance = None
-
-    def __new__(cls, *args, **kw):
-        if cls.__instance is None:
-            cls.__instance = object.__new__(cls, *args, **kw)
-        return cls.__instance
-</code></pre>
-<h1 id="只读属性">只读属性<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h1>
-<p>Python 中的属性<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>和 C# 中的属性是同一个概念。</p>
-<pre><code class="language-py">class People:
-
-    def __init__(self, name, age):
-        self.__name = name
-        self.__age = age
-
-    @property
-    def age(self):
-        return self.__age
-
-    @age.setter
-    def age(self, age):
-        if isinstance(age, int):
-            self.__age = age
-        else:
-            raise ValueError
-
-    @age.deleter
-    def age(self):
-        print(&quot;删除年龄数据！&quot;)
-
-obj = People(&quot;jack&quot;, 18)
-print(obj.age)
-obj.age = 19
-print(&quot;obj.age:  &quot;, obj.age)
-del obj.age
-
----------------------------
-打印结果：
-18
-obj.age:   19
-删除年龄数据！
-</code></pre>
-<p>那么如何将一个普通的方法转换为一个“伪装”的属性呢？</p>
-<ul>
-<li>首先，在普通方法的基础上添加 <code>@property</code> 装饰器，例如上面的 <code>age()</code> 方法。这相当于一个 <code>get</code> 方法，用于获取值,决定类似 <code>result = obj.age</code> 执行什么代码。该方法仅有一个<code>self</code> 参数。</li>
-<li>写一个同名的方法，添加 <code>@xxx.setter</code> 装饰器（xxx表示和上面方法一样的名字），比如例子中的第二个方法。这相当于编写了一个 <code>set</code> 方法，提供赋值功能，决定类似 <code>obj.age = ....</code> 的语句执行什么代码。</li>
-<li>再写一个同名的方法，并添加 <code>@xxx.delete</code> 装饰器，比如例子中的第三个方法。用于删除功能，决定 <code>del obj.age</code> 这样的语句具体执行什么代码。</li>
-</ul>
-<p>简而言之，就是分别将三个方法定义为对同一个属性的获取、修改和删除。还可以定义只读属性，只需要使用 <code>@property</code> 声明 <code>get</code> 方法，不定义 <code>setter</code> 方法就是一个只读属性。</p>
-<pre><code class="language-py">class Constant(object):
-    def __init__(self):
-        self.__val = 1
-
-    @property
-    def val(self):
-        return self.__val
-</code></pre>
-<h1 id="不可变类型">不可变类型</h1>
-<p>常量是不可变类型的子集，区别在于不可变类型的变量名可以重新绑定到其他类型上，而常量名和常量值都是不可变的。</p>
-<pre><code class="language-py">a = (1, 2, 3)   # 元组是一个不可变类型
-print(a)
-a = 1   # 原本绑定到不可变类型的变量名可以重新绑定到其他值
-print(a)
-
----------------------------
-输出：
-(1, 2, 3)
-1
-</code></pre>
-<h2 id="不可变字典">不可变字典</h2>
-<p>可变类型 <code>list</code> 和 <code>set</code> 对应的不可变类型分别为 <code>tuple</code> 和 <code>frozenset</code>。但在 <a href="https://www.python.org/dev/peps/pep-0416/#implementation">PEP 416</a> 中拒绝了不可变字典的要求。因此我们使用 Python 3.3 中引入的 <code>MappingProxyType</code> 和私有变量搭配实现不可变字典的返回。</p>
-<pre><code class="language-py">from types import MappingProxyType
-
-
-class Constant(object):
-    &quot;&quot;&quot;
-    A singleton class to store all constants.
-    &quot;&quot;&quot;
-
-    __instance = None
-
-    def __new__(cls, *args, **kw):
-        if cls.__instance is None:
-            cls.__instance = object.__new__(cls, *args, **kw)
-        return cls.__instance
-
-    def __init__(self):
-        self.__dict1 = {a:1, b:2}
-
-    @property
-    def dict1(self):
-        return MappingProxyType(self.__dict1).copy()
-</code></pre>
-<h1 id="使用常量">使用常量</h1>
-<p><code>Constant</code> 是一个类，所以我们需要先实例化才能使用它。</p>
-<pre><code class="language-py">const = Constant()
-dict1 = const.dict1
-</code></pre>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017496679217440">廖雪峰的 Python 教程</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><a href="https://zhuanlan.zhihu.com/p/37534850">Python单例模式(Singleton)的N种实现</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p><a href="https://cloud.tencent.com/developer/article/1365783">python <code>@property</code> 设置只读属性 重写 <code>getter</code> <code>setter</code> 方法</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p><a href="https://www.liujiangblog.com/course/python/46">刘江的博客教程</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 ]]></content>
     </entry>
 </feed>
